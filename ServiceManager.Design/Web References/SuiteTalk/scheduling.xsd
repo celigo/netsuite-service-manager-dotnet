@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:actSchedTyp="urn:types.scheduling_2013_1.activities.webservices.netsuite.com" xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:actSched="urn:scheduling_2013_1.activities.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:scheduling_2013_1.activities.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/coreTypes.xsd" namespace="urn:types.core_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/activities/v2013_1_0/schedulingTypes.xsd" namespace="urn:types.scheduling_2013_1.activities.webservices.netsuite.com" />
+  <xsd:element name="CalendarEvent" type="actSched:CalendarEvent" />
+  <xsd:complexType name="CalendarEvent">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="company" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="contact" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="supportCase" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="transaction" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="period" type="xsd:long" />
+          <xsd:element minOccurs="0" name="frequency" type="actSchedTyp:CalendarEventFrequency" />
+          <xsd:element minOccurs="0" name="recurrenceDowMaskList" type="actSched:RecurrenceDowMaskList" />
+          <xsd:element minOccurs="0" name="recurrenceDow" type="actSchedTyp:CalendarEventDow" />
+          <xsd:element minOccurs="0" name="recurrenceDowim" type="actSchedTyp:CalendarEventDowim" />
+          <xsd:element minOccurs="0" name="seriesStartDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="endByDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="noEndDate" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="sendEmail" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="title" type="xsd:string" />
+          <xsd:element minOccurs="0" name="recurrence" type="xsd:string" />
+          <xsd:element minOccurs="0" name="location" type="xsd:string" />
+          <xsd:element minOccurs="0" name="startDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="allDayEvent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="timedEvent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="reminderType" type="actSchedTyp:CalendarEventReminderType" />
+          <xsd:element minOccurs="0" name="reminderMinutes" type="actSchedTyp:CalendarEventReminderMinutes" />
+          <xsd:element minOccurs="0" name="status" type="actSchedTyp:CalendarEventStatus" />
+          <xsd:element minOccurs="0" name="accessLevel" type="actSchedTyp:CalendarEventAccessLevel" />
+          <xsd:element minOccurs="0" name="organizer" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="message" type="xsd:string" />
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="endDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="exclusionDateList" type="actSched:ExclusionDateList" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="attendeeList" type="actSched:CalendarEventAttendeeList" />
+          <xsd:element minOccurs="0" name="resourceList" type="actSched:CalendarEventResourceList" />
+          <xsd:element minOccurs="0" name="timeItemList" type="actSched:CalendarEventTimeItemList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ExclusionDateList">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" name="exclusionDate" type="xsd:dateTime" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RecurrenceDowMaskList">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="7" name="recurrenceDowMask" type="actSchedTyp:CalendarEventDow" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CalendarEventAttendee">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="sendEmail" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="attendee" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="response" type="platformCoreTyp:CalendarEventAttendeeResponse" />
+      <xsd:element minOccurs="0" name="attendance" type="actSchedTyp:CalendarEventAttendeeAttendance" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CalendarEventAttendeeList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="attendee" type="actSched:CalendarEventAttendee" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CalendarEventResource">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="resource" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="location" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CalendarEventResourceList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="resource" type="actSched:CalendarEventResource" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="calendarEventSearch" type="actSched:CalendarEventSearch" />
+  <xsd:complexType name="CalendarEventSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:CalendarEventSearchBasic" />
+          <xsd:element minOccurs="0" name="attendeeJoin" type="platformCommon:EntitySearchBasic" />
+          <xsd:element minOccurs="0" name="attendeeContactJoin" type="platformCommon:ContactSearchBasic" />
+          <xsd:element minOccurs="0" name="attendeeCustomerJoin" type="platformCommon:CustomerSearchBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchBasic" />
+          <xsd:element minOccurs="0" name="opportunityJoin" type="platformCommon:OpportunitySearchBasic" />
+          <xsd:element minOccurs="0" name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CalendarEventSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="actSched:CalendarEventSearch" />
+          <xsd:element minOccurs="0" name="columns" type="actSched:CalendarEventSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CalendarEventSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:CalendarEventSearchRowBasic" />
+          <xsd:element minOccurs="0" name="attendeeJoin" type="platformCommon:EntitySearchRowBasic" />
+          <xsd:element minOccurs="0" name="attendeeContactJoin" type="platformCommon:ContactSearchRowBasic" />
+          <xsd:element minOccurs="0" name="attendeeCustomerJoin" type="platformCommon:CustomerSearchRowBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchRowBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchRowBasic" />
+          <xsd:element minOccurs="0" name="opportunityJoin" type="platformCommon:OpportunitySearchRowBasic" />
+          <xsd:element minOccurs="0" name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchRowBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Task" type="actSched:Task" />
+  <xsd:complexType name="Task">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="company" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="contact" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="supportCase" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="transaction" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="milestone" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="title" type="xsd:string" />
+          <xsd:element minOccurs="0" name="assigned" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sendEmail" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="timedEvent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="estimatedTime" type="platformCore:Duration" />
+          <xsd:element minOccurs="0" name="estimatedTimeOverride" type="platformCore:Duration" />
+          <xsd:element minOccurs="0" name="actualTime" type="platformCore:Duration" />
+          <xsd:element minOccurs="0" name="timeRemaining" type="platformCore:Duration" />
+          <xsd:element minOccurs="0" name="percentTimeComplete" type="xsd:double" />
+          <xsd:element minOccurs="0" name="percentComplete" type="xsd:double" />
+          <xsd:element minOccurs="0" name="parent" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="startDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="endDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="dueDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="completedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="priority" type="actSchedTyp:TaskPriority" />
+          <xsd:element minOccurs="0" name="status" type="actSchedTyp:TaskStatus" />
+          <xsd:element minOccurs="0" name="message" type="xsd:string" />
+          <xsd:element minOccurs="0" name="accessLevel" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="reminderType" type="actSchedTyp:TaskReminderType" />
+          <xsd:element minOccurs="0" name="reminderMinutes" type="actSchedTyp:TaskReminderMinutes" />
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="contactList" type="actSched:TaskContactList" />
+          <xsd:element minOccurs="0" name="timeItemList" type="actSched:TaskTimeItemList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TaskContact">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="company" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="contact" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TaskContactList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="contact" type="actSched:TaskContact" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="taskSearch" type="actSched:TaskSearch" />
+  <xsd:complexType name="TaskSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:TaskSearchBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchBasic" />
+          <xsd:element minOccurs="0" name="companyCustomerJoin" type="platformCommon:CustomerSearchBasic" />
+          <xsd:element minOccurs="0" name="contactJoin" type="platformCommon:ContactSearchBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchBasic" />
+          <xsd:element minOccurs="0" name="jobJoin" type="platformCommon:JobSearchBasic" />
+          <xsd:element minOccurs="0" name="opportunityJoin" type="platformCommon:OpportunitySearchBasic" />
+          <xsd:element minOccurs="0" name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchBasic" />
+          <xsd:element minOccurs="0" name="timeJoin" type="platformCommon:TimeBillSearchBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TaskSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="actSched:TaskSearch" />
+          <xsd:element minOccurs="0" name="columns" type="actSched:TaskSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TaskSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:TaskSearchRowBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchRowBasic" />
+          <xsd:element minOccurs="0" name="companyCustomerJoin" type="platformCommon:CustomerSearchRowBasic" />
+          <xsd:element minOccurs="0" name="contactJoin" type="platformCommon:ContactSearchRowBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchRowBasic" />
+          <xsd:element minOccurs="0" name="jobJoin" type="platformCommon:JobSearchRowBasic" />
+          <xsd:element minOccurs="0" name="opportunityJoin" type="platformCommon:OpportunitySearchRowBasic" />
+          <xsd:element minOccurs="0" name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchRowBasic" />
+          <xsd:element minOccurs="0" name="timeJoin" type="platformCommon:TimeBillSearchRowBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PhoneCall" type="actSched:PhoneCall" />
+  <xsd:complexType name="PhoneCall">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="message" type="xsd:string" />
+          <xsd:element minOccurs="0" name="company" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="contact" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="supportCase" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="transaction" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="milestone" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="title" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="assigned" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sendEmail" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="startDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="endDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="timedEvent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="completedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="phone" type="xsd:string" />
+          <xsd:element minOccurs="0" name="status" type="actSchedTyp:PhoneCallStatus" />
+          <xsd:element minOccurs="0" name="priority" type="actSchedTyp:PhoneCallPriority" />
+          <xsd:element minOccurs="0" name="accessLevel" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="reminderType" type="actSchedTyp:PhoneCallReminderType" />
+          <xsd:element minOccurs="0" name="reminderMinutes" type="actSchedTyp:PhoneCallReminderMinutes" />
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="contactList" type="actSched:PhoneCallContactList" />
+          <xsd:element minOccurs="0" name="timeItemList" type="actSched:PhoneCallTimeItemList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PhoneCallContact">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="company" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="contact" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="phone" type="xsd:string" />
+      <xsd:element minOccurs="0" name="email" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PhoneCallContactList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="contact" type="actSched:PhoneCallContact" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="phoneCallSearch" type="actSched:PhoneCallSearch" />
+  <xsd:complexType name="PhoneCallSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:PhoneCallSearchBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchBasic" />
+          <xsd:element minOccurs="0" name="companyCustomerJoin" type="platformCommon:CustomerSearchBasic" />
+          <xsd:element minOccurs="0" name="contactJoin" type="platformCommon:ContactSearchBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchBasic" />
+          <xsd:element minOccurs="0" name="opportunityJoin" type="platformCommon:OpportunitySearchBasic" />
+          <xsd:element minOccurs="0" name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PhoneCallSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="actSched:PhoneCallSearch" />
+          <xsd:element minOccurs="0" name="columns" type="actSched:PhoneCallSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PhoneCallSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:PhoneCallSearchRowBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchRowBasic" />
+          <xsd:element minOccurs="0" name="companyCustomerJoin" type="platformCommon:CustomerSearchRowBasic" />
+          <xsd:element minOccurs="0" name="contactJoin" type="platformCommon:ContactSearchRowBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchRowBasic" />
+          <xsd:element minOccurs="0" name="opportunityJoin" type="platformCommon:OpportunitySearchRowBasic" />
+          <xsd:element minOccurs="0" name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchRowBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="projectTask" type="actSched:ProjectTask" />
+  <xsd:complexType name="ProjectTask">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="eventId" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="percentTimeComplete" type="xsd:double" />
+          <xsd:element minOccurs="0" name="title" type="xsd:string" />
+          <xsd:element minOccurs="0" name="company" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="contact" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="order" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="parent" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="priority" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="estimatedWork" type="xsd:double" />
+          <xsd:element minOccurs="0" name="estimatedWorkBaseline" type="xsd:double" />
+          <xsd:element minOccurs="0" name="constraintType" type="actSchedTyp:ProjectTaskConstraintType" />
+          <xsd:element minOccurs="0" name="startDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="startDateBaseline" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="endDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="endDateBaseline" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="actualWork" type="xsd:double" />
+          <xsd:element minOccurs="0" name="remainingWork" type="xsd:double" />
+          <xsd:element minOccurs="0" name="message" type="xsd:string" />
+          <xsd:element minOccurs="0" name="status" type="actSchedTyp:ProjectTaskStatus" />
+          <xsd:element minOccurs="0" name="assigneeList" type="actSched:ProjectTaskAssigneeList" />
+          <xsd:element minOccurs="0" name="predecessorList" type="actSched:ProjectTaskPredecessorList" />
+          <xsd:element minOccurs="0" name="timeItemList" type="actSched:ProjectTaskTimeItemList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ProjectTaskPredecessor">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="task" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="type" type="actSchedTyp:ProjectTaskPredecessorPredecessorType" />
+      <xsd:element minOccurs="0" name="startDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="endDate" type="xsd:dateTime" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProjectTaskPredecessorList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="projectTaskPredecessor" type="actSched:ProjectTaskPredecessor" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="ProjectTaskAssignee">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="resource" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="units" type="xsd:double" />
+      <xsd:element minOccurs="0" name="serviceItem" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="estimatedWork" type="xsd:double" />
+      <xsd:element minOccurs="0" name="unitCost" type="xsd:double" />
+      <xsd:element minOccurs="0" name="unitPrice" type="xsd:double" />
+      <xsd:element minOccurs="0" name="cost" type="xsd:double" />
+      <xsd:element minOccurs="0" name="price" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProjectTaskAssigneeList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="projectTaskAssignee" type="actSched:ProjectTaskAssignee" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="projectTaskSearch" type="actSched:ProjectTaskSearch" />
+  <xsd:complexType name="ProjectTaskSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:ProjectTaskSearchBasic" />
+          <xsd:element minOccurs="0" name="jobJoin" type="platformCommon:JobSearchBasic" />
+          <xsd:element minOccurs="0" name="predecessorJoin" type="platformCommon:ProjectTaskSearchBasic" />
+          <xsd:element minOccurs="0" name="projectTaskAssignmentJoin" type="platformCommon:ProjectTaskAssignmentSearchBasic" />
+          <xsd:element minOccurs="0" name="successorJoin" type="platformCommon:ProjectTaskSearchBasic" />
+          <xsd:element minOccurs="0" name="timeJoin" type="platformCommon:TimeBillSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ProjectTaskSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="actSched:ProjectTaskSearch" />
+          <xsd:element minOccurs="0" name="columns" type="actSched:ProjectTaskSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ProjectTaskSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:ProjectTaskSearchRowBasic" />
+          <xsd:element minOccurs="0" name="jobJoin" type="platformCommon:JobSearchRowBasic" />
+          <xsd:element minOccurs="0" name="predecessorJoin" type="platformCommon:ProjectTaskSearchRowBasic" />
+          <xsd:element minOccurs="0" name="projectTaskAssignmentJoin" type="platformCommon:ProjectTaskAssignmentSearchRowBasic" />
+          <xsd:element minOccurs="0" name="successorJoin" type="platformCommon:ProjectTaskSearchRowBasic" />
+          <xsd:element minOccurs="0" name="timeJoin" type="platformCommon:TimeBillSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PhoneCallTimeItemList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="timeItem" type="platformCommon:TimeItem" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CalendarEventTimeItemList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="timeItem" type="platformCommon:TimeItem" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="TaskTimeItemList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="timeItem" type="platformCommon:TimeItem" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="ProjectTaskTimeItemList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="timeItem" type="platformCommon:TimeItem" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+</xsd:schema>

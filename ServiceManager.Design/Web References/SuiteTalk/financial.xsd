@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:tranFinTyp="urn:types.financial_2013_1.transactions.webservices.netsuite.com" xmlns:tranFin="urn:financial_2013_1.transactions.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:financial_2013_1.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/financialTypes.xsd" namespace="urn:types.financial_2013_1.transactions.webservices.netsuite.com" />
+  <xsd:element name="budget" type="tranFin:Budget" />
+  <xsd:complexType name="Budget">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="year" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="customer" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="item" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="account" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="category" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="budgetType" type="tranFinTyp:BudgetBudgetType" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="periodAmount1" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount2" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount3" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount4" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount5" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount6" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount7" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount8" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount9" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount10" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount11" type="xsd:double" />
+          <xsd:element minOccurs="0" name="periodAmount12" type="xsd:double" />
+          <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="budgetSearch" type="tranFin:BudgetSearch" />
+  <xsd:complexType name="BudgetSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:BudgetSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BudgetSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="tranFin:BudgetSearch" />
+          <xsd:element minOccurs="0" name="columns" type="tranFin:BudgetSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BudgetSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:BudgetSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

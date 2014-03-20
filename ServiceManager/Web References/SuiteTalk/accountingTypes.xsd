@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:listAcctTyp="urn:types.accounting_2013_1.lists.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.accounting_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="CurrencyLocale">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_afghanistanPashto" />
+      <xsd:enumeration value="_afghanistanPersian" />
+      <xsd:enumeration value="_alandIslandsSwedish" />
+      <xsd:enumeration value="_albaniaAlbanian" />
+      <xsd:enumeration value="_algeriaArabic" />
+      <xsd:enumeration value="_angolaPortuguese" />
+      <xsd:enumeration value="_anguillaEnglish" />
+      <xsd:enumeration value="_antiguaAndBarbudaEnglish" />
+      <xsd:enumeration value="_argentinaSpanish" />
+      <xsd:enumeration value="_armeniaArmenian" />
+      <xsd:enumeration value="_arubaEnglish" />
+      <xsd:enumeration value="_arubaPortuguese" />
+      <xsd:enumeration value="_australiaEnglish" />
+      <xsd:enumeration value="_austriaGerman" />
+      <xsd:enumeration value="_azerbaijanAzerbaijani" />
+      <xsd:enumeration value="_bahamasEnglish" />
+      <xsd:enumeration value="_bahrainArabic" />
+      <xsd:enumeration value="_barbadosEnglish" />
+      <xsd:enumeration value="_belarusByelorussian" />
+      <xsd:enumeration value="_belgiumDutch" />
+      <xsd:enumeration value="_belgiumFrench" />
+      <xsd:enumeration value="_belizeEnglish" />
+      <xsd:enumeration value="_bengali" />
+      <xsd:enumeration value="_beninFrench" />
+      <xsd:enumeration value="_bermudaEnglish" />
+      <xsd:enumeration value="_bhutanDzongkha" />
+      <xsd:enumeration value="_boliviaSpanish" />
+      <xsd:enumeration value="_bonaireSaintEustatiusAndSabaDutch" />
+      <xsd:enumeration value="_bosniaAndHerzegovinaBosnian" />
+      <xsd:enumeration value="_botswanaEnglish" />
+      <xsd:enumeration value="_brazilPortuguese" />
+      <xsd:enumeration value="_bruneiMalay" />
+      <xsd:enumeration value="_bulgariaBulgarian" />
+      <xsd:enumeration value="_burkinaFasoFrench" />
+      <xsd:enumeration value="_burundiFrench" />
+      <xsd:enumeration value="_cambodiaKhmer" />
+      <xsd:enumeration value="_cameroonFrench" />
+      <xsd:enumeration value="_canadaEnglish" />
+      <xsd:enumeration value="_canadaFrench" />
+      <xsd:enumeration value="_canaryIslandsSpanish" />
+      <xsd:enumeration value="_capeVerdePortuguese" />
+      <xsd:enumeration value="_caymanIslandsEnglish" />
+      <xsd:enumeration value="_centralAfricanRepublicFrench" />
+      <xsd:enumeration value="_ceutaAndMelillaSpanish" />
+      <xsd:enumeration value="_chadFrench" />
+      <xsd:enumeration value="_chileSpanish" />
+      <xsd:enumeration value="_chinaChinese" />
+      <xsd:enumeration value="_colombiaSpanish" />
+      <xsd:enumeration value="_comorosFrench" />
+      <xsd:enumeration value="_congoDemocraticRepublicEnglish" />
+      <xsd:enumeration value="_congoDemocraticRepublicFrench" />
+      <xsd:enumeration value="_congoRepublicOfFrench" />
+      <xsd:enumeration value="_costaRicaSpanish" />
+      <xsd:enumeration value="_coteDivoireFrench" />
+      <xsd:enumeration value="_croatiaCroatian" />
+      <xsd:enumeration value="_cubaSpanish" />
+      <xsd:enumeration value="_curacaoDutch" />
+      <xsd:enumeration value="_cyprusEnglish" />
+      <xsd:enumeration value="_cyprusEnglishEuro" />
+      <xsd:enumeration value="_czechRepublicCzech" />
+      <xsd:enumeration value="_denmarkDanish" />
+      <xsd:enumeration value="_djiboutiArabic" />
+      <xsd:enumeration value="_djiboutiFrench" />
+      <xsd:enumeration value="_dominicaEnglish" />
+      <xsd:enumeration value="_dominicanRepublicSpanish" />
+      <xsd:enumeration value="_ecuadorSpanish" />
+      <xsd:enumeration value="_egyptArabic" />
+      <xsd:enumeration value="_elSalvadorSpanish" />
+      <xsd:enumeration value="_equatorialGuineaSpanish" />
+      <xsd:enumeration value="_eritreaAfar" />
+      <xsd:enumeration value="_estoniaEstonian" />
+      <xsd:enumeration value="_ethiopiaAmharic" />
+      <xsd:enumeration value="_falklandIslandsEnglish" />
+      <xsd:enumeration value="_fijiFijian" />
+      <xsd:enumeration value="_finlandFinnish" />
+      <xsd:enumeration value="_finlandFinnishEuro" />
+      <xsd:enumeration value="_franceFrench" />
+      <xsd:enumeration value="_franceFrenchEuro" />
+      <xsd:enumeration value="_frenchPolynesiaFrench" />
+      <xsd:enumeration value="_gabonFrench" />
+      <xsd:enumeration value="_gambiaEnglish" />
+      <xsd:enumeration value="_georgiaGeorgian" />
+      <xsd:enumeration value="_germanyGerman" />
+      <xsd:enumeration value="_germanyGermanEuro" />
+      <xsd:enumeration value="_ghanaEnglish" />
+      <xsd:enumeration value="_gibraltarEnglish" />
+      <xsd:enumeration value="_goldOunce" />
+      <xsd:enumeration value="_greeceGreek" />
+      <xsd:enumeration value="_grenadaEnglish" />
+      <xsd:enumeration value="_guatemalaSpanish" />
+      <xsd:enumeration value="_guineaBissauPortuguese" />
+      <xsd:enumeration value="_guineaFrench" />
+      <xsd:enumeration value="_guyanaEnglish" />
+      <xsd:enumeration value="_haitian" />
+      <xsd:enumeration value="_hondurasSpanish" />
+      <xsd:enumeration value="_hongKongChinese" />
+      <xsd:enumeration value="_hungaryHungarian" />
+      <xsd:enumeration value="_icelandIcelandic" />
+      <xsd:enumeration value="_indiaEnglish" />
+      <xsd:enumeration value="_indiaGujarati" />
+      <xsd:enumeration value="_indiaHindi" />
+      <xsd:enumeration value="_indiaKannada" />
+      <xsd:enumeration value="_indiaMarathi" />
+      <xsd:enumeration value="_indiaPanjabi" />
+      <xsd:enumeration value="_indiaTamil" />
+      <xsd:enumeration value="_indiaTelugu" />
+      <xsd:enumeration value="_indonesiaIndonesian" />
+      <xsd:enumeration value="_iranPersian" />
+      <xsd:enumeration value="_iraqArabic" />
+      <xsd:enumeration value="_irelandEnglish" />
+      <xsd:enumeration value="_israelHebrew" />
+      <xsd:enumeration value="_italyItalian" />
+      <xsd:enumeration value="_italyItalianEuro" />
+      <xsd:enumeration value="_jamaicaEnglish" />
+      <xsd:enumeration value="_japanJapanese" />
+      <xsd:enumeration value="_jordanArabic" />
+      <xsd:enumeration value="_jordanEnglish" />
+      <xsd:enumeration value="_kazakhstanRussian" />
+      <xsd:enumeration value="_kenyaEnglish" />
+      <xsd:enumeration value="_kuwaitArabic" />
+      <xsd:enumeration value="_kuwaitEnglish" />
+      <xsd:enumeration value="_kyrgyzstanRussian" />
+      <xsd:enumeration value="_laosLao" />
+      <xsd:enumeration value="_latviaLatvianLettish" />
+      <xsd:enumeration value="_lebanonArabic" />
+      <xsd:enumeration value="_lesothoEnglish" />
+      <xsd:enumeration value="_liberiaEnglish" />
+      <xsd:enumeration value="_libyaArabic" />
+      <xsd:enumeration value="_lithuaniaLithuanian" />
+      <xsd:enumeration value="_luxembourgFrench" />
+      <xsd:enumeration value="_luxembourgGerman" />
+      <xsd:enumeration value="_luxembourgLuxembourgish" />
+      <xsd:enumeration value="_macauChinese" />
+      <xsd:enumeration value="_macedoniaMacedonian" />
+      <xsd:enumeration value="_malawiEnglish" />
+      <xsd:enumeration value="_malaysiaMalay" />
+      <xsd:enumeration value="_maldivesDhivehi" />
+      <xsd:enumeration value="_maliFrench" />
+      <xsd:enumeration value="_mauritiusEnglish" />
+      <xsd:enumeration value="_mexicoSpanish" />
+      <xsd:enumeration value="_moldovaRomanian" />
+      <xsd:enumeration value="_moldovaRussian" />
+      <xsd:enumeration value="_mongoliaMongolian" />
+      <xsd:enumeration value="_moroccoArabic" />
+      <xsd:enumeration value="_mozambiquePortuguese" />
+      <xsd:enumeration value="_myanmarBurmese" />
+      <xsd:enumeration value="_namibiaEnglish" />
+      <xsd:enumeration value="_nepalNepali" />
+      <xsd:enumeration value="_netherlandsAntillesDutch" />
+      <xsd:enumeration value="_netherlandsDutch" />
+      <xsd:enumeration value="_netherlandsDutchEuro" />
+      <xsd:enumeration value="_newCaledoniaFrench" />
+      <xsd:enumeration value="_newZealandEnglish" />
+      <xsd:enumeration value="_nicaraguaSpanish" />
+      <xsd:enumeration value="_nigerFrench" />
+      <xsd:enumeration value="_nigeriaEnglish" />
+      <xsd:enumeration value="_northKoreaKorean" />
+      <xsd:enumeration value="_norwayNorwegian" />
+      <xsd:enumeration value="_omanArabic" />
+      <xsd:enumeration value="_pakistanUrdu" />
+      <xsd:enumeration value="_palladiumOunce" />
+      <xsd:enumeration value="_panamaSpanish" />
+      <xsd:enumeration value="_papuaNewGuineaEnglish" />
+      <xsd:enumeration value="_paraguaySpanish" />
+      <xsd:enumeration value="_peruSpanish" />
+      <xsd:enumeration value="_philippinesEnglish" />
+      <xsd:enumeration value="_philippinesTagalog" />
+      <xsd:enumeration value="_platinumOunce" />
+      <xsd:enumeration value="_polandPolish" />
+      <xsd:enumeration value="_portugalPortuguese" />
+      <xsd:enumeration value="_portugalPortugueseEuro" />
+      <xsd:enumeration value="_puertoRicoSpanish" />
+      <xsd:enumeration value="_qatarArabic" />
+      <xsd:enumeration value="_qatarEnglish" />
+      <xsd:enumeration value="_romaniaRomanian" />
+      <xsd:enumeration value="_russiaRussian" />
+      <xsd:enumeration value="_rwandaFrench" />
+      <xsd:enumeration value="_saintBarthelemyFrench" />
+      <xsd:enumeration value="_saintHelenaEnglish" />
+      <xsd:enumeration value="_saintKittsAndNevisEnglish" />
+      <xsd:enumeration value="_saintLuciaEnglish" />
+      <xsd:enumeration value="_saintMartinEnglish" />
+      <xsd:enumeration value="_saintVincentAndTheGrenadinesEnglish" />
+      <xsd:enumeration value="_samoaSamoan" />
+      <xsd:enumeration value="_saoTomeAndPrincipePortuguese" />
+      <xsd:enumeration value="_saudiArabiaArabic" />
+      <xsd:enumeration value="_senegalFrench" />
+      <xsd:enumeration value="_serbiaAndMontenegroSerbian" />
+      <xsd:enumeration value="_serbiaSerbian" />
+      <xsd:enumeration value="_serbiaSerboCroatian" />
+      <xsd:enumeration value="_seychellesEnglish" />
+      <xsd:enumeration value="_seychellesFrench" />
+      <xsd:enumeration value="_sierraLeoneEnglish" />
+      <xsd:enumeration value="_silverOunce" />
+      <xsd:enumeration value="_singaporeEnglish" />
+      <xsd:enumeration value="_sintMaartenDutch" />
+      <xsd:enumeration value="_slovakiaSlovak" />
+      <xsd:enumeration value="_slovakiaSlovakEuro" />
+      <xsd:enumeration value="_sloveniaSlovenian" />
+      <xsd:enumeration value="_sloveniaSlovenianEuro" />
+      <xsd:enumeration value="_solomonIslandsEnglish" />
+      <xsd:enumeration value="_somaliaSomali" />
+      <xsd:enumeration value="_southAfricaAfrikaans" />
+      <xsd:enumeration value="_southAfricaEnglish" />
+      <xsd:enumeration value="_southKoreaKorean" />
+      <xsd:enumeration value="_southSudanEnglish" />
+      <xsd:enumeration value="_spainCatalan" />
+      <xsd:enumeration value="_spainSpanish" />
+      <xsd:enumeration value="_spainSpanishEuro" />
+      <xsd:enumeration value="_sriLankaSinhalese" />
+      <xsd:enumeration value="_sudanArabic" />
+      <xsd:enumeration value="_surinameDutch" />
+      <xsd:enumeration value="_swazilandSwati" />
+      <xsd:enumeration value="_swedenSwedish" />
+      <xsd:enumeration value="_switzerlandFrench" />
+      <xsd:enumeration value="_switzerlandGerman" />
+      <xsd:enumeration value="_switzerlandItalian" />
+      <xsd:enumeration value="_syriaArabic" />
+      <xsd:enumeration value="_taiwanChinese" />
+      <xsd:enumeration value="_tajikistanTajik" />
+      <xsd:enumeration value="_tanzaniaEnglish" />
+      <xsd:enumeration value="_thailandThai" />
+      <xsd:enumeration value="_togoFrench" />
+      <xsd:enumeration value="_tongaTonga" />
+      <xsd:enumeration value="_trinidadAndTobagoEnglish" />
+      <xsd:enumeration value="_tunisiaArabic" />
+      <xsd:enumeration value="_turkeyTurkish" />
+      <xsd:enumeration value="_turkmenistanTurkmen" />
+      <xsd:enumeration value="_turksAndCaicosIslandsEnglish" />
+      <xsd:enumeration value="_ugandaEnglish" />
+      <xsd:enumeration value="_ukraineUkrainian" />
+      <xsd:enumeration value="_unitedArabEmiratesArabic" />
+      <xsd:enumeration value="_unitedArabEmiratesEnglish" />
+      <xsd:enumeration value="_unitedKingdomEnglish" />
+      <xsd:enumeration value="_unitedStatesEnglish" />
+      <xsd:enumeration value="_uruguaySpanish" />
+      <xsd:enumeration value="_uzbekistanUzbek" />
+      <xsd:enumeration value="_vanuatuEnglish" />
+      <xsd:enumeration value="_vanuatuFrench" />
+      <xsd:enumeration value="_venezuelaSpanish" />
+      <xsd:enumeration value="_vietnamVietnamese" />
+      <xsd:enumeration value="_wallisAndFutunaFrench" />
+      <xsd:enumeration value="_yemenArabic" />
+      <xsd:enumeration value="_zambiaEnglish" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AccountType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_accountsPayable" />
+      <xsd:enumeration value="_accountsReceivable" />
+      <xsd:enumeration value="_bank" />
+      <xsd:enumeration value="_costOfGoodsSold" />
+      <xsd:enumeration value="_creditCard" />
+      <xsd:enumeration value="_deferredExpense" />
+      <xsd:enumeration value="_deferredRevenue" />
+      <xsd:enumeration value="_equity" />
+      <xsd:enumeration value="_expense" />
+      <xsd:enumeration value="_fixedAsset" />
+      <xsd:enumeration value="_income" />
+      <xsd:enumeration value="_longTermLiability" />
+      <xsd:enumeration value="_nonPosting" />
+      <xsd:enumeration value="_otherAsset" />
+      <xsd:enumeration value="_otherCurrentAsset" />
+      <xsd:enumeration value="_otherCurrentLiability" />
+      <xsd:enumeration value="_otherExpense" />
+      <xsd:enumeration value="_otherIncome" />
+      <xsd:enumeration value="_unbilledReceivable" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemCostingMethod">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_average" />
+      <xsd:enumeration value="_fifo" />
+      <xsd:enumeration value="_lifo" />
+      <xsd:enumeration value="_lotNumbered" />
+      <xsd:enumeration value="_serialized" />
+      <xsd:enumeration value="_standard" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemProductFeed">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_googleBase" />
+      <xsd:enumeration value="_nexTag" />
+      <xsd:enumeration value="_shoppingCom" />
+      <xsd:enumeration value="_shopzilla" />
+      <xsd:enumeration value="_yahooShopping" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_assembly" />
+      <xsd:enumeration value="_description" />
+      <xsd:enumeration value="_discount" />
+      <xsd:enumeration value="_downloadItem" />
+      <xsd:enumeration value="_giftCertificateItem" />
+      <xsd:enumeration value="_inventoryItem" />
+      <xsd:enumeration value="_itemGroup" />
+      <xsd:enumeration value="_kit" />
+      <xsd:enumeration value="_markup" />
+      <xsd:enumeration value="_nonInventoryItem" />
+      <xsd:enumeration value="_otherCharge" />
+      <xsd:enumeration value="_payment" />
+      <xsd:enumeration value="_service" />
+      <xsd:enumeration value="_subtotal" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemWeightUnit">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_g" />
+      <xsd:enumeration value="_kg" />
+      <xsd:enumeration value="_lb" />
+      <xsd:enumeration value="_oz" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemPreferenceCriterion">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_A" />
+      <xsd:enumeration value="_B" />
+      <xsd:enumeration value="_C" />
+      <xsd:enumeration value="_D" />
+      <xsd:enumeration value="_E" />
+      <xsd:enumeration value="_F" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemOverallQuantityPricingType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_byLineQuantity" />
+      <xsd:enumeration value="_byOverallItemQuantity" />
+      <xsd:enumeration value="_byOverallParentQuantity" />
+      <xsd:enumeration value="_byOverallScheduleQuantity" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ScheduleBCode">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_1000" />
+      <xsd:enumeration value="_1000cubicMeters" />
+      <xsd:enumeration value="_barrels" />
+      <xsd:enumeration value="_carat" />
+      <xsd:enumeration value="_cleanYieldKilogram" />
+      <xsd:enumeration value="_contentKilogram" />
+      <xsd:enumeration value="_contentTon" />
+      <xsd:enumeration value="_cubicMeters" />
+      <xsd:enumeration value="_curie" />
+      <xsd:enumeration value="_dozen" />
+      <xsd:enumeration value="_dozenPairs" />
+      <xsd:enumeration value="_dozenPieces" />
+      <xsd:enumeration value="_fiberMeter" />
+      <xsd:enumeration value="_gram" />
+      <xsd:enumeration value="_gross" />
+      <xsd:enumeration value="_grossContainers" />
+      <xsd:enumeration value="_hundred" />
+      <xsd:enumeration value="_kilogram" />
+      <xsd:enumeration value="_kilogramTotalSugars" />
+      <xsd:enumeration value="_liter" />
+      <xsd:enumeration value="_meter" />
+      <xsd:enumeration value="_millicurie" />
+      <xsd:enumeration value="_noQuantityReq" />
+      <xsd:enumeration value="_number" />
+      <xsd:enumeration value="_pack" />
+      <xsd:enumeration value="_pairs" />
+      <xsd:enumeration value="_pieces" />
+      <xsd:enumeration value="_proofLiter" />
+      <xsd:enumeration value="_runningBales" />
+      <xsd:enumeration value="_square" />
+      <xsd:enumeration value="_squareCentimeters" />
+      <xsd:enumeration value="_squareMeters" />
+      <xsd:enumeration value="_ton" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemSubType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_forPurchase" />
+      <xsd:enumeration value="_forResale" />
+      <xsd:enumeration value="_forSale" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CurrencyCurrencyPrecision">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_one" />
+      <xsd:enumeration value="_two" />
+      <xsd:enumeration value="_zero" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CurrencyFxRateUpdateTimezone">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_americaNewYork" />
+      <xsd:enumeration value="_asiaMagadan" />
+      <xsd:enumeration value="_asiaTokyo" />
+      <xsd:enumeration value="_europeParis" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SalesTaxItemAvailable">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_both" />
+      <xsd:enumeration value="_purchase" />
+      <xsd:enumeration value="_sale" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemEbayAuctionDuration">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_10days" />
+      <xsd:enumeration value="_120days" />
+      <xsd:enumeration value="_1day" />
+      <xsd:enumeration value="_30days" />
+      <xsd:enumeration value="_3days" />
+      <xsd:enumeration value="_5days" />
+      <xsd:enumeration value="_60days" />
+      <xsd:enumeration value="_7days" />
+      <xsd:enumeration value="_90days" />
+      <xsd:enumeration value="_goodUntilCancelled" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemOutOfStockBehavior">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_allowBackOrdersButDisplayOutOfStockMessage" />
+      <xsd:enumeration value="_allowBackOrdersWithNoOutOfStockMessage" />
+      <xsd:enumeration value="_default" />
+      <xsd:enumeration value="_disallowBackOrdersButDisplayOutOfStockMessage" />
+      <xsd:enumeration value="_removeItemWhenOutOfStock" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemEbayRelistingOption">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_doNotRelist" />
+      <xsd:enumeration value="_relistWhenItemExpires" />
+      <xsd:enumeration value="_relistWhenItemIsSold" />
+      <xsd:enumeration value="_relistWhenItemIsSoldExpires" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ConsolidatedRate">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_average" />
+      <xsd:enumeration value="_current" />
+      <xsd:enumeration value="_historical" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CashFlowRateType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_average" />
+      <xsd:enumeration value="_current" />
+      <xsd:enumeration value="_historical" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="GeneralRateType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_average" />
+      <xsd:enumeration value="_current" />
+      <xsd:enumeration value="_historical" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemMatrixType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_parent" />
+      <xsd:enumeration value="_child" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemDemandSource">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_enteredAndPlannedOrders" />
+      <xsd:enumeration value="_forecastAndOrders" />
+      <xsd:enumeration value="_forecastConsumption" />
+      <xsd:enumeration value="_forecastFromDemandPlan" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemSupplyLotSizingMethod">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_fixedLotSize" />
+      <xsd:enumeration value="_lotForLot" />
+      <xsd:enumeration value="_periodsOfSupply" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemSupplyType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_build" />
+      <xsd:enumeration value="_purchase" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemSupplyReplenishmentMethod">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_reorderPoint" />
+      <xsd:enumeration value="_timePhased" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RevRecScheduleRecogIntervalSrc">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_revRecDatesSpecifiedOnTransaction" />
+      <xsd:enumeration value="_billingScheduleTranDateOnSalesOrder" />
+      <xsd:enumeration value="_billingScheduleRevRecDateOnSalesOrder" />
+      <xsd:enumeration value="_revRecDatesSpecifiedOnSalesOrder" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RevRecScheduleRecurrenceType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_custom" />
+      <xsd:enumeration value="_straightLineByEvenPeriods" />
+      <xsd:enumeration value="_straightLineProrateFirstAndLastPeriod" />
+      <xsd:enumeration value="_straightLineProrateFirstAndLastPeriodPeriodRate" />
+      <xsd:enumeration value="_straightLineUsingExactDays" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RevRecScheduleAmortizationType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_standard" />
+      <xsd:enumeration value="_variable" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CostCategoryItemCostType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_landed" />
+      <xsd:enumeration value="_material" />
+      <xsd:enumeration value="_service" />
+      <xsd:enumeration value="_laborRun" />
+      <xsd:enumeration value="_laborRunOverhead" />
+      <xsd:enumeration value="_laborSetup" />
+      <xsd:enumeration value="_laborSetupOverhead" />
+      <xsd:enumeration value="_machineRun" />
+      <xsd:enumeration value="_machineRunOverhead" />
+      <xsd:enumeration value="_machineSetup" />
+      <xsd:enumeration value="_machineSetupOverhead" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemAtpMethod">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_cumulativeAtpWithLookAhead" />
+      <xsd:enumeration value="_discreteAtp" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AssemblyItemEffectiveBomControl">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_effectiveDate" />
+      <xsd:enumeration value="_revisionControl" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemInvtClassification">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_a" />
+      <xsd:enumeration value="_b" />
+      <xsd:enumeration value="_c" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PeriodicLotSizeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_interval" />
+      <xsd:enumeration value="_monthly" />
+      <xsd:enumeration value="_weekly" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="HazmatPackingGroup">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_i" />
+      <xsd:enumeration value="_ii" />
+      <xsd:enumeration value="_iii" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemCarrier">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_fedexUspsMore" />
+      <xsd:enumeration value="_ups" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

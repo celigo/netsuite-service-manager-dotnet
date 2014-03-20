@@ -1,0 +1,142 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension="\0" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ assembly name="System.Web.Services" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ assembly name="$(SolutionDir)ServiceManager.Design\$(OutDir)\ServiceManager.Design.dll" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="com.celigo.net.ServiceManager.SuiteTalk" #>using com.celigo.net.ServiceManager.SuiteTalk;
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#
+	var template = new AdvancedSearchExtenderTemplate();
+
+	foreach (Type type in GetAdvSearchTypes())
+	{
+		template.TargetType = type;
+		template.Output.File = type.Name + ".cs";
+		template.Render();		 
+	}
+#><#+
+public class AdvancedSearchExtenderTemplate : Template
+{
+	public Type TargetType { get; set; }
+	
+	public override string TransformText()
+	{
+		string searchTypeName = TargetType.Name.Substring(0, TargetType.Name.Length - "Advanced".Length);
+		
+#>//~ Geneerated by AdvancedSearchTemplate.tt
+#pragma warning disable 1591
+	
+namespace com.celigo.net.ServiceManager.SuiteTalk
+{
+	public partial class <#= TargetType.Name #> : ISearchAdvanced
+	{
+        /// <summary>Gets the criteria for the Search.</summary>
+        /// <returns>The criteria for the Search.</returns>
+        public ISearchRecord GetCriteria() { return this.criteria; }
+		
+		/// <summary>
+        /// Gets the criteria for the Search.
+        /// </summary>
+        /// <param name="create">if set to <c>true</c> create the criteria if it is null.</param>
+        /// <returns>The criteria for the Search.</returns>
+		public ISearchRecord GetCriteria(bool create)
+		{
+			if (create && this.criteria == null)
+			{
+				this.criteria = new <#= searchTypeName #>();
+			}
+			return this.criteria;
+		}
+		
+		/// <summary>
+        /// Sets the criteria.
+        /// </summary>
+        /// <param name="search">The search.</param>
+        public void SetCriteria(ISearchRecord search) 
+		{ 
+			if (search is <#= searchTypeName #>)
+				this.criteria = (<#= searchTypeName #>)search; 
+			else
+				throw new System.ArgumentException("Parameter should be of type <#= searchTypeName #>", "search");
+		}
+
+        /// <summary>Gets the columns to be returned in the results.</summary>
+        /// <returns>The columns to be returned in the results.</returns>
+        public SearchRow GetColumns() { return this.columns; }
+		
+		/// <summary>
+        /// Gets the columns to be returned in the results.
+        /// </summary>
+        /// <param name="create">if set to <c>true</c> create the columns object if it is null.</param>
+        /// <returns>
+        /// The columns to be returned in the results.
+        /// </returns>
+		public SearchRow GetColumns(bool create)
+		{
+			if (create && this.columns == null)
+			{
+				this.columns = new <#= searchTypeName #>Row();
+			}
+			return this.columns;
+		}
+		
+		/// <summary>
+        /// Sets the return columns.
+        /// </summary>
+        public void SetColumns(SearchRow columns) 
+		{ 
+			if (columns is <#= searchTypeName #>Row)
+				this.columns = (<#= searchTypeName #>Row)columns; 
+			else
+				throw new System.ArgumentException("Parameter should be of type <#= searchTypeName #>Row", "columns");
+		}
+
+        /// <summary>
+        /// Gets the saved search id.
+        /// </summary>
+        /// <returns>The saved search ID.</returns>
+        public string GetSavedSearchId() { return this.savedSearchId; }
+		
+        /// <summary>
+        /// Sets the saved search id.
+        /// </summary>
+        /// <param name="savedSearchId">The saved search id.</param>
+        public void SetSavedSearchId(string savedSearchId) { this.savedSearchId = savedSearchId; }
+
+        /// <summary>
+        /// Gets the saved search script id.
+        /// </summary>
+        /// <returns></returns>
+        public string GetSavedSearchScriptId() { return this.savedSearchScriptId; }
+        /// <summary>
+        /// Sets the saved search script id.
+        /// </summary>
+        /// <param name="savedSearchScriptId">The saved search script id.</param>
+        public void SetSavedSearchScriptId(string savedSearchScriptId) { this.savedSearchScriptId = savedSearchScriptId; }
+	}
+}
+<#+	
+		return this.GenerationEnvironment.ToString();
+	}
+}
+#>
+
+<#+
+	IEnumerable<Type> GetAdvSearchTypes()
+	{
+		var assembly = typeof(CustomFieldRef).Assembly;
+		
+		var query = from t in assembly.GetTypes()
+					where t.IsClass && t.Name.EndsWith("SearchAdvanced")
+					select t;
+		
+		foreach (var t in query)
+			yield return t;
+	}
+#>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:listMktTyp="urn:types.marketing_2013_1.lists.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.marketing_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="CampaignCampaignDirectMailStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_completed" />
+      <xsd:enumeration value="_execute" />
+      <xsd:enumeration value="_inProgress" />
+      <xsd:enumeration value="_notStarted" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CampaignCampaignEmailStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_execute" />
+      <xsd:enumeration value="_inProgress" />
+      <xsd:enumeration value="_notStarted" />
+      <xsd:enumeration value="_sent" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CampaignCampaignEventStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_completed" />
+      <xsd:enumeration value="_execute" />
+      <xsd:enumeration value="_inProgress" />
+      <xsd:enumeration value="_notStarted" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CampaignChannelEventType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_directMail" />
+      <xsd:enumeration value="_email" />
+      <xsd:enumeration value="_integration" />
+      <xsd:enumeration value="_other" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CampaignResponseResponse">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_bounced" />
+      <xsd:enumeration value="_clickedThru" />
+      <xsd:enumeration value="_purchased" />
+      <xsd:enumeration value="_received" />
+      <xsd:enumeration value="_responded" />
+      <xsd:enumeration value="_sent" />
+      <xsd:enumeration value="_subscribed" />
+      <xsd:enumeration value="_unsubscribed" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CampaignCampaignEventType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_default" />
+      <xsd:enumeration value="_directMail" />
+      <xsd:enumeration value="_email" />
+      <xsd:enumeration value="_integration" />
+      <xsd:enumeration value="_leadNurturingEmail" />
+      <xsd:enumeration value="_other" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CampaignResponse">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_clickedThrough" />
+      <xsd:enumeration value="_failedDeliveryFailure" />
+      <xsd:enumeration value="_failedInvalidAddress" />
+      <xsd:enumeration value="_failedOther" />
+      <xsd:enumeration value="_failedSpam" />
+      <xsd:enumeration value="_invalidSenderAddress" />
+      <xsd:enumeration value="_mailboxDisabled" />
+      <xsd:enumeration value="_mailboxIsFull" />
+      <xsd:enumeration value="_mailboxNotAcceptingMessages" />
+      <xsd:enumeration value="_mailProtocolIssues" />
+      <xsd:enumeration value="_mediaError" />
+      <xsd:enumeration value="_messageExceedsSizeLengthLimits" />
+      <xsd:enumeration value="_networkServerIssues" />
+      <xsd:enumeration value="_opened" />
+      <xsd:enumeration value="_purchased" />
+      <xsd:enumeration value="_queued" />
+      <xsd:enumeration value="_received" />
+      <xsd:enumeration value="_responded" />
+      <xsd:enumeration value="_securityIssues" />
+      <xsd:enumeration value="_sent" />
+      <xsd:enumeration value="_subscribed" />
+      <xsd:enumeration value="_tooManyRecipients" />
+      <xsd:enumeration value="_unsubscribed" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CampaignStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_closed" />
+      <xsd:enumeration value="_completed" />
+      <xsd:enumeration value="_execute" />
+      <xsd:enumeration value="_inProgress" />
+      <xsd:enumeration value="_scheduled" />
+      <xsd:enumeration value="_sent" />
+      <xsd:enumeration value="_toPrint" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PromotionCodeApplyDiscountTo">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_allSales" />
+      <xsd:enumeration value="_firstSaleOnly" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CampaignResponseCategory">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_bounced" />
+      <xsd:enumeration value="_clickedThrough" />
+      <xsd:enumeration value="_purchased" />
+      <xsd:enumeration value="_queued" />
+      <xsd:enumeration value="_received" />
+      <xsd:enumeration value="_responded" />
+      <xsd:enumeration value="_sent" />
+      <xsd:enumeration value="_subscribed" />
+      <xsd:enumeration value="_unsubscribed" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PromotionCodeUseType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_multipleUses" />
+      <xsd:enumeration value="_singleUse" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

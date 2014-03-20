@@ -1,0 +1,1569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C880CF59-7EFB-45C1-A312-098062C84E46}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>com.celigo.net.ServiceManager</RootNamespace>
+    <AssemblyName>ServiceManager_net2-0</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>ServiceManager.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CLR_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ServiceManager_net2-0.xml</DocumentationFile>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CLR_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\ServiceManager_net2-0.xml</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Unit Testing|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Unit Testing\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CLR_2-0</DefineConstants>
+    <DocumentationFile>bin\Debug\ServiceManager.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\ServiceManager.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\ConcurrentSessionException.cs" />
+    <Compile Include="Exceptions\IncorrectConfigurationException.cs" />
+    <Compile Include="Exceptions\StatusErrorException.cs" />
+    <Compile Include="INetSuiteServiceBase.cs" />
+    <Compile Include="IServicePool.cs" />
+    <Compile Include="IServiceManager.cs" />
+    <Compile Include="net2-0\Linq.cs" />
+    <Compile Include="NetSuiteServiceBase.cs" />
+    <Compile Include="Exceptions\InvalidCredentialException.cs" />
+    <Compile Include="Exceptions\RetryCountExhaustedException.cs" />
+    <Compile Include="NetSuiteCredential.cs" />
+    <Compile Include="NetSuiteServiceConfiguration.cs" />
+    <Compile Include="NetSuiteServiceManager.cs" />
+    <Compile Include="NetSuiteServicePool.cs" />
+    <Compile Include="NetSuiteServicePoolManager.cs" />
+    <Compile Include="NsException.cs" />
+    <Compile Include="SearchSession.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Account.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AccountingPeriod.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AccountingPeriodSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AccountingPeriodSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AccountingPeriodSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AccountingPeriodSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AccountSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AccountSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AccountSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AccountSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AssemblyBuild.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AssemblyItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\AssemblyUnbuild.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BaseRef.cs" />
+    <Compile Include="SuiteTalk\Bin.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BinSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BinSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BinSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BinSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BooleanCustomFieldRef.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Budget.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BudgetCategory.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BudgetSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BudgetSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BudgetSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\BudgetSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CalendarEvent.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CalendarEventSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CalendarEventSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CalendarEventSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CalendarEventSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Campaign.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignAudience.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignCategory.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignChannel.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignFamily.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignOffer.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignResponse.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignSearchEngine.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignSubscription.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CampaignVertical.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CashRefund.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CashSale.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Check.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Classification.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ClassificationSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ClassificationSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ClassificationSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ClassificationSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Contact.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactCategory.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactCategorySearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactCategorySearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactCategorySearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactCategorySearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactRole.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactRoleSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactRoleSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactRoleSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactRoleSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ContactSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CreditMemo.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CrmCustomField.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Currency.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Customer.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerCategory.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerCategorySearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerCategorySearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerCategorySearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerCategorySearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerDeposit.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerPayment.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerRefund.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerStatus.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerStatusSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerStatusSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerStatusSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomerStatusSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomFieldRef.cs" />
+    <Compile Include="SuiteTalk\CustomList.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomRecord.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomRecordCustomField.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomRecordSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomRecordSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomRecordSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomRecordSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\CustomRecordType.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\DateCustomFieldRef.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Department.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\DepartmentSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\DepartmentSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\DepartmentSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\DepartmentSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\DepositApplication.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\DescriptionItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\DiscountItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\DoubleCustomFieldRef.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\DownloadItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Employee.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EmployeeSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EmployeeSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EmployeeSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EmployeeSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EntityCustomField.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EntityGroup.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EntityGroupSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EntityGroupSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EntityGroupSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EntityGroupSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\EntitySearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Estimate.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ExpenseCategory.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ExpenseCategorySearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ExpenseCategorySearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ExpenseCategorySearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ExpenseCategorySearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ExpenseReport.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\File.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\FileSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\FileSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\FileSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\FileSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Folder.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\FolderSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\FolderSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\FolderSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\FolderSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\GiftCertificate.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\GiftCertificateItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\GiftCertificateSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\GiftCertificateSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\GiftCertificateSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\GiftCertificateSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\INetSuiteServiceTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>INetSuiteServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\InterCompanyJournalEntry.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\InventoryAdjustment.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\InventoryItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Invoice.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ISearchAdvanced.cs" />
+    <Compile Include="SuiteTalk\ISearchCustomField.cs" />
+    <Compile Include="SuiteTalk\ISearchRecord.cs" />
+    <Compile Include="SuiteTalk\ISearchRowBasic.cs" />
+    <Compile Include="SuiteTalk\Issue.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\IssueSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\IssueSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\IssueSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\IssueSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ISupportsCustomFields.cs" />
+    <Compile Include="SuiteTalk\ItemCustomField.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ItemFulfillment.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ItemNumberCustomField.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ItemOptionCustomField.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ItemReceipt.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ItemSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ItemSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ItemSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ItemSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Job.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobStatus.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobStatusSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobStatusSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobStatusSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobStatusSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobType.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobTypeSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobTypeSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobTypeSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JobTypeSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\JournalEntry.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\KitItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\LeadSource.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Location.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\LocationSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\LocationSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\LocationSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\LocationSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\LongCustomFieldRef.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\LotNumberedAssemblyItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\LotNumberedInventoryItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\MarkupItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Message.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\MessageSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\MessageSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\MessageSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\MessageSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\MultiSelectCustomFieldRef.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NonInventoryPurchaseItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NonInventoryResaleItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NonInventorySaleItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Note.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NoteSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NoteSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NoteSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NoteSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NoteType.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NoteTypeSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NoteTypeSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NoteTypeSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\NoteTypeSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Opportunity.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OpportunitySearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OpportunitySearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OpportunitySearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OpportunitySearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OriginatingLeadSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OriginatingLeadSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OriginatingLeadSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OtherChargePurchaseItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OtherChargeResaleItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OtherChargeSaleItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\OtherCustomField.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Partner.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PartnerCategory.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PartnerCategorySearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PartnerCategorySearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PartnerCategorySearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PartnerCategorySearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PartnerSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PartnerSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PartnerSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PartnerSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PaymentItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PaymentMethod.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PaymentMethodSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PaymentMethodSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PaymentMethodSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PaymentMethodSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PhoneCall.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PhoneCallSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PhoneCallSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PhoneCallSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PhoneCallSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PriceLevel.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PriceLevelSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PriceLevelSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PriceLevelSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PriceLevelSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ProjectTask.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ProjectTaskAssignmentSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ProjectTaskSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ProjectTaskSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ProjectTaskSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ProjectTaskSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PromotionCode.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PromotionCodeSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PromotionCodeSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PromotionCodeSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PromotionCodeSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\PurchaseOrder.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Record.cs" />
+    <Compile Include="SuiteTalk\RecordRef.cs" />
+    <Compile Include="SuiteTalk\ReturnAuthorization.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SalesOrder.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SalesRole.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SalesRoleSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SalesRoleSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SalesRoleSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SalesRoleSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SalesTaxItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchBooleanCustomField.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchColumnBooleanCustomField.cs">
+      <DependentUpon>SearchColumnCustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchColumnCustomField.cs" />
+    <Compile Include="SuiteTalk\SearchColumnDateCustomField.cs">
+      <DependentUpon>SearchColumnCustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchColumnDoubleCustomField.cs">
+      <DependentUpon>SearchColumnCustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchColumnEnumMultiSelectCustomField.cs">
+      <DependentUpon>SearchColumnCustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchColumnLongCustomField.cs">
+      <DependentUpon>SearchColumnCustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchColumnMultiSelectCustomField.cs">
+      <DependentUpon>SearchColumnCustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchColumnSelectCustomField.cs">
+      <DependentUpon>SearchColumnCustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchColumnStringCustomField.cs">
+      <DependentUpon>SearchColumnCustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchDateCustomField.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchDoubleCustomField.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchEnumMultiSelectCustomField.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchLongCustomField.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchMultiSelectCustomField.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SearchPreferences.cs" />
+    <Compile Include="SuiteTalk\SearchRow.cs" />
+    <Compile Include="SuiteTalk\SearchStringCustomField.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SelectCustomFieldRef.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SerializedAssemblyItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SerializedInventoryItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ServicePurchaseItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ServiceResaleItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\ServiceSaleItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SiteCategory1.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SiteCategorySearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SiteCategorySearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SiteCategorySearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SiteCategorySearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Solution.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SolutionSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SolutionSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SolutionSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SolutionSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\State.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\StringCustomFieldRef.cs">
+      <DependentUpon>CustomFieldTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Subsidiary.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SubsidiarySearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SubsidiarySearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SubsidiarySearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SubsidiarySearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SubtotalItem.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SupportCase.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SupportCaseIssue.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SupportCaseOrigin.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SupportCasePriority.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SupportCaseSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SupportCaseSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SupportCaseSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SupportCaseSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SupportCaseStatus.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\SupportCaseType.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Task.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TaskSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TaskSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TaskSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TaskSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TaxGroup.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TaxType.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Term.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TermSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TermSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TermSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TermSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TimeBill.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TimeBillSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TimeBillSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TimeBillSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TimeBillSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Topic.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TopicSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TopicSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TopicSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TopicSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TransactionBodyCustomField.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TransactionColumnCustomField.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TransactionSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TransactionSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TransactionSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\TransactionSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\UnitsType.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\UnitsTypeSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\UnitsTypeSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\UnitsTypeSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\UnitsTypeSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\Vendor.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorBill.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorCategory.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorCategorySearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorCategorySearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorCategorySearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorCategorySearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorPayment.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\VendorSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\WinLossReason.cs">
+      <DependentUpon>RecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\WinLossReasonSearch.cs">
+      <DependentUpon>SearchRecordTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\WinLossReasonSearchAdvanced.cs">
+      <DependentUpon>SearchAdvancedTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\WinLossReasonSearchRow.cs">
+      <DependentUpon>SearchRowTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuiteTalk\WinLossReasonSearchRowBasic.cs">
+      <DependentUpon>SearchRowBasicTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserSession.cs" />
+    <Compile Include="Utility\BlockingQueue.cs" />
+    <Compile Include="Utility\CustomFieldDictionary.cs" />
+    <Compile Include="Utility\CustomFieldDictionary.SettersGetters.cs" />
+    <Compile Include="Utility\Helpers\CustomFieldValueHelper.cs" />
+    <Compile Include="Utility\Helpers\SearchCustomFieldValueHelper.cs" />
+    <Compile Include="Utility\ILogger.cs" />
+    <Compile Include="Utility\NullLogger.cs" />
+    <Compile Include="Utility\ServiceInvocationEventArgs.cs" />
+    <Compile Include="Utility\StatusResponse.cs" />
+    <Compile Include="Web References\SuiteTalk\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ServiceManager.cd" />
+    <None Include="ServiceManager.snk" />
+    <None Include="SuiteTalk\SearchAdvancedTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="SuiteTalk\CustomFieldTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="SuiteTalk\INetSuiteServiceTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>INetSuiteServiceTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="SuiteTalk\RecordTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="SuiteTalk\SearchColumnCustomFieldTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="SuiteTalk\SearchRecordTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="SuiteTalk\SearchRowBasicTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="SuiteTalk\SearchRowTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="Web References\SuiteTalk\accounting.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\accountingTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\AsyncResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\AsyncStatusResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\bank.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\bankTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\common.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\common.xsx">
+      <DependentUpon>common.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\commonTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\commonTypes.xsx">
+      <DependentUpon>commonTypes.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\communication.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\communicationTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\core.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\core.xsx">
+      <DependentUpon>core.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\coreTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\coreTypes.xsx">
+      <DependentUpon>coreTypes.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\customers.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\customerTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\customization.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\customizationTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\employees.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\employees0.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\employeeTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\employeeTypes0.xsd" />
+    <None Include="Web References\SuiteTalk\faults.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\faults.xsx">
+      <DependentUpon>faults.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\faultTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\faultTypes.xsx">
+      <DependentUpon>faultTypes.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\fileCabinet.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\fileCabinetTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\financial.xsd" />
+    <None Include="Web References\SuiteTalk\financialTypes.xsd" />
+    <None Include="Web References\SuiteTalk\general.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\general.xsx">
+      <DependentUpon>general.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetAllResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetBudgetExchangeRateResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetConsolidatedExchangeRateResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetCustomizationIdResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetDeletedResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetItemAvailabilityResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetPostingTransactionSummaryResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetSavedSearchResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetSelectValueResult1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetServerTimeResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\inventory.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\inventoryTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\marketing.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\marketingTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\messages.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\netsuite.wsdl" />
+    <None Include="Web References\SuiteTalk\purchases.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\purchaseTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\ReadResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SuiteTalk\relationships.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\relationshipTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\sales.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\sales.xsx">
+      <DependentUpon>sales.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\saleTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\saleTypes.xsx">
+      <DependentUpon>saleTypes.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\scheduling.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\schedulingTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\SearchResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\SessionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\support.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\supportTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\supportTypes.xsx">
+      <DependentUpon>supportTypes.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\website.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\websiteTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\WriteResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://webservices.netsuite.com/wsdl/v2010_1_0/netsuite.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SuiteTalk\</RelPath>
+      <UpdateFromURL>https://webservices.netsuite.com/wsdl/v2010_1_0/netsuite.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ServiceManager_SuiteTalk_NetSuiteService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReleaseNote %28Celigo SM%29.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <PreBuildEvent>REM cd "$(ProjectDir)"
+REM "C:\Program Files\Microsoft SDKs\Windows\v6.0A\Bin\xsd.exe" /c /n:com.celigo.net.ServiceManager.SuiteTalk "$(ProjectDir)Web References\SuiteTalk\saleTypes.xsd" "$(ProjectDir)Web References\SuiteTalk\accountingTypes.xsd" "$(ProjectDir)Web References\SuiteTalk\commonTypes.xsd" "$(ProjectDir)MissingNSTypes.xsd"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:docFileCabTyp="urn:types.filecabinet_2013_1.documents.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.filecabinet_2013_1.documents.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="MediaType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_AUTOCAD" />
+      <xsd:enumeration value="_BMPIMAGE" />
+      <xsd:enumeration value="_CONFIG" />
+      <xsd:enumeration value="_CSV" />
+      <xsd:enumeration value="_EXCEL" />
+      <xsd:enumeration value="_FLASH" />
+      <xsd:enumeration value="_GIFIMAGE" />
+      <xsd:enumeration value="_GZIP" />
+      <xsd:enumeration value="_HTMLDOC" />
+      <xsd:enumeration value="_ICON" />
+      <xsd:enumeration value="_IMAGE" />
+      <xsd:enumeration value="_JAVASCRIPT" />
+      <xsd:enumeration value="_JPGIMAGE" />
+      <xsd:enumeration value="_JSON" />
+      <xsd:enumeration value="_MESSAGERFC" />
+      <xsd:enumeration value="_MISCBINARY" />
+      <xsd:enumeration value="_MISCTEXT" />
+      <xsd:enumeration value="_MP3" />
+      <xsd:enumeration value="_MPEGMOVIE" />
+      <xsd:enumeration value="_MSPROJECT" />
+      <xsd:enumeration value="_PDF" />
+      <xsd:enumeration value="_PJPGIMAGE" />
+      <xsd:enumeration value="_PLAINTEXT" />
+      <xsd:enumeration value="_PNGIMAGE" />
+      <xsd:enumeration value="_POSTSCRIPT" />
+      <xsd:enumeration value="_POWERPOINT" />
+      <xsd:enumeration value="_QUICKTIME" />
+      <xsd:enumeration value="_RTF" />
+      <xsd:enumeration value="_SMS" />
+      <xsd:enumeration value="_STYLESHEET" />
+      <xsd:enumeration value="_TAR" />
+      <xsd:enumeration value="_TARCOMP" />
+      <xsd:enumeration value="_TIFFIMAGE" />
+      <xsd:enumeration value="_VISIO" />
+      <xsd:enumeration value="_WEBAPPPAGE" />
+      <xsd:enumeration value="_WEBAPPSCRIPT" />
+      <xsd:enumeration value="_WORD" />
+      <xsd:enumeration value="_XMLDOC" />
+      <xsd:enumeration value="_ZIP" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="FileAttachFrom">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_computer" />
+      <xsd:enumeration value="_web" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="FileEncoding">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_autoDetect" />
+      <xsd:enumeration value="_shiftJis" />
+      <xsd:enumeration value="_utf8" />
+      <xsd:enumeration value="_windows1252" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TextFileEncoding">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_big5" />
+      <xsd:enumeration value="_gb2312" />
+      <xsd:enumeration value="_gb18030" />
+      <xsd:enumeration value="_iso88591" />
+      <xsd:enumeration value="_macRoman" />
+      <xsd:enumeration value="_shiftJis" />
+      <xsd:enumeration value="_utf8" />
+      <xsd:enumeration value="_windows1252" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

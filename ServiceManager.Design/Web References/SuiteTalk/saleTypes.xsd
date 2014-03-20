@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tranSalesTyp="urn:types.sales_2013_1.transactions.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.sales_2013_1.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="SalesOrderItemCommitInventory">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_availableQty" />
+      <xsd:enumeration value="_completeQty" />
+      <xsd:enumeration value="_doNotCommit" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SalesOrderItemCreatePo">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_dropShipment" />
+      <xsd:enumeration value="_specialOrder" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SalesOrderOrderStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_pendingApproval" />
+      <xsd:enumeration value="_pendingFulfillment" />
+      <xsd:enumeration value="_cancelled" />
+      <xsd:enumeration value="_partiallyFulfilled" />
+      <xsd:enumeration value="_pendingBillingPartFulfilled" />
+      <xsd:enumeration value="_pendingBilling" />
+      <xsd:enumeration value="_fullyBilled" />
+      <xsd:enumeration value="_closed" />
+      <xsd:enumeration value="_undefined" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentExportTypeUps">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_domesticExports" />
+      <xsd:enumeration value="_foreignExports" />
+      <xsd:enumeration value="_foreignMilitarySales" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentLicenseExceptionUps">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_agr" />
+      <xsd:enumeration value="_apr" />
+      <xsd:enumeration value="_avs" />
+      <xsd:enumeration value="_bag" />
+      <xsd:enumeration value="_civ" />
+      <xsd:enumeration value="_ctp" />
+      <xsd:enumeration value="_enc" />
+      <xsd:enumeration value="_gbs" />
+      <xsd:enumeration value="_gft" />
+      <xsd:enumeration value="_gov" />
+      <xsd:enumeration value="_kmi" />
+      <xsd:enumeration value="_lvs" />
+      <xsd:enumeration value="_nlr" />
+      <xsd:enumeration value="_rpl" />
+      <xsd:enumeration value="_tmp" />
+      <xsd:enumeration value="_tspa" />
+      <xsd:enumeration value="_tsr" />
+      <xsd:enumeration value="_tsu" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentMethodOfTransportUps">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_air" />
+      <xsd:enumeration value="_airContainerized" />
+      <xsd:enumeration value="_auto" />
+      <xsd:enumeration value="_fixedTransportInstallations" />
+      <xsd:enumeration value="_mail" />
+      <xsd:enumeration value="_passengerHandcarried" />
+      <xsd:enumeration value="_pedestrian" />
+      <xsd:enumeration value="_rail" />
+      <xsd:enumeration value="_railContainerized" />
+      <xsd:enumeration value="_roadOther" />
+      <xsd:enumeration value="_seaBarge" />
+      <xsd:enumeration value="_seaContainerized" />
+      <xsd:enumeration value="_seaNoncontainerized" />
+      <xsd:enumeration value="_truck" />
+      <xsd:enumeration value="_truckContainerized" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentThirdPartyTypeUps">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_consigneeBilling" />
+      <xsd:enumeration value="_noneSelected" />
+      <xsd:enumeration value="_thirdPartyBilling" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageUpsCodMethodUps">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_cashiersCheckMoneyOrder" />
+      <xsd:enumeration value="_checkCashiersCheckMoneyOrder" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageUpsDeliveryConfUps">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_noneSelected" />
+      <xsd:enumeration value="_adultSignatureRequired" />
+      <xsd:enumeration value="_deliveryConfirmation" />
+      <xsd:enumeration value="_signatureRequired" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageUpsPackagingUps">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_upsExpressBox" />
+      <xsd:enumeration value="_upsLetter" />
+      <xsd:enumeration value="_upsPak" />
+      <xsd:enumeration value="_upsTube" />
+      <xsd:enumeration value="_yourPackaging" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageUspsDeliveryConfUsps">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_deliveryConfirmation" />
+      <xsd:enumeration value="_signatureConfirmation" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageUspsPackagingUsps">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_parcel" />
+      <xsd:enumeration value="_flatRateBox" />
+      <xsd:enumeration value="_flatRateEnvelope" />
+      <xsd:enumeration value="_smallFlatRateBox" />
+      <xsd:enumeration value="_mediumFlatRateBox" />
+      <xsd:enumeration value="_largeFlatRateBox" />
+      <xsd:enumeration value="_irregularPackage" />
+      <xsd:enumeration value="_largePackage" />
+      <xsd:enumeration value="_oversizedPackage" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentB13AFilingOptionFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_filedElectronically" />
+      <xsd:enumeration value="_manuallyAttached" />
+      <xsd:enumeration value="_notRequired" />
+      <xsd:enumeration value="_summaryReporting" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentHomeDeliveryTypeFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_appointment" />
+      <xsd:enumeration value="_dateCertain" />
+      <xsd:enumeration value="_evening" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentThirdPartyTypeFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_billRecipient" />
+      <xsd:enumeration value="_billThirdParty" />
+      <xsd:enumeration value="_noneSelected" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageFedExAdmPackageTypeFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_bag" />
+      <xsd:enumeration value="_barrel" />
+      <xsd:enumeration value="_basketOrHamper" />
+      <xsd:enumeration value="_box" />
+      <xsd:enumeration value="_bucket" />
+      <xsd:enumeration value="_bundle" />
+      <xsd:enumeration value="_cage" />
+      <xsd:enumeration value="_carton" />
+      <xsd:enumeration value="_case" />
+      <xsd:enumeration value="_chest" />
+      <xsd:enumeration value="_container" />
+      <xsd:enumeration value="_crate" />
+      <xsd:enumeration value="_cylinder" />
+      <xsd:enumeration value="_drum" />
+      <xsd:enumeration value="_envelope" />
+      <xsd:enumeration value="_package" />
+      <xsd:enumeration value="_pail" />
+      <xsd:enumeration value="_pallet" />
+      <xsd:enumeration value="_parcel" />
+      <xsd:enumeration value="_pieces" />
+      <xsd:enumeration value="_reel" />
+      <xsd:enumeration value="_roll" />
+      <xsd:enumeration value="_sack" />
+      <xsd:enumeration value="_shrinkWrapped" />
+      <xsd:enumeration value="_skid" />
+      <xsd:enumeration value="_tank" />
+      <xsd:enumeration value="_toteBin" />
+      <xsd:enumeration value="_tube" />
+      <xsd:enumeration value="_unit" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageFedExCodMethodFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_any" />
+      <xsd:enumeration value="_cash" />
+      <xsd:enumeration value="_guaranteedFunds" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageFedExDeliveryConfFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_signatureRequired" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageFedExPackagingFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_fedExBox" />
+      <xsd:enumeration value="_fedEx10kgBox" />
+      <xsd:enumeration value="_fedEx25kgBox" />
+      <xsd:enumeration value="_fedExEnvelope" />
+      <xsd:enumeration value="_fedExPak" />
+      <xsd:enumeration value="_fedExTube" />
+      <xsd:enumeration value="_yourPackaging" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageFedExSignatureOptionsFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_adult" />
+      <xsd:enumeration value="_direct" />
+      <xsd:enumeration value="_indirect" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentTermsOfSaleFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_fob" />
+      <xsd:enumeration value="_cf" />
+      <xsd:enumeration value="_cif" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentShipStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_packed" />
+      <xsd:enumeration value="_picked" />
+      <xsd:enumeration value="_shipped" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="OpportunityStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_closedLost" />
+      <xsd:enumeration value="_closedWon" />
+      <xsd:enumeration value="_inProgress" />
+      <xsd:enumeration value="_issuedEstimate" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransactionType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_assemblyBuild" />
+      <xsd:enumeration value="_assemblyUnbuild" />
+      <xsd:enumeration value="_binTransfer" />
+      <xsd:enumeration value="_binWorksheet" />
+      <xsd:enumeration value="_cashRefund" />
+      <xsd:enumeration value="_cashSale" />
+      <xsd:enumeration value="_check" />
+      <xsd:enumeration value="_creditMemo" />
+      <xsd:enumeration value="_customerDeposit" />
+      <xsd:enumeration value="_customerPayment" />
+      <xsd:enumeration value="_customerRefund" />
+      <xsd:enumeration value="_depositApplication" />
+      <xsd:enumeration value="_estimate" />
+      <xsd:enumeration value="_expenseReport" />
+      <xsd:enumeration value="_inventoryAdjustment" />
+      <xsd:enumeration value="_inventoryTransfer" />
+      <xsd:enumeration value="_invoice" />
+      <xsd:enumeration value="_itemFulfillment" />
+      <xsd:enumeration value="_itemReceipt" />
+      <xsd:enumeration value="_journal" />
+      <xsd:enumeration value="_opportunity" />
+      <xsd:enumeration value="_paycheckJournal" />
+      <xsd:enumeration value="_purchaseOrder" />
+      <xsd:enumeration value="_returnAuthorization" />
+      <xsd:enumeration value="_salesOrder" />
+      <xsd:enumeration value="_transferOrder" />
+      <xsd:enumeration value="_vendorBill" />
+      <xsd:enumeration value="_vendorCredit" />
+      <xsd:enumeration value="_vendorPayment" />
+      <xsd:enumeration value="_vendorReturnAuthorization" />
+      <xsd:enumeration value="_workOrder" />
+      <xsd:enumeration value="_workOrderIssue" />
+      <xsd:enumeration value="_workOrderCompletion" />
+      <xsd:enumeration value="_workOrderClose" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransactionStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_billCancelled" />
+      <xsd:enumeration value="_billOpen" />
+      <xsd:enumeration value="_billPaidInFull" />
+      <xsd:enumeration value="_billPaymentOnlineBillPayPendingAccountingApproval" />
+      <xsd:enumeration value="_billPaymentVoided" />
+      <xsd:enumeration value="_billPendingApproval" />
+      <xsd:enumeration value="_billRejected" />
+      <xsd:enumeration value="_cashSaleDeposited" />
+      <xsd:enumeration value="_cashSaleNotDeposited" />
+      <xsd:enumeration value="_cashSaleUnapprovedPayment" />
+      <xsd:enumeration value="_checkOnlineBillPayPendingAccountingApproval" />
+      <xsd:enumeration value="_checkVoided" />
+      <xsd:enumeration value="_commissionOverpaid" />
+      <xsd:enumeration value="_commissionPaidInFull" />
+      <xsd:enumeration value="_commissionPendingAccountingApproval" />
+      <xsd:enumeration value="_commissionPendingPayment" />
+      <xsd:enumeration value="_commissionRejectedByAccounting" />
+      <xsd:enumeration value="_creditMemoFullyApplied" />
+      <xsd:enumeration value="_creditMemoOpen" />
+      <xsd:enumeration value="_customerDepositDeposited" />
+      <xsd:enumeration value="_customerDepositFullyApplied" />
+      <xsd:enumeration value="_customerDepositNotDeposited" />
+      <xsd:enumeration value="_customerRefundVoided" />
+      <xsd:enumeration value="_estimateClosed" />
+      <xsd:enumeration value="_estimateExpired" />
+      <xsd:enumeration value="_estimateOpen" />
+      <xsd:enumeration value="_estimateProcessed" />
+      <xsd:enumeration value="_estimateVoided" />
+      <xsd:enumeration value="_expenseReportApprovedByAccounting" />
+      <xsd:enumeration value="_expenseReportApprovedOverriddenByAccounting" />
+      <xsd:enumeration value="_expenseReportInProgress" />
+      <xsd:enumeration value="_expenseReportPaidInFull" />
+      <xsd:enumeration value="_expenseReportPendingAccountingApproval" />
+      <xsd:enumeration value="_expenseReportPendingSupervisorApproval" />
+      <xsd:enumeration value="_expenseReportRejectedByAccounting" />
+      <xsd:enumeration value="_expenseReportRejectedBySupervisor" />
+      <xsd:enumeration value="_expenseReportRejectedOverriddenByAccounting" />
+      <xsd:enumeration value="_invoiceOpen" />
+      <xsd:enumeration value="_invoicePaidInFull" />
+      <xsd:enumeration value="_itemFulfillmentPacked" />
+      <xsd:enumeration value="_itemFulfillmentPicked" />
+      <xsd:enumeration value="_itemFulfillmentShipped" />
+      <xsd:enumeration value="_journalApprovedForPosting" />
+      <xsd:enumeration value="_journalPendingApproval" />
+      <xsd:enumeration value="_opportunityClosedLost" />
+      <xsd:enumeration value="_opportunityClosedWon" />
+      <xsd:enumeration value="_opportunityInProgress" />
+      <xsd:enumeration value="_opportunityIssuedEstimate" />
+      <xsd:enumeration value="_paycheckCommitted" />
+      <xsd:enumeration value="_paycheckPendingCommitment" />
+      <xsd:enumeration value="_paycheckPendingTaxCalculation" />
+      <xsd:enumeration value="_paycheckPreview" />
+      <xsd:enumeration value="_paycheckReversed" />
+      <xsd:enumeration value="_paycheckUndefined" />
+      <xsd:enumeration value="_paymentDeposited" />
+      <xsd:enumeration value="_paymentNotDeposited" />
+      <xsd:enumeration value="_paymentUnapprovedPayment" />
+      <xsd:enumeration value="_payrollLiabilityCheckVoided" />
+      <xsd:enumeration value="_purchaseOrderClosed" />
+      <xsd:enumeration value="_purchaseOrderFullyBilled" />
+      <xsd:enumeration value="_purchaseOrderPartiallyReceived" />
+      <xsd:enumeration value="_purchaseOrderPendingBill" />
+      <xsd:enumeration value="_purchaseOrderPendingBillingPartiallyReceived" />
+      <xsd:enumeration value="_purchaseOrderPendingReceipt" />
+      <xsd:enumeration value="_purchaseOrderPendingSupervisorApproval" />
+      <xsd:enumeration value="_purchaseOrderRejectedBySupervisor" />
+      <xsd:enumeration value="_returnAuthorizationCancelled" />
+      <xsd:enumeration value="_returnAuthorizationClosed" />
+      <xsd:enumeration value="_returnAuthorizationPartiallyReceived" />
+      <xsd:enumeration value="_returnAuthorizationPendingApproval" />
+      <xsd:enumeration value="_returnAuthorizationPendingReceipt" />
+      <xsd:enumeration value="_returnAuthorizationPendingRefund" />
+      <xsd:enumeration value="_returnAuthorizationPendingRefundPartiallyReceived" />
+      <xsd:enumeration value="_returnAuthorizationRefunded" />
+      <xsd:enumeration value="_salesOrderBilled" />
+      <xsd:enumeration value="_salesOrderCancelled" />
+      <xsd:enumeration value="_salesOrderClosed" />
+      <xsd:enumeration value="_salesOrderPartiallyFulfilled" />
+      <xsd:enumeration value="_salesOrderPendingApproval" />
+      <xsd:enumeration value="_salesOrderPendingBilling" />
+      <xsd:enumeration value="_salesOrderPendingBillingPartiallyFulfilled" />
+      <xsd:enumeration value="_salesOrderPendingFulfillment" />
+      <xsd:enumeration value="_salesTaxPaymentOnlineBillPayPendingAccountingApproval" />
+      <xsd:enumeration value="_salesTaxPaymentVoided" />
+      <xsd:enumeration value="_statementChargeOpen" />
+      <xsd:enumeration value="_statementChargePaidInFull" />
+      <xsd:enumeration value="_taxLiabilityChequeVoided" />
+      <xsd:enumeration value="_tegataPayableEndorsed" />
+      <xsd:enumeration value="_tegataPayableIssued" />
+      <xsd:enumeration value="_tegataPayablePaid" />
+      <xsd:enumeration value="_tegataReceivablesCollected" />
+      <xsd:enumeration value="_tegataReceivablesDiscounted" />
+      <xsd:enumeration value="_tegataReceivablesEndorsed" />
+      <xsd:enumeration value="_tegataReceivablesHolding" />
+      <xsd:enumeration value="_transferOrderClosed" />
+      <xsd:enumeration value="_transferOrderPartiallyFulfilled" />
+      <xsd:enumeration value="_transferOrderPendingApproval" />
+      <xsd:enumeration value="_transferOrderPendingFulfillment" />
+      <xsd:enumeration value="_transferOrderPendingReceipt" />
+      <xsd:enumeration value="_transferOrderPendingReceiptPartiallyFulfilled" />
+      <xsd:enumeration value="_transferOrderReceived" />
+      <xsd:enumeration value="_transferOrderRejected" />
+      <xsd:enumeration value="_vendorReturnAuthorizationCancelled" />
+      <xsd:enumeration value="_vendorReturnAuthorizationClosed" />
+      <xsd:enumeration value="_vendorReturnAuthorizationCredited" />
+      <xsd:enumeration value="_vendorReturnAuthorizationPartiallyReturned" />
+      <xsd:enumeration value="_vendorReturnAuthorizationPendingApproval" />
+      <xsd:enumeration value="_vendorReturnAuthorizationPendingCredit" />
+      <xsd:enumeration value="_vendorReturnAuthorizationPendingCreditPartiallyReturned" />
+      <xsd:enumeration value="_vendorReturnAuthorizationPendingReturn" />
+      <xsd:enumeration value="_workOrderBuilt" />
+      <xsd:enumeration value="_workOrderCancelled" />
+      <xsd:enumeration value="_workOrderClosed" />
+      <xsd:enumeration value="_workOrderPartiallyBuilt" />
+      <xsd:enumeration value="_workOrderPendingBuild" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransactionPaymentEventResult">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_accept" />
+      <xsd:enumeration value="_holdOverride" />
+      <xsd:enumeration value="_paymentHold" />
+      <xsd:enumeration value="_reject" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransactionPaymentEventType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_authorizationRequest" />
+      <xsd:enumeration value="_captureRequest" />
+      <xsd:enumeration value="_creditRequest" />
+      <xsd:enumeration value="_overrideHold" />
+      <xsd:enumeration value="_refundRequest" />
+      <xsd:enumeration value="_saleRequest" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransactionPaymentEventHoldReason">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_authorizationDecline" />
+      <xsd:enumeration value="_externalFraudRejection" />
+      <xsd:enumeration value="_externalFraudReview" />
+      <xsd:enumeration value="_gatewayError" />
+      <xsd:enumeration value="_overridenBy" />
+      <xsd:enumeration value="_systemError" />
+      <xsd:enumeration value="_verbalAuthorizationRequested" />
+      <xsd:enumeration value="_verificationRejection" />
+      <xsd:enumeration value="_verificationRequired" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageFedExCodFreightTypeFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_cODCharge" />
+      <xsd:enumeration value="_noneSelected" />
+      <xsd:enumeration value="_orderChargeNet" />
+      <xsd:enumeration value="_orderChargeTotal" />
+      <xsd:enumeration value="_shippingCharge" />
+      <xsd:enumeration value="_totalCharge" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransactionLinkType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_closedPeriodFxVariance" />
+      <xsd:enumeration value="_closeWorkOrder" />
+      <xsd:enumeration value="_cogsLink" />
+      <xsd:enumeration value="_collectTegata" />
+      <xsd:enumeration value="_commission" />
+      <xsd:enumeration value="_depositApplication" />
+      <xsd:enumeration value="_depositRefundCheck" />
+      <xsd:enumeration value="_discountTegata" />
+      <xsd:enumeration value="_dropShipment" />
+      <xsd:enumeration value="_endorseTegata" />
+      <xsd:enumeration value="_estimateInvoicing" />
+      <xsd:enumeration value="_intercompanyAdjustment" />
+      <xsd:enumeration value="_inventoryCountAdjustment" />
+      <xsd:enumeration value="_landedCost" />
+      <xsd:enumeration value="_linkedReturnCost" />
+      <xsd:enumeration value="_opportunityClose" />
+      <xsd:enumeration value="_opportunityEstimate" />
+      <xsd:enumeration value="_orderBillInvoice" />
+      <xsd:enumeration value="_orderPickingPacking" />
+      <xsd:enumeration value="_payment" />
+      <xsd:enumeration value="_payTegata" />
+      <xsd:enumeration value="_purchaseReturn" />
+      <xsd:enumeration value="_receiptBill" />
+      <xsd:enumeration value="_receiptFulfillment" />
+      <xsd:enumeration value="_reimbursement" />
+      <xsd:enumeration value="_revalueWorkOrder" />
+      <xsd:enumeration value="_revenueAmortizatonRecognition" />
+      <xsd:enumeration value="_revenueCommitted" />
+      <xsd:enumeration value="_saleReturn" />
+      <xsd:enumeration value="_salesOrderDegross" />
+      <xsd:enumeration value="_salesOrderDeposit" />
+      <xsd:enumeration value="_salesOrderRevenueRevaluation" />
+      <xsd:enumeration value="_specialOrder" />
+      <xsd:enumeration value="_vendorBillVariance" />
+      <xsd:enumeration value="_wipBuild" />
+      <xsd:enumeration value="_workOrderBuild" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ForecastType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_omitted" />
+      <xsd:enumeration value="_worstCase" />
+      <xsd:enumeration value="_mostLikely" />
+      <xsd:enumeration value="_upside" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransactionLineType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_adjustedQuantity" />
+      <xsd:enumeration value="_billExchangeRateVariance" />
+      <xsd:enumeration value="_billPriceVariance" />
+      <xsd:enumeration value="_billQuantityVariance" />
+      <xsd:enumeration value="_countQuantity" />
+      <xsd:enumeration value="_dropshipExpense" />
+      <xsd:enumeration value="_gainLoss" />
+      <xsd:enumeration value="_item" />
+      <xsd:enumeration value="_nonReimbursuableExpenseOffset" />
+      <xsd:enumeration value="_nonReimbursuableExpenseOriginal" />
+      <xsd:enumeration value="_productionPriceVariance" />
+      <xsd:enumeration value="_productionQuantityVariance" />
+      <xsd:enumeration value="_purchasePriceVariance" />
+      <xsd:enumeration value="_receiving" />
+      <xsd:enumeration value="_routingItem" />
+      <xsd:enumeration value="_routingWorkInProcess" />
+      <xsd:enumeration value="_scrap" />
+      <xsd:enumeration value="_shipping" />
+      <xsd:enumeration value="_snapshotQuantity" />
+      <xsd:enumeration value="_totalBillVariance" />
+      <xsd:enumeration value="_unbuildVariance" />
+      <xsd:enumeration value="_workInProcess" />
+      <xsd:enumeration value="_workInProcessVariance" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransactionApprovalStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_approved" />
+      <xsd:enumeration value="_pendingApproval" />
+      <xsd:enumeration value="_rejected" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentPackageFedExPriorityAlertTypeFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_fedexPriorityAlert" />
+      <xsd:enumeration value="_fedexPriorityAlertPlus" />
+      <xsd:enumeration value="_noneSelected" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentHazmatTypeFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_dangerousGoods" />
+      <xsd:enumeration value="_hazmat" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentAncillaryEndorsementFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_addressCorrection" />
+      <xsd:enumeration value="_carrierLeaveIfNoResponse" />
+      <xsd:enumeration value="_changeService" />
+      <xsd:enumeration value="_forwardingService" />
+      <xsd:enumeration value="_returnService" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemFulfillmentAccessibilityTypeFedEx">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_accessible" />
+      <xsd:enumeration value="_inaccessible" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

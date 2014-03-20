@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:listSupport="urn:support_2013_1.lists.webservices.netsuite.com" xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:listSupportTyp="urn:types.support_2013_1.lists.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:support_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/supportTypes.xsd" namespace="urn:types.support_2013_1.lists.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
+  <xsd:element name="SupportCase" type="listSupport:SupportCase" />
+  <xsd:complexType name="SupportCase">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="escalationMessage" type="xsd:string" />
+          <xsd:element minOccurs="0" name="lastReopenedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="endDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="incomingMessage" type="xsd:string" />
+          <xsd:element minOccurs="0" name="insertSolution" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="outgoingMessage" type="xsd:string" />
+          <xsd:element minOccurs="0" name="searchSolution" type="xsd:string" />
+          <xsd:element minOccurs="0" name="emailForm" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="newSolutionFromMsg" type="xsd:string" />
+          <xsd:element minOccurs="0" name="internalOnly" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="title" type="xsd:string" />
+          <xsd:element minOccurs="0" name="caseNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="startDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastMessageDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="company" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="contact" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="email" type="xsd:string" />
+          <xsd:element minOccurs="0" name="phone" type="xsd:string" />
+          <xsd:element minOccurs="0" name="product" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="module" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="item" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="serialNumber" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="inboundEmail" type="xsd:string" />
+          <xsd:element minOccurs="0" name="issue" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="status" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="priority" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="origin" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="category" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="assigned" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="helpDesk" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="emailEmployeesList" type="listSupport:EmailEmployeesList" />
+          <xsd:element minOccurs="0" name="escalateToList" type="listSupport:SupportCaseEscalateToList" />
+          <xsd:element minOccurs="0" name="timeItemList" type="listSupport:SupportCaseTimeItemList" />
+          <xsd:element minOccurs="0" name="solutionsList" type="listSupport:SupportCaseSolutionsList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="EmailEmployeesList">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" name="emailEmployees" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SupportCaseEscalateTo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="escalatee" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="email" type="xsd:string" />
+      <xsd:element minOccurs="0" name="phone" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SupportCaseEscalateToList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="escalateTo" type="listSupport:SupportCaseEscalateTo" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="SupportCaseSolutions">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="solution" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="message" type="xsd:string" />
+      <xsd:element minOccurs="0" name="dateApplied" type="xsd:dateTime" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SupportCaseSolutionsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="solutions" type="listSupport:SupportCaseSolutions" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="SupportCaseTimeItemList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="timeItem" type="platformCommon:TimeItem" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="supportCaseSearch" type="listSupport:SupportCaseSearch" />
+  <xsd:complexType name="SupportCaseSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:SupportCaseSearchBasic" />
+          <xsd:element minOccurs="0" name="contactJoin" type="platformCommon:ContactSearchBasic" />
+          <xsd:element minOccurs="0" name="customerJoin" type="platformCommon:CustomerSearchBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchBasic" />
+          <xsd:element minOccurs="0" name="issueJoin" type="platformCommon:IssueSearchBasic" />
+          <xsd:element minOccurs="0" name="itemJoin" type="platformCommon:ItemSearchBasic" />
+          <xsd:element minOccurs="0" name="messagesJoin" type="platformCommon:MessageSearchBasic" />
+          <xsd:element minOccurs="0" name="timeJoin" type="platformCommon:TimeBillSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SupportCaseSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="listSupport:SupportCaseSearch" />
+          <xsd:element minOccurs="0" name="columns" type="listSupport:SupportCaseSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SupportCaseSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:SupportCaseSearchRowBasic" />
+          <xsd:element minOccurs="0" name="contactJoin" type="platformCommon:ContactSearchRowBasic" />
+          <xsd:element minOccurs="0" name="customerJoin" type="platformCommon:CustomerSearchRowBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchRowBasic" />
+          <xsd:element minOccurs="0" name="issueJoin" type="platformCommon:IssueSearchRowBasic" />
+          <xsd:element minOccurs="0" name="itemJoin" type="platformCommon:ItemSearchRowBasic" />
+          <xsd:element minOccurs="0" name="messagesJoin" type="platformCommon:MessageSearchRowBasic" />
+          <xsd:element minOccurs="0" name="timeJoin" type="platformCommon:TimeBillSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SupportCaseStatus" type="listSupport:SupportCaseStatus" />
+  <xsd:complexType name="SupportCaseStatus">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="stage" type="listSupportTyp:SupportCaseStatusStage" />
+          <xsd:element minOccurs="0" name="caseOnHold" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="autoCloseCase" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SupportCaseType" type="listSupport:SupportCaseType" />
+  <xsd:complexType name="SupportCaseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SupportCaseOrigin" type="listSupport:SupportCaseOrigin" />
+  <xsd:complexType name="SupportCaseOrigin">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SupportCaseIssue" type="listSupport:SupportCaseIssue" />
+  <xsd:complexType name="SupportCaseIssue">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SupportCasePriority" type="listSupport:SupportCasePriority" />
+  <xsd:complexType name="SupportCasePriority">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Solution" type="listSupport:Solution" />
+  <xsd:complexType name="Solution">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="solutionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="title" type="xsd:string" />
+          <xsd:element minOccurs="0" name="message" type="xsd:string" />
+          <xsd:element minOccurs="0" name="status" type="listSupportTyp:SolutionStatus" />
+          <xsd:element minOccurs="0" name="displayOnline" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="assigned" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="longDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" name="topicsList" type="listSupport:SolutionTopicsList" />
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="solutionsList" type="listSupport:SolutionsList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SolutionTopics">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="topic" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SolutionTopicsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="topics" type="listSupport:SolutionTopics" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="Solutions">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="solution" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="message" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SolutionsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="solutions" type="listSupport:Solutions" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="solutionSearch" type="listSupport:SolutionSearch" />
+  <xsd:complexType name="SolutionSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:SolutionSearchBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchBasic" />
+          <xsd:element minOccurs="0" name="relatedSolutionJoin" type="platformCommon:SolutionSearchBasic" />
+          <xsd:element minOccurs="0" name="topicJoin" type="platformCommon:TopicSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SolutionSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="listSupport:SolutionSearch" />
+          <xsd:element minOccurs="0" name="columns" type="listSupport:SolutionSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SolutionSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:SolutionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchRowBasic" />
+          <xsd:element minOccurs="0" name="relatedSolutionJoin" type="platformCommon:SolutionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="topicJoin" type="platformCommon:TopicSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Topic" type="listSupport:Topic" />
+  <xsd:complexType name="Topic">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="title" type="xsd:string" />
+          <xsd:element minOccurs="0" name="parentTopic" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="longDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" name="solutionList" type="listSupport:TopicSolutionList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TopicSolution">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="solution" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="message" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TopicSolutionList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="solution" type="listSupport:TopicSolution" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="topicSearch" type="listSupport:TopicSearch" />
+  <xsd:complexType name="TopicSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:TopicSearchBasic" />
+          <xsd:element minOccurs="0" name="solutionJoin" type="platformCommon:SolutionSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TopicSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="listSupport:TopicSearch" />
+          <xsd:element minOccurs="0" name="columns" type="listSupport:TopicSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TopicSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:TopicSearchRowBasic" />
+          <xsd:element minOccurs="0" name="solutionJoin" type="platformCommon:SolutionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Issue" type="listSupport:Issue" />
+  <xsd:complexType name="Issue">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="issueNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="issueType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="product" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="module" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="item" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="productTeam" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="source" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="reportedBy" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="reproduce" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="duplicateOf" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="severity" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="priority" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="isShowStopper" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="assigned" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="reviewer" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="isReviewed" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="issueStatus" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="issueTagsList" type="platformCore:RecordRefList" />
+          <xsd:element minOccurs="0" name="issueAbstract" type="xsd:string" />
+          <xsd:element minOccurs="0" name="newDetails" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isOwner" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="trackCode" type="listSupportTyp:IssueTrackCode" />
+          <xsd:element minOccurs="0" name="emailAssignee" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="emailEmployeesList" type="listSupport:EmailEmployeesList" />
+          <xsd:element minOccurs="0" name="emailCellsList" type="platformCore:RecordRefList" />
+          <xsd:element minOccurs="0" name="externalAbstract" type="xsd:string" />
+          <xsd:element minOccurs="0" name="externalDetails" type="xsd:string" />
+          <xsd:element minOccurs="0" name="brokenInVersionList" type="listSupport:IssueVersionList" />
+          <xsd:element minOccurs="0" name="targetVersionList" type="listSupport:IssueVersionList" />
+          <xsd:element minOccurs="0" name="fixedInVersionList" type="listSupport:IssueVersionList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="IssueVersion">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="primary" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="version" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="build" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="IssueVersionList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="issueVersion" type="listSupport:IssueVersion" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="issueSearch" type="listSupport:IssueSearch" />
+  <xsd:complexType name="IssueSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:IssueSearchBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="IssueSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="listSupport:IssueSearch" />
+          <xsd:element minOccurs="0" name="columns" type="listSupport:IssueSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="IssueSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:IssueSearchRowBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchRowBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

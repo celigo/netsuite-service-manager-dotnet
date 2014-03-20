@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:platformFaultTyp="urn:types.faults_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:platformFaults="urn:faults_2013_1.platform.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:faults_2013_1.platform.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/faultTypes.xsd" namespace="urn:types.faults_2013_1.platform.webservices.netsuite.com" />
+  <xsd:complexType name="SoapFault">
+    <xsd:sequence>
+      <xsd:element name="code" type="platformFaultTyp:FaultCodeType" />
+      <xsd:element name="message" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InsufficientPermissionFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="insufficientPermissionFault" type="platformFaults:InsufficientPermissionFault" />
+  <xsd:complexType name="InvalidAccountFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="invalidAccountFault" type="platformFaults:InvalidAccountFault" />
+  <xsd:complexType name="InvalidCredentialsFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="invalidCredentialsFault" type="platformFaults:InvalidCredentialsFault" />
+  <xsd:complexType name="InvalidSessionFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="invalidSessionFault" type="platformFaults:InvalidSessionFault" />
+  <xsd:complexType name="ExceededRequestLimitFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="exceededRequestLimitFault" type="platformFaults:ExceededRequestLimitFault" />
+  <xsd:complexType name="ExceededUsageLimitFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="exceededUsageLimitFault" type="platformFaults:ExceededUsageLimitFault" />
+  <xsd:complexType name="ExceededRecordCountFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="exceededRecordCountFault" type="platformFaults:ExceededRecordCountFault" />
+  <xsd:complexType name="InvalidVersionFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="exceededRequestSizeFault" type="platformFaults:ExceededRequestSizeFault" />
+  <xsd:complexType name="ExceededRequestSizeFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="invalidVersionFault" type="platformFaults:InvalidVersionFault" />
+  <xsd:complexType name="AsyncFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="asyncFault" type="platformFaults:AsyncFault" />
+  <xsd:complexType name="UnexpectedErrorFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="unexpectedErrorFault" type="platformFaults:UnexpectedErrorFault" />
+</xsd:schema>

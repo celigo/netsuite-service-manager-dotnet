@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:listSupportTyp="urn:types.support_2013_1.lists.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.support_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="SupportCaseStatusStage">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_closed" />
+      <xsd:enumeration value="_escalated" />
+      <xsd:enumeration value="_open" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SupportCaseStage">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_closed" />
+      <xsd:enumeration value="_escalated" />
+      <xsd:enumeration value="_open" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SolutionStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_approved" />
+      <xsd:enumeration value="_unapproved" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IssueEventStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_closed" />
+      <xsd:enumeration value="_onHold" />
+      <xsd:enumeration value="_open" />
+      <xsd:enumeration value="_resolved" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IssueTrackCode">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_never" />
+      <xsd:enumeration value="_onAnyChange" />
+      <xsd:enumeration value="_whenBaseStatusIsClosed" />
+      <xsd:enumeration value="_whenBaseStatusIsOnHold" />
+      <xsd:enumeration value="_whenBaseStatusIsOpen" />
+      <xsd:enumeration value="_whenBaseStatusIsResolved" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

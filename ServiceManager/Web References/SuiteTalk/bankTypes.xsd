@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tranBankTyp="urn:types.bank_2013_1.transactions.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.bank_2013_1.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />

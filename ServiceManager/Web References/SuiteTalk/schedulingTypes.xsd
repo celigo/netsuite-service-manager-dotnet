@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:actSchedTyp="urn:types.scheduling_2013_1.activities.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.scheduling_2013_1.activities.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="CalendarEventAccessLevel">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_private" />
+      <xsd:enumeration value="_public" />
+      <xsd:enumeration value="_showAsBusy" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CalendarEventAttendeeAttendance">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_optional" />
+      <xsd:enumeration value="_required" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CalendarEventFrequency">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_none" />
+      <xsd:enumeration value="_day" />
+      <xsd:enumeration value="_week" />
+      <xsd:enumeration value="_month" />
+      <xsd:enumeration value="_year" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CalendarEventDow">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_sunday" />
+      <xsd:enumeration value="_monday" />
+      <xsd:enumeration value="_tuesday" />
+      <xsd:enumeration value="_wednesday" />
+      <xsd:enumeration value="_thursday" />
+      <xsd:enumeration value="_friday" />
+      <xsd:enumeration value="_saturday" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CalendarEventDowim">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_first" />
+      <xsd:enumeration value="_second" />
+      <xsd:enumeration value="_third" />
+      <xsd:enumeration value="_fourth" />
+      <xsd:enumeration value="_last" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CalendarEventReminderMinutes">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_none" />
+      <xsd:enumeration value="_0minutes" />
+      <xsd:enumeration value="_10minutes" />
+      <xsd:enumeration value="_12hours" />
+      <xsd:enumeration value="_15minutes" />
+      <xsd:enumeration value="_1day" />
+      <xsd:enumeration value="_1hour" />
+      <xsd:enumeration value="_1week" />
+      <xsd:enumeration value="_2days" />
+      <xsd:enumeration value="_2hours" />
+      <xsd:enumeration value="_30minutes" />
+      <xsd:enumeration value="_3days" />
+      <xsd:enumeration value="_3hours" />
+      <xsd:enumeration value="_4hours" />
+      <xsd:enumeration value="_5hours" />
+      <xsd:enumeration value="_5minutes" />
+      <xsd:enumeration value="_8hours" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CalendarEventReminderType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_none" />
+      <xsd:enumeration value="_eMail" />
+      <xsd:enumeration value="_popupWindow" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CalendarEventStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_canceled" />
+      <xsd:enumeration value="_completed" />
+      <xsd:enumeration value="_confirmed" />
+      <xsd:enumeration value="_tentative" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TaskPriority">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_high" />
+      <xsd:enumeration value="_low" />
+      <xsd:enumeration value="_medium" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TaskReminderMinutes">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_0minutes" />
+      <xsd:enumeration value="_10minutes" />
+      <xsd:enumeration value="_12hours" />
+      <xsd:enumeration value="_15minutes" />
+      <xsd:enumeration value="_1day" />
+      <xsd:enumeration value="_1hour" />
+      <xsd:enumeration value="_1week" />
+      <xsd:enumeration value="_2days" />
+      <xsd:enumeration value="_2hours" />
+      <xsd:enumeration value="_30minutes" />
+      <xsd:enumeration value="_3days" />
+      <xsd:enumeration value="_3hours" />
+      <xsd:enumeration value="_4hours" />
+      <xsd:enumeration value="_5hours" />
+      <xsd:enumeration value="_5minutes" />
+      <xsd:enumeration value="_8hours" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TaskReminderType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_eMail" />
+      <xsd:enumeration value="_popupWindow" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TaskStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_completed" />
+      <xsd:enumeration value="_inProgress" />
+      <xsd:enumeration value="_notStarted" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PhoneCallPriority">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_high" />
+      <xsd:enumeration value="_low" />
+      <xsd:enumeration value="_medium" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PhoneCallReminderMinutes">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_0minutes" />
+      <xsd:enumeration value="_10minutes" />
+      <xsd:enumeration value="_12hours" />
+      <xsd:enumeration value="_15minutes" />
+      <xsd:enumeration value="_1day" />
+      <xsd:enumeration value="_1hour" />
+      <xsd:enumeration value="_1week" />
+      <xsd:enumeration value="_2days" />
+      <xsd:enumeration value="_2hours" />
+      <xsd:enumeration value="_30minutes" />
+      <xsd:enumeration value="_3days" />
+      <xsd:enumeration value="_3hours" />
+      <xsd:enumeration value="_4hours" />
+      <xsd:enumeration value="_5hours" />
+      <xsd:enumeration value="_5minutes" />
+      <xsd:enumeration value="_8hours" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PhoneCallReminderType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_eMail" />
+      <xsd:enumeration value="_popupWindow" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PhoneCallStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_completed" />
+      <xsd:enumeration value="_scheduled" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ProjectTaskPriority">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_high" />
+      <xsd:enumeration value="_low" />
+      <xsd:enumeration value="_medium" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ProjectTaskStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_completed" />
+      <xsd:enumeration value="_inProgress" />
+      <xsd:enumeration value="_notStarted" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ProjectTaskConstraintType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_asSoonAsPossible" />
+      <xsd:enumeration value="_fixedStart" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ProjectTaskPredecessorPredecessorType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_finishToStart" />
+      <xsd:enumeration value="_startToStart" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

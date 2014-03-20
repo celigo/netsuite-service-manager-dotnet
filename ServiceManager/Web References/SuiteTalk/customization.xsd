@@ -1,0 +1,1199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" xmlns:setupCustomTyp="urn:types.customization_2013_1.setup.webservices.netsuite.com" xmlns:setupCustom="urn:customization_2013_1.setup.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:customization_2013_1.setup.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/setup/v2013_1_0/customizationTypes.xsd" namespace="urn:types.customization_2013_1.setup.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/commonTypes.xsd" namespace="urn:types.common_2013_1.platform.webservices.netsuite.com" />
+  <xsd:element name="CustomRecord" type="setupCustom:CustomRecord" />
+  <xsd:complexType name="CustomRecord">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="customRecordId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="disclaimer" type="xsd:string" />
+          <xsd:element minOccurs="0" name="created" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModified" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="recType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="enableNumbering" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="numberingPrefix" type="xsd:string" />
+          <xsd:element minOccurs="0" name="numberingSuffix" type="xsd:string" />
+          <xsd:element minOccurs="0" name="numberingMinDigits" type="xsd:long" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="numberingInit" type="xsd:long" />
+          <xsd:element minOccurs="0" name="numberingCurrentNumber" type="xsd:long" />
+          <xsd:element minOccurs="0" name="allowNumberingOverride" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isNumberingUpdateable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="includeName" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showId" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showCreationDate" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showCreationDateOnList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showLastModified" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showLastModifiedOnList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showOwner" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showOwnerOnList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showOwnerAllowChange" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="usePermissions" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="allowAttachments" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showNotes" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="enablEmailMerge" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isOrdered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="allowInlineEditing" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isAvailableOffline" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="allowQuickSearch" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="recordName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="scriptId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="customRecordSearch" type="setupCustom:CustomRecordSearch" />
+  <xsd:complexType name="CustomRecordSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:CustomRecordSearchBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchBasic" />
+          <xsd:element minOccurs="0" name="messagesJoin" type="platformCommon:MessageSearchBasic" />
+          <xsd:element minOccurs="0" name="ownerJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="setupCustom:CustomRecordSearch" />
+          <xsd:element minOccurs="0" name="columns" type="setupCustom:CustomRecordSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:CustomRecordSearchRowBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchRowBasic" />
+          <xsd:element minOccurs="0" name="messagesJoin" type="platformCommon:MessageSearchRowBasic" />
+          <xsd:element minOccurs="0" name="ownerJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CustomList" type="setupCustom:CustomList" />
+  <xsd:complexType name="CustomList">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="isOrdered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isMatrixOption" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="scriptId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="convertToCustomRecord" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="customValueList" type="setupCustom:CustomListCustomValueList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomListTranslationsList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomListCustomValue">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="value" type="xsd:string" />
+      <xsd:element minOccurs="0" name="abbreviation" type="xsd:string" />
+      <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="valueId" type="xsd:long" />
+      <xsd:element minOccurs="0" name="valueLanguageValueList" type="setupCustom:LanguageValueList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomListCustomValueList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="customValue" type="setupCustom:CustomListCustomValue" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomListTranslations">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="locale" type="platformCommonTyp:Language" />
+      <xsd:element minOccurs="0" name="localeDescription" type="xsd:string" />
+      <xsd:element minOccurs="0" name="name" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomListTranslationsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="translations" type="setupCustom:CustomListTranslations" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="CustomRecordType" type="setupCustom:CustomRecordType" />
+  <xsd:complexType name="CustomRecordType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="recordName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="includeName" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showId" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showCreationDate" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showCreationDateOnList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showLastModified" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showLastModifiedOnList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showOwner" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showOwnerOnList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showOwnerAllowChange" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="accessType" type="setupCustomTyp:CustomRecordTypeAccessType" />
+          <xsd:element minOccurs="0" name="allowAttachments" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showNotes" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="enableMailMerge" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isOrdered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isAvailableOffline" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="allowQuickSearch" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="enableDle" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="disclaimer" type="xsd:string" />
+          <xsd:element minOccurs="0" name="enableNumbering" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="numberingPrefix" type="xsd:string" />
+          <xsd:element minOccurs="0" name="numberingSuffix" type="xsd:string" />
+          <xsd:element minOccurs="0" name="numberingMinDigits" type="xsd:long" />
+          <xsd:element minOccurs="0" name="numberingInit" type="xsd:long" />
+          <xsd:element minOccurs="0" name="numberingCurrentNumber" type="xsd:long" />
+          <xsd:element minOccurs="0" name="allowNumberingOverride" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isNumberingUpdateable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="scriptId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tabsList" type="setupCustom:CustomRecordTypeTabsList" />
+          <xsd:element minOccurs="0" name="sublistsList" type="setupCustom:CustomRecordTypeSublistsList" />
+          <xsd:element minOccurs="0" name="formsList" type="setupCustom:CustomRecordTypeFormsList" />
+          <xsd:element minOccurs="0" name="onlineFormsList" type="setupCustom:CustomRecordTypeOnlineFormsList" />
+          <xsd:element minOccurs="0" name="permissionsList" type="setupCustom:CustomRecordTypePermissionsList" />
+          <xsd:element minOccurs="0" name="linksList" type="setupCustom:CustomRecordTypeLinksList" />
+          <xsd:element minOccurs="0" name="managersList" type="setupCustom:CustomRecordTypeManagersList" />
+          <xsd:element minOccurs="0" name="childrenList" type="setupCustom:CustomRecordTypeChildrenList" />
+          <xsd:element minOccurs="0" name="parentsList" type="setupCustom:CustomRecordTypeParentsList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomRecordTypeTranslationsList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="setupCustom:CustomRecordTypeFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeFieldList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="customField" type="setupCustom:CustomRecordCustomField" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeTabs">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="tabTitle" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tabParent" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="tabTitleLanguageValueList" type="setupCustom:LanguageValueList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeTabsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="tabs" type="setupCustom:CustomRecordTypeTabs" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeForms">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="formEdit" type="xsd:string" />
+      <xsd:element minOccurs="0" name="formName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="formPref" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeFormsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="forms" type="setupCustom:CustomRecordTypeForms" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeOnlineForms">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="onlineFormName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="isOnline" type="xsd:string" />
+      <xsd:element minOccurs="0" name="templateName" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeOnlineFormsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="onlineForms" type="setupCustom:CustomRecordTypeOnlineForms" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypePermissions">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="permittedRole" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="permittedLevel" type="setupCustomTyp:CustomRecordTypePermissionsPermittedLevel" />
+      <xsd:element minOccurs="0" name="restriction" type="setupCustomTyp:CustomRecordTypePermissionsRestriction" />
+      <xsd:element minOccurs="0" name="defaultForm" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="restrictForm" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="searchForm" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="searchResults" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="listView" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="listViewRestricted" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="dashboardView" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="restrictDashboardView" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="sublistView" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="restrictSublistView" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypePermissionsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="permissions" type="setupCustom:CustomRecordTypePermissions" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeLinks">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="linkCenter" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="linkSection" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="linkLabel" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeLinksList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="links" type="setupCustom:CustomRecordTypeLinks" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeManagers">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="managerEmp" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeManagersList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="managers" type="setupCustom:CustomRecordTypeManagers" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeChildren">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="childDescr" type="xsd:string" />
+      <xsd:element minOccurs="0" name="childTab" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeChildrenList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="children" type="setupCustom:CustomRecordTypeChildren" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeParents">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="childDescr" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeParentsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="parents" type="setupCustom:CustomRecordTypeParents" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeTranslations">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="locale" type="platformCommonTyp:Language" />
+      <xsd:element minOccurs="0" name="localeDescription" type="xsd:string" />
+      <xsd:element minOccurs="0" name="name" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeTranslationsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="translations" type="setupCustom:CustomRecordTypeTranslations" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeSublists">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="recordSearch" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="recordDescr" type="xsd:string" />
+      <xsd:element minOccurs="0" name="recordDescrLanguageValueList" type="setupCustom:LanguageValueList" />
+      <xsd:element minOccurs="0" name="recordTab" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="recordId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordTypeSublistsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublists" type="setupCustom:CustomRecordTypeSublists" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="EntityCustomField" type="setupCustom:EntityCustomField" />
+  <xsd:complexType name="EntityCustomField">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="label" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="fieldType" type="setupCustomTyp:CustomizationFieldType" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="selectRecordType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="storeValue" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showInList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="globalSearch" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isParent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="availableToSso" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="subtab" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="displayType" type="setupCustomTyp:CustomizationDisplayType" />
+          <xsd:element minOccurs="0" name="displayWidth" type="xsd:long" />
+          <xsd:element minOccurs="0" name="displayHeight" type="xsd:long" />
+          <xsd:element minOccurs="0" name="help" type="xsd:string" />
+          <xsd:element minOccurs="0" name="parentSubtab" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="linkText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isMandatory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="checkSpelling" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="maxLength" type="xsd:long" />
+          <xsd:element minOccurs="0" name="minValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="maxValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="defaultChecked" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultValue" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isFormula" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultSelection" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="dynamicDefault" type="setupCustomTyp:CustomizationDynamicDefault" />
+          <xsd:element minOccurs="0" name="sourceList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFilterBy" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="appliesToCustomer" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToProject" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToVendor" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToEmployee" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToOtherName" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToContact" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToPartner" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToWebSite" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToGroup" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="availableExternally" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="filterList" type="setupCustom:EntityCustomFieldFilterList" />
+          <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+          <xsd:element minOccurs="0" name="appliesToStatement" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+          <xsd:element minOccurs="0" name="appliesToPriceList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="roleAccessList" type="setupCustom:CustomFieldRoleAccessList" />
+          <xsd:element minOccurs="0" name="deptAccessList" type="setupCustom:CustomFieldDepartmentAccessList" />
+          <xsd:element minOccurs="0" name="subAccessList" type="setupCustom:CustomFieldSubAccessList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomFieldTranslationsList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="EntityCustomFieldFilter">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fldFilter" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="fldFilterChecked" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldFilterCompareType" type="setupCustomTyp:CustomizationFilterCompareType" />
+      <xsd:element minOccurs="0" name="fldFilterVal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fldFilterSelList" type="setupCustom:FldFilterSelList" />
+      <xsd:element minOccurs="0" name="fldFilterNotNull" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EntityCustomFieldFilterList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="filter" type="setupCustom:EntityCustomFieldFilter" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="FldFilterSelList">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" name="fldFilterSel" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="CrmCustomField" type="setupCustom:CrmCustomField" />
+  <xsd:complexType name="CrmCustomField">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="label" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="fieldType" type="setupCustomTyp:CustomizationFieldType" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="selectRecordType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="storeValue" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showInList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="globalSearch" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isParent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subtab" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="displayType" type="setupCustomTyp:CustomizationDisplayType" />
+          <xsd:element minOccurs="0" name="displayWidth" type="xsd:long" />
+          <xsd:element minOccurs="0" name="displayHeight" type="xsd:long" />
+          <xsd:element minOccurs="0" name="help" type="xsd:string" />
+          <xsd:element minOccurs="0" name="parentSubtab" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="linkText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isMandatory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="checkSpelling" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="maxLength" type="xsd:long" />
+          <xsd:element minOccurs="0" name="minValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="maxValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="defaultChecked" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultValue" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isFormula" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultSelection" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="dynamicDefault" type="setupCustomTyp:CustomizationDynamicDefault" />
+          <xsd:element minOccurs="0" name="sourceList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFilterBy" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="appliesToTask" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToProjectTask" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToPhoneCall" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToEvent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToCase" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToCampaign" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesPerKeyword" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToSolution" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToIssue" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="availableExternally" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="availableToSso" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showIssueChanges" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="filterList" type="setupCustom:CrmCustomFieldFilterList" />
+          <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+          <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+          <xsd:element minOccurs="0" name="roleAccessList" type="setupCustom:CustomFieldRoleAccessList" />
+          <xsd:element minOccurs="0" name="deptAccessList" type="setupCustom:CustomFieldDepartmentAccessList" />
+          <xsd:element minOccurs="0" name="subAccessList" type="setupCustom:CustomFieldSubAccessList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomFieldTranslationsList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CrmCustomFieldFilter">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fldFilter" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="fldFilterChecked" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldFilterCompareType" type="setupCustomTyp:CustomizationFilterCompareType" />
+      <xsd:element minOccurs="0" name="fldFilterVal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fldFilterSelList" type="setupCustom:FldFilterSelList" />
+      <xsd:element minOccurs="0" name="fldFilterNotNull" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CrmCustomFieldFilterList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="filter" type="setupCustom:CrmCustomFieldFilter" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="OtherCustomField" type="setupCustom:OtherCustomField" />
+  <xsd:complexType name="OtherCustomField">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="recType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="label" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="fieldType" type="setupCustomTyp:CustomizationFieldType" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="selectRecordType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="storeValue" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showInList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="displayType" type="setupCustomTyp:CustomizationDisplayType" />
+          <xsd:element minOccurs="0" name="displayWidth" type="xsd:long" />
+          <xsd:element minOccurs="0" name="displayHeight" type="xsd:long" />
+          <xsd:element minOccurs="0" name="help" type="xsd:string" />
+          <xsd:element minOccurs="0" name="linkText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isMandatory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="checkSpelling" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="maxLength" type="xsd:long" />
+          <xsd:element minOccurs="0" name="minValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="maxValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="defaultChecked" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultValue" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isFormula" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultSelection" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="dynamicDefault" type="setupCustomTyp:CustomizationDynamicDefault" />
+          <xsd:element minOccurs="0" name="sourceList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFilterBy" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="filterList" type="setupCustom:OtherCustomFieldFilterList" />
+          <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+          <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+          <xsd:element minOccurs="0" name="roleAccessList" type="setupCustom:CustomFieldRoleAccessList" />
+          <xsd:element minOccurs="0" name="deptAccessList" type="setupCustom:CustomFieldDepartmentAccessList" />
+          <xsd:element minOccurs="0" name="subAccessList" type="setupCustom:CustomFieldSubAccessList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomFieldTranslationsList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="OtherCustomFieldFilter">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fldFilter" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="fldFilterChecked" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldFilterCompareType" type="setupCustomTyp:CustomizationFilterCompareType" />
+      <xsd:element minOccurs="0" name="fldFilterVal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fldFilterSelList" type="setupCustom:FldFilterSelList" />
+      <xsd:element minOccurs="0" name="fldFilterNotNull" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OtherCustomFieldFilterList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="filter" type="setupCustom:OtherCustomFieldFilter" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="ItemCustomField" type="setupCustom:ItemCustomField" />
+  <xsd:complexType name="ItemCustomField">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="label" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="itemMatrix" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="fieldType" type="setupCustomTyp:CustomizationFieldType" />
+          <xsd:element minOccurs="0" name="selectRecordType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="storeValue" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showInList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="globalSearch" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isParent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subtab" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="displayType" type="setupCustomTyp:CustomizationDisplayType" />
+          <xsd:element minOccurs="0" name="displayWidth" type="xsd:long" />
+          <xsd:element minOccurs="0" name="displayHeight" type="xsd:long" />
+          <xsd:element minOccurs="0" name="help" type="xsd:string" />
+          <xsd:element minOccurs="0" name="parentSubtab" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="linkText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isMandatory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="checkSpelling" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="maxLength" type="xsd:long" />
+          <xsd:element minOccurs="0" name="minValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="maxValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="defaultChecked" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultValue" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isFormula" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultSelection" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="dynamicDefault" type="setupCustomTyp:CustomizationDynamicDefault" />
+          <xsd:element minOccurs="0" name="sourceList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFilterBy" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="appliesToInventory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToNonInventory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToService" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToOtherCharge" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToGroup" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToKit" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToItemAssembly" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="availableToSso" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemSubType" type="setupCustomTyp:ItemCustomFieldItemSubType" />
+          <xsd:element minOccurs="0" name="filterList" type="setupCustom:ItemCustomFieldFilterList" />
+          <xsd:element minOccurs="0" name="appliesToPriceList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+          <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+          <xsd:element minOccurs="0" name="roleAccessList" type="setupCustom:CustomFieldRoleAccessList" />
+          <xsd:element minOccurs="0" name="deptAccessList" type="setupCustom:CustomFieldDepartmentAccessList" />
+          <xsd:element minOccurs="0" name="subAccessList" type="setupCustom:CustomFieldSubAccessList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomFieldTranslationsList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ItemCustomFieldFilter">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fldFilter" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="fldFilterChecked" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldFilterCompareType" type="setupCustomTyp:CustomizationFilterCompareType" />
+      <xsd:element minOccurs="0" name="fldFilterVal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fldFilterSelList" type="setupCustom:FldFilterSelList" />
+      <xsd:element minOccurs="0" name="fldFilterNotNull" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ItemCustomFieldFilterList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="filter" type="setupCustom:ItemCustomFieldFilter" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="TransactionBodyCustomField" type="setupCustom:TransactionBodyCustomField" />
+  <xsd:complexType name="TransactionBodyCustomField">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="label" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="fieldType" type="setupCustomTyp:CustomizationFieldType" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="selectRecordType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="storeValue" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showInList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="globalSearch" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isParent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subtab" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="availableToSso" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="displayType" type="setupCustomTyp:CustomizationDisplayType" />
+          <xsd:element minOccurs="0" name="displayWidth" type="xsd:long" />
+          <xsd:element minOccurs="0" name="displayHeight" type="xsd:long" />
+          <xsd:element minOccurs="0" name="help" type="xsd:string" />
+          <xsd:element minOccurs="0" name="parentSubtab" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="linkText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isMandatory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="checkSpelling" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="maxLength" type="xsd:long" />
+          <xsd:element minOccurs="0" name="minValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="maxValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="defaultChecked" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultValue" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isFormula" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultSelection" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="dynamicDefault" type="setupCustomTyp:CustomizationDynamicDefault" />
+          <xsd:element minOccurs="0" name="sourceList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFilterBy" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="bodyPurchase" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodySale" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyOpportunity" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyJournal" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyExpenseReport" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyStore" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyTransferOrder" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyItemReceipt" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyItemReceiptOrder" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyItemFulfillment" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyItemFulfillmentOrder" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyInventoryAdjustment" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyBTegata" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyAssemblyBuild" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyPrintFlag" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyPickingTicket" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyPrintPackingSlip" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyCustomerPayment" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyVendorPayment" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyDeposit" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyBom" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bodyPrintStatement" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="filterList" type="setupCustom:TransactionBodyCustomFieldFilterList" />
+          <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+          <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+          <xsd:element minOccurs="0" name="roleAccessList" type="setupCustom:CustomFieldRoleAccessList" />
+          <xsd:element minOccurs="0" name="deptAccessList" type="setupCustom:CustomFieldDepartmentAccessList" />
+          <xsd:element minOccurs="0" name="subAccessList" type="setupCustom:CustomFieldSubAccessList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomFieldTranslationsList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TransactionBodyCustomFieldFilter">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fldFilter" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="fldFilterChecked" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldFilterCompareType" type="setupCustomTyp:CustomizationFilterCompareType" />
+      <xsd:element minOccurs="0" name="fldFilterVal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fldFilterSelList" type="setupCustom:FldFilterSelList" />
+      <xsd:element minOccurs="0" name="fldFilterNotNull" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TransactionBodyCustomFieldFilterList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="filter" type="setupCustom:TransactionBodyCustomFieldFilter" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="TransactionColumnCustomField" type="setupCustom:TransactionColumnCustomField" />
+  <xsd:complexType name="TransactionColumnCustomField">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="label" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="fieldType" type="setupCustomTyp:CustomizationFieldType" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="selectRecordType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="storeValue" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="availableToSso" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="displayType" type="setupCustomTyp:CustomizationDisplayType" />
+          <xsd:element minOccurs="0" name="displayWidth" type="xsd:long" />
+          <xsd:element minOccurs="0" name="displayHeight" type="xsd:long" />
+          <xsd:element minOccurs="0" name="help" type="xsd:string" />
+          <xsd:element minOccurs="0" name="linkText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isMandatory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="maxLength" type="xsd:long" />
+          <xsd:element minOccurs="0" name="minValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="maxValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="defaultChecked" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultValue" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isFormula" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultSelection" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="dynamicDefault" type="setupCustomTyp:CustomizationDynamicDefault" />
+          <xsd:element minOccurs="0" name="sourceList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFilterBy" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="colExpense" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colPurchase" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colSale" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colOpportunity" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colStore" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colStoreHidden" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colJournal" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colBuild" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colExpenseReport" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colTime" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colTransferOrder" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colTimeGroup" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colItemReceipt" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colItemReceiptOrder" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colItemFulfillment" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colItemFulfillmentOrder" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colPrintFlag" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colPickingTicket" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colPackingSlip" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colReturnForm" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colStoreWithGroups" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colGroupOnInvoices" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colKitItem" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="filterList" type="setupCustom:TransactionColumnCustomFieldFilterList" />
+          <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+          <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+          <xsd:element minOccurs="0" name="roleAccessList" type="setupCustom:CustomFieldRoleAccessList" />
+          <xsd:element minOccurs="0" name="deptAccessList" type="setupCustom:CustomFieldDepartmentAccessList" />
+          <xsd:element minOccurs="0" name="subAccessList" type="setupCustom:CustomFieldSubAccessList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomFieldTranslationsList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TransactionColumnCustomFieldFilter">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fldFilter" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="fldFilterChecked" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldFilterCompareType" type="setupCustomTyp:CustomizationFilterCompareType" />
+      <xsd:element minOccurs="0" name="fldFilterVal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fldFilterSelList" type="setupCustom:FldFilterSelList" />
+      <xsd:element minOccurs="0" name="fldFilterNotNull" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TransactionColumnCustomFieldFilterList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="filter" type="setupCustom:TransactionColumnCustomFieldFilter" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="ItemOptionCustomField" type="setupCustom:ItemOptionCustomField" />
+  <xsd:complexType name="ItemOptionCustomField">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="label" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="fieldType" type="setupCustomTyp:CustomizationFieldType" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="selectRecordType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="storeValue" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="displayType" type="setupCustomTyp:CustomizationDisplayType" />
+          <xsd:element minOccurs="0" name="displayWidth" type="xsd:long" />
+          <xsd:element minOccurs="0" name="displayHeight" type="xsd:long" />
+          <xsd:element minOccurs="0" name="help" type="xsd:string" />
+          <xsd:element minOccurs="0" name="linkText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isMandatory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="maxLength" type="xsd:long" />
+          <xsd:element minOccurs="0" name="minValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="maxValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="defaultChecked" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultValue" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isFormula" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultSelection" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="dynamicDefault" type="setupCustomTyp:CustomizationDynamicDefault" />
+          <xsd:element minOccurs="0" name="sourceList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFilterBy" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="colPurchase" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colSale" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colOpportunity" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colStore" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colStoreHidden" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colTransferOrder" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="colAllItems" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemsList" type="setupCustom:ItemsList" />
+          <xsd:element minOccurs="0" name="colKitItem" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="filterList" type="setupCustom:ItemOptionCustomFieldFilterList" />
+          <xsd:element minOccurs="0" name="colOptionLabel" type="xsd:string" />
+          <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+          <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+          <xsd:element minOccurs="0" name="roleAccessList" type="setupCustom:CustomFieldRoleAccessList" />
+          <xsd:element minOccurs="0" name="deptAccessList" type="setupCustom:CustomFieldDepartmentAccessList" />
+          <xsd:element minOccurs="0" name="subAccessList" type="setupCustom:CustomFieldSubAccessList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomFieldTranslationsList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ItemsList">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" name="items" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ItemOptionCustomFieldFilter">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fldFilter" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="fldFilterChecked" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldFilterCompareType" type="setupCustomTyp:CustomizationFilterCompareType" />
+      <xsd:element minOccurs="0" name="fldFilterVal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fldFilterSelList" type="setupCustom:FldFilterSelList" />
+      <xsd:element minOccurs="0" name="fldFilterNotNull" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ItemOptionCustomFieldFilterList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="filter" type="setupCustom:ItemOptionCustomFieldFilter" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="CustomRecordCustomField" type="setupCustom:CustomRecordCustomField" />
+  <xsd:complexType name="CustomRecordCustomField">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="label" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="fieldType" type="setupCustomTyp:CustomizationFieldType" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="selectRecordType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="storeValue" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showInList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="globalSearch" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isParent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subtab" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="displayType" type="setupCustomTyp:CustomizationDisplayType" />
+          <xsd:element minOccurs="0" name="displayWidth" type="xsd:long" />
+          <xsd:element minOccurs="0" name="displayHeight" type="xsd:long" />
+          <xsd:element minOccurs="0" name="help" type="xsd:string" />
+          <xsd:element minOccurs="0" name="parentSubtab" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="linkText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isMandatory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="checkSpelling" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="maxLength" type="xsd:long" />
+          <xsd:element minOccurs="0" name="minValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="maxValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="defaultChecked" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultValue" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isFormula" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultSelection" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="dynamicDefault" type="setupCustomTyp:CustomizationDynamicDefault" />
+          <xsd:element minOccurs="0" name="sourceList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourcefilterby" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="recType" type="xsd:string" />
+          <xsd:element minOccurs="0" name="roleRestrict" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="filterList" type="setupCustom:CustomRecordCustomFieldFilterList" />
+          <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+          <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+          <xsd:element minOccurs="0" name="roleAccessList" type="setupCustom:CustomFieldRoleAccessList" />
+          <xsd:element minOccurs="0" name="deptAccessList" type="setupCustom:CustomFieldDepartmentAccessList" />
+          <xsd:element minOccurs="0" name="subAccessList" type="setupCustom:CustomFieldSubAccessList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomFieldTranslationsList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordCustomFieldFilter">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fldFilter" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="fldFilterChecked" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldFilterCompareType" type="setupCustomTyp:CustomizationFilterCompareType" />
+      <xsd:element minOccurs="0" name="fldFilterVal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fldFilterSelList" type="setupCustom:FldFilterSelList" />
+      <xsd:element minOccurs="0" name="fldFilterNotNull" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomRecordCustomFieldFilterList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="filter" type="setupCustom:CustomRecordCustomFieldFilter" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomFieldRoleAccess">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="role" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+      <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomFieldRoleAccessList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="roleAccess" type="setupCustom:CustomFieldRoleAccess" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomFieldDepartmentAccess">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="dept" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+      <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomFieldDepartmentAccessList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="deptAccess" type="setupCustom:CustomFieldDepartmentAccess" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomFieldSubAccess">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="sub" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+      <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomFieldSubAccessList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="subAccess" type="setupCustom:CustomFieldSubAccess" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="LanguageValue">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="locale" type="platformCommonTyp:Language" />
+      <xsd:element minOccurs="0" name="value" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LanguageValueList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="languageValue" type="setupCustom:LanguageValue" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomFieldTranslations">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="locale" type="platformCommonTyp:Language" />
+      <xsd:element minOccurs="0" name="localeDescription" type="xsd:string" />
+      <xsd:element minOccurs="0" name="label" type="xsd:string" />
+      <xsd:element minOccurs="0" name="help" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomFieldTranslationsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="translations" type="setupCustom:CustomFieldTranslations" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="itemNumberCustomField" type="setupCustom:ItemNumberCustomField" />
+  <xsd:complexType name="ItemNumberCustomField">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="label" type="xsd:string" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="fieldType" type="setupCustomTyp:CustomizationFieldType" />
+          <xsd:element minOccurs="0" name="selectRecordType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="storeValue" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="showInList" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="insertBefore" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="displayType" type="setupCustomTyp:CustomizationDisplayType" />
+          <xsd:element minOccurs="0" name="displayWidth" type="xsd:long" />
+          <xsd:element minOccurs="0" name="displayHeight" type="xsd:long" />
+          <xsd:element minOccurs="0" name="help" type="xsd:string" />
+          <xsd:element minOccurs="0" name="linkText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isMandatory" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="checkSpelling" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="maxLength" type="xsd:long" />
+          <xsd:element minOccurs="0" name="minValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="maxValue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="defaultChecked" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultValue" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isFormula" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultSelection" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="dynamicDefault" type="setupCustomTyp:CustomizationDynamicDefault" />
+          <xsd:element minOccurs="0" name="sourceList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceFilterBy" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="accessLevel" type="setupCustomTyp:CustomizationAccessLevel" />
+          <xsd:element minOccurs="0" name="searchLevel" type="setupCustomTyp:CustomizationSearchLevel" />
+          <xsd:element minOccurs="0" name="filterList" type="setupCustom:ItemNumberCustomFieldFilterList" />
+          <xsd:element minOccurs="0" name="roleAccessList" type="setupCustom:CustomFieldRoleAccessList" />
+          <xsd:element minOccurs="0" name="deptAccessList" type="setupCustom:CustomFieldDepartmentAccessList" />
+          <xsd:element minOccurs="0" name="appliesToAllItems" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToSerialized" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToLots" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="appliesToGiftCerts" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemsList" type="platformCore:RecordRefList" />
+          <xsd:element minOccurs="0" name="translationsList" type="setupCustom:CustomFieldTranslationsList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ItemNumberCustomFieldFilter">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fldFilter" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="fldFilterChecked" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldFilterCompareType" type="setupCustomTyp:CustomizationFilterCompareType" />
+      <xsd:element minOccurs="0" name="fldFilterVal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fldFilterNotNull" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldfilterNull" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="fldCompareField" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ItemNumberCustomFieldFilterList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="filter" type="setupCustom:ItemNumberCustomFieldFilter" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="customListSearch" type="setupCustom:CustomListSearch" />
+  <xsd:complexType name="CustomListSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:CustomListSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomListSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:CustomListSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="appDefinition" type="setupCustom:AppDefinition" />
+  <xsd:complexType name="AppDefinition">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="packagesList" type="setupCustom:AppDefinitionPackagesList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AppDefinitionPackages">
+    <xsd:sequence />
+  </xsd:complexType>
+  <xsd:complexType name="AppDefinitionPackagesList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="packages" type="setupCustom:AppDefinitionPackages" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="appDefinitionSearch" type="setupCustom:AppDefinitionSearch" />
+  <xsd:complexType name="AppDefinitionSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:AppDefinitionSearchBasic" />
+          <xsd:element minOccurs="0" name="appPackageJoin" type="platformCommon:AppPackageSearchBasic" />
+          <xsd:element minOccurs="0" name="creatorJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AppDefinitionSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="setupCustom:AppDefinitionSearch" />
+          <xsd:element minOccurs="0" name="columns" type="setupCustom:AppDefinitionSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AppDefinitionSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:AppDefinitionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="appPackageJoin" type="platformCommon:AppPackageSearchRowBasic" />
+          <xsd:element minOccurs="0" name="creatorJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="appPackage" type="setupCustom:AppPackage" />
+  <xsd:complexType name="AppPackage">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="appDefinition" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="version" type="xsd:string" />
+          <xsd:element minOccurs="0" name="packageFile" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="bundle" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="appPackageSearch" type="setupCustom:AppPackageSearch" />
+  <xsd:complexType name="AppPackageSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:AppPackageSearchBasic" />
+          <xsd:element minOccurs="0" name="appDefinitionJoin" type="platformCommon:AppDefinitionSearchBasic" />
+          <xsd:element minOccurs="0" name="creatorJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="packageFileJoin" type="platformCommon:FileSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AppPackageSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="setupCustom:AppPackageSearch" />
+          <xsd:element minOccurs="0" name="columns" type="setupCustom:AppPackageSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AppPackageSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:AppPackageSearchRowBasic" />
+          <xsd:element minOccurs="0" name="appDefinitionJoin" type="platformCommon:AppDefinitionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="creatorJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="packageFileJoin" type="platformCommon:FileSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

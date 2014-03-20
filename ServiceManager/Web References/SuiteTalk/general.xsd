@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" xmlns:tranGeneral="urn:general_2013_1.transactions.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:general_2013_1.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
+  <xsd:element name="JournalEntry" type="tranGeneral:JournalEntry" />
+  <xsd:complexType name="JournalEntry">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="postingPeriod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="tranDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="exchangeRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="tranId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="reversalDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="reversalDefer" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="parentExpenseAlloc" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="reversalEntry" type="xsd:string" />
+          <xsd:element minOccurs="0" name="createdFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="toSubsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="approved" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="lineList" type="tranGeneral:JournalEntryLineList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="JournalEntryLine">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="account" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="debit" type="xsd:double" />
+      <xsd:element minOccurs="0" name="credit" type="xsd:double" />
+      <xsd:element minOccurs="0" name="taxCode" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="memo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="taxRate1" type="xsd:double" />
+      <xsd:element minOccurs="0" name="entity" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="grossAmt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="eliminate" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="schedule" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="startDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="endDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="residual" type="xsd:string" />
+      <xsd:element minOccurs="0" name="scheduleNum" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="tax1Amt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="tax1Acct" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="JournalEntryLineList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="line" type="tranGeneral:JournalEntryLine" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="InterCompanyJournalEntry" type="tranGeneral:InterCompanyJournalEntry" />
+  <xsd:complexType name="InterCompanyJournalEntry">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="postingPeriod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="tranDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="exchangeRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="tranId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="reversalDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="reversalDefer" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="parentExpenseAlloc" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="reversalEntry" type="xsd:string" />
+          <xsd:element minOccurs="0" name="createdFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="toSubsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="approved" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lineList" type="tranGeneral:InterCompanyJournalEntryLineList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="InterCompanyJournalEntryLine">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="lineSubsidiary" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="account" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="debit" type="xsd:double" />
+      <xsd:element minOccurs="0" name="credit" type="xsd:double" />
+      <xsd:element minOccurs="0" name="taxCode" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="memo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="taxRate1" type="xsd:double" />
+      <xsd:element minOccurs="0" name="entity" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="grossAmt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="schedule" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="startDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="endDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="eliminate" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="residual" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amortizationSched" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="scheduleNum" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="amortizStartDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="amortizationEndDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="amortizationResidual" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tax1Amt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="tax1Acct" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InterCompanyJournalEntryLineList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="line" type="tranGeneral:InterCompanyJournalEntryLine" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+</xsd:schema>

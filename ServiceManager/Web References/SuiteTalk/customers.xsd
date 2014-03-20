@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:tranCust="urn:customers_2013_1.transactions.webservices.netsuite.com" xmlns:tranCustTyp="urn:types.customers_2013_1.transactions.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:customers_2013_1.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/commonTypes.xsd" namespace="urn:types.common_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/customerTypes.xsd" namespace="urn:types.customers_2013_1.transactions.webservices.netsuite.com" />
+  <xsd:element name="CashRefund" type="tranCust:CashRefund" />
+  <xsd:complexType name="CashRefund">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="entity" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="vatRegNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tranDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="tranId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="source" type="xsd:string" />
+          <xsd:element minOccurs="0" name="createdFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="postingPeriod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="leadSource" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="salesRep" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="partner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="contribPct" type="xsd:string" />
+          <xsd:element minOccurs="0" name="otherRefNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="memo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="salesEffectiveDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="refundCheck" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="toPrint2" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="excludeCommission" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="totalCostEstimate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="estGrossProfit" type="xsd:double" />
+          <xsd:element minOccurs="0" name="estGrossProfitPercent" type="xsd:double" />
+          <xsd:element minOccurs="0" name="account" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="exchangeRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="currencyName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="promoCode" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="discountItem" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="discountRate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="taxItem" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="taxRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="toBePrinted" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="toBeEmailed" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="email" type="xsd:string" />
+          <xsd:element minOccurs="0" name="toBeFaxed" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="fax" type="xsd:string" />
+          <xsd:element minOccurs="0" name="messageSel" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="message" type="xsd:string" />
+          <xsd:element minOccurs="0" name="transactionBillAddress" type="platformCommon:BillAddress" />
+          <xsd:element minOccurs="0" name="billAddressList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="billAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" name="shipMethod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="shippingTaxCode" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="shippingTax1Rate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="shippingTax2Rate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="shippingCost" type="xsd:double" />
+          <xsd:element minOccurs="0" name="handlingTaxCode" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="handlingTax1Rate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="handlingTax2Rate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="handlingCost" type="xsd:double" />
+          <xsd:element minOccurs="0" name="salesGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="syncSalesTeams" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="paymentMethod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueStatus" type="platformCommonTyp:RevenueStatus" />
+          <xsd:element minOccurs="0" name="recognizedRevenue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="deferredRevenue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="revRecOnRevCommitment" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="creditCard" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="chargeIt" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ccNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccExpireDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="ccName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccStreet" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccZipCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccApproved" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="creditCardProcessor" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="debitCardIssueNo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="pnRefNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="validFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="payPalTranId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="subTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="ccIsPurchaseCardBin" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="discountTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="ccProcessAsPurchaseCard" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="taxTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="tax2Total" type="xsd:double" />
+          <xsd:element minOccurs="0" name="altShippingCost" type="xsd:double" />
+          <xsd:element minOccurs="0" name="payPalStatus" type="xsd:string" />
+          <xsd:element minOccurs="0" name="altHandlingCost" type="xsd:double" />
+          <xsd:element minOccurs="0" name="total" type="xsd:double" />
+          <xsd:element minOccurs="0" name="payPalAuthId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="status" type="xsd:string" />
+          <xsd:element minOccurs="0" name="job" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="giftCert" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="giftCertTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="giftCertApplied" type="xsd:double" />
+          <xsd:element minOccurs="0" name="giftCertAvailable" type="xsd:double" />
+          <xsd:element minOccurs="0" name="tranIsVsoeBundle" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="payPalProcess" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="vsoeAutoCalc" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="syncPartnerTeams" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemList" type="tranCust:CashRefundItemList" />
+          <xsd:element minOccurs="0" name="salesTeamList" type="tranCust:CashRefundSalesTeamList" />
+          <xsd:element minOccurs="0" name="partnersList" type="tranCust:CashRefundPartnersList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CashRefundItem">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="job" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="item" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+      <xsd:element minOccurs="0" name="orderLine" type="xsd:long" />
+      <xsd:element minOccurs="0" name="quantity" type="xsd:double" />
+      <xsd:element minOccurs="0" name="units" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="inventoryDetail" type="platformCommon:InventoryDetail" />
+      <xsd:element minOccurs="0" name="binNumbers" type="xsd:string" />
+      <xsd:element minOccurs="0" name="serialNumbers" type="xsd:string" />
+      <xsd:element minOccurs="0" name="description" type="xsd:string" />
+      <xsd:element minOccurs="0" name="price" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="rate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+      <xsd:element minOccurs="0" name="taxCode" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="taxRate1" type="xsd:string" />
+      <xsd:element minOccurs="0" name="taxRate2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tax1Amt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="grossAmt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="options" type="platformCore:CustomFieldList" />
+      <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="revRecSchedule" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="revRecStartDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="revRecEndDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="giftCertFrom" type="xsd:string" />
+      <xsd:element minOccurs="0" name="costEstimateType" type="platformCommonTyp:ItemCostEstimateType" />
+      <xsd:element minOccurs="0" name="costEstimate" type="xsd:double" />
+      <xsd:element minOccurs="0" name="giftCertRecipientName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertRecipientEmail" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertMessage" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertNumber" type="xsd:string" />
+      <xsd:element minOccurs="0" name="vsoeSopGroup" type="platformCommonTyp:VsoeSopGroup" />
+      <xsd:element minOccurs="0" name="vsoeIsEstimate" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="vsoePrice" type="xsd:double" />
+      <xsd:element minOccurs="0" name="vsoeAmount" type="xsd:double" />
+      <xsd:element minOccurs="0" name="vsoeAllocation" type="xsd:double" />
+      <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
+      <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
+      <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CashRefundItemList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tranCust:CashRefundItem" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CashRefundSalesTeam">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="employee" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="salesRole" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="isPrimary" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="contribution" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CashRefundSalesTeamList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="salesTeam" type="tranCust:CashRefundSalesTeam" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CashRefundPartnersList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="partners" type="platformCommon:Partners" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="CustomerPayment" type="tranCust:CustomerPayment" />
+  <xsd:complexType name="CustomerPayment">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="arAcct" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="customer" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="balance" type="xsd:double" />
+          <xsd:element minOccurs="0" name="pending" type="xsd:double" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="payment" type="xsd:double" />
+          <xsd:element minOccurs="0" name="autoApply" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="tranDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="postingPeriod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="paymentMethod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="ccIsPurchaseCardBin" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="memo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccProcessAsPurchaseCard" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="checkNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="currencyName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="exchangeRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="creditCard" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="chargeIt" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ccNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccExpireDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="ccName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccStreet" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccZipCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccApproved" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="authCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccAvsStreetMatch" type="platformCommonTyp:AvsMatchCode" />
+          <xsd:element minOccurs="0" name="ccAvsZipMatch" type="platformCommonTyp:AvsMatchCode" />
+          <xsd:element minOccurs="0" name="ccSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ignoreAvs" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ccSecurityCodeMatch" type="platformCommonTyp:AvsMatchCode" />
+          <xsd:element minOccurs="0" name="threeDStatusCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="pnRefNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="creditCardProcessor" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="debitCardIssueNo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="validFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="undepFunds" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="account" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="total" type="xsd:double" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="applied" type="xsd:double" />
+          <xsd:element minOccurs="0" name="unapplied" type="xsd:double" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="status" type="xsd:string" />
+          <xsd:element minOccurs="0" name="applyList" type="tranCust:CustomerPaymentApplyList" />
+          <xsd:element minOccurs="0" name="creditList" type="tranCust:CustomerPaymentCreditList" />
+          <xsd:element minOccurs="0" name="depositList" type="tranCust:CustomerPaymentDepositList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerPaymentApply">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="apply" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="doc" type="xsd:long" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+      <xsd:element minOccurs="0" name="applyDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="job" type="xsd:string" />
+      <xsd:element minOccurs="0" name="type" type="xsd:string" />
+      <xsd:element minOccurs="0" name="refNum" type="xsd:string" />
+      <xsd:element minOccurs="0" name="total" type="xsd:double" />
+      <xsd:element minOccurs="0" name="due" type="xsd:double" />
+      <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+      <xsd:element minOccurs="0" name="discDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="discAmt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="disc" type="xsd:double" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerPaymentApplyList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="apply" type="tranCust:CustomerPaymentApply" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomerPaymentCredit">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="apply" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="doc" type="xsd:long" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+      <xsd:element minOccurs="0" name="creditDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="type" type="xsd:string" />
+      <xsd:element minOccurs="0" name="refNum" type="xsd:string" />
+      <xsd:element minOccurs="0" name="appliedTo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="total" type="xsd:double" />
+      <xsd:element minOccurs="0" name="due" type="xsd:double" />
+      <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerPaymentCreditList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="credit" type="tranCust:CustomerPaymentCredit" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomerPaymentDeposit">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="apply" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="doc" type="xsd:long" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+      <xsd:element minOccurs="0" name="depositDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="refNum" type="xsd:string" />
+      <xsd:element minOccurs="0" name="total" type="xsd:double" />
+      <xsd:element minOccurs="0" name="remaining" type="xsd:double" />
+      <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerPaymentDepositList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="deposit" type="tranCust:CustomerPaymentDeposit" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="ReturnAuthorization" type="tranCust:ReturnAuthorization" />
+  <xsd:complexType name="ReturnAuthorization">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="entity" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="vatRegNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tranDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="tranId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="source" type="xsd:string" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoTransaction" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoStatus" type="platformCommonTyp:IntercoStatus" />
+          <xsd:element minOccurs="0" name="job" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="partner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="otherRefNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="leadSource" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="memo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="drAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="fxAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="salesEffectiveDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="createdFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revRecSchedule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="totalCostEstimate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="estGrossProfit" type="xsd:double" />
+          <xsd:element minOccurs="0" name="estGrossProfitPercent" type="xsd:double" />
+          <xsd:element minOccurs="0" name="revRecStartDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="revRecEndDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="excludeCommission" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="exchangeRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="currencyName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="discountItem" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="discountRate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="taxItem" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="taxRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="toBePrinted" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="toBeEmailed" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="toBeFaxed" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="messageSel" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="message" type="xsd:string" />
+          <xsd:element minOccurs="0" name="transactionBillAddress" type="platformCommon:BillAddress" />
+          <xsd:element minOccurs="0" name="billAddressList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="billAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" name="shipAddressList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="shipAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" name="salesGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="syncSalesTeams" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueStatus" type="platformCommonTyp:RevenueStatus" />
+          <xsd:element minOccurs="0" name="recognizedRevenue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="deferredRevenue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="revRecOnRevCommitment" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revCommitStatus" type="platformCommonTyp:RevenueCommitStatus" />
+          <xsd:element minOccurs="0" name="paymentMethod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="creditCard" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="ccNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="altSalesTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="ccExpireDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="ccName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccStreet" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccZipCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccApproved" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="pnRefNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="subTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="discountTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="total" type="xsd:double" />
+          <xsd:element minOccurs="0" name="creditCardProcessor" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="payPalAuthId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="payPalProcess" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="email" type="xsd:string" />
+          <xsd:element minOccurs="0" name="fax" type="xsd:string" />
+          <xsd:element minOccurs="0" name="debitCardIssueNo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="promoCode" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="status" type="xsd:string" />
+          <xsd:element minOccurs="0" name="taxTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="tax2Total" type="xsd:double" />
+          <xsd:element minOccurs="0" name="validFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="orderStatus" type="tranCustTyp:ReturnAuthorizationOrderStatus" />
+          <xsd:element minOccurs="0" name="salesRep" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="giftCert" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="contribPct" type="xsd:string" />
+          <xsd:element minOccurs="0" name="giftCertTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="giftCertApplied" type="xsd:double" />
+          <xsd:element minOccurs="0" name="giftCertAvailable" type="xsd:double" />
+          <xsd:element minOccurs="0" name="tranIsVsoeBundle" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="vsoeAutoCalc" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="syncPartnerTeams" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemList" type="tranCust:ReturnAuthorizationItemList" />
+          <xsd:element minOccurs="0" name="salesTeamList" type="tranCust:ReturnAuthorizationSalesTeamList" />
+          <xsd:element minOccurs="0" name="partnersList" type="tranCust:ReturnAuthorizationPartnersList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ReturnAuthorizationItem">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="job" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="item" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="orderLine" type="xsd:long" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+      <xsd:element minOccurs="0" name="quantity" type="xsd:double" />
+      <xsd:element minOccurs="0" name="quantityReceived" type="xsd:double" />
+      <xsd:element minOccurs="0" name="quantityBilled" type="xsd:double" />
+      <xsd:element minOccurs="0" name="units" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="inventoryDetail" type="platformCommon:InventoryDetail" />
+      <xsd:element minOccurs="0" name="description" type="xsd:string" />
+      <xsd:element minOccurs="0" name="serialNumbers" type="xsd:string" />
+      <xsd:element minOccurs="0" name="price" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="rate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+      <xsd:element minOccurs="0" name="options" type="platformCore:CustomFieldList" />
+      <xsd:element minOccurs="0" name="revRecTermInMonths" type="xsd:long" />
+      <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="isClosed" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="isDropShipment" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="costEstimateType" type="platformCommonTyp:ItemCostEstimateType" />
+      <xsd:element minOccurs="0" name="costEstimate" type="xsd:double" />
+      <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="revRecSchedule" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="revRecStartDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="revRecEndDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="taxCode" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="taxRate1" type="xsd:double" />
+      <xsd:element minOccurs="0" name="taxRate2" type="xsd:double" />
+      <xsd:element minOccurs="0" name="tax1Amt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="grossAmt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="giftCertFrom" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertRecipientName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertRecipientEmail" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertMessage" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertNumber" type="xsd:string" />
+      <xsd:element minOccurs="0" name="vsoeSopGroup" type="platformCommonTyp:VsoeSopGroup" />
+      <xsd:element minOccurs="0" name="vsoeIsEstimate" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="vsoePrice" type="xsd:double" />
+      <xsd:element minOccurs="0" name="vsoeAmount" type="xsd:double" />
+      <xsd:element minOccurs="0" name="altSalesAmt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="vsoeAllocation" type="xsd:double" />
+      <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
+      <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
+      <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ReturnAuthorizationItemList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tranCust:ReturnAuthorizationItem" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="ReturnAuthorizationSalesTeam">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="employee" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="salesRole" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="isPrimary" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="contribution" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ReturnAuthorizationSalesTeamList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="salesTeam" type="tranCust:ReturnAuthorizationSalesTeam" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="ReturnAuthorizationPartnersList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="partners" type="platformCommon:Partners" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="CreditMemo" type="tranCust:CreditMemo" />
+  <xsd:complexType name="CreditMemo">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="entity" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="vatRegNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tranDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="tranId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="createdFrom" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="postingPeriod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="job" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="salesRep" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="partner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="contribPct" type="xsd:string" />
+          <xsd:element minOccurs="0" name="otherRefNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="memo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="excludeCommission" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="leadSource" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="balance" type="xsd:double" />
+          <xsd:element minOccurs="0" name="account" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="exchangeRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="onCreditHold" type="xsd:string" />
+          <xsd:element minOccurs="0" name="amountPaid" type="xsd:double" />
+          <xsd:element minOccurs="0" name="salesEffectiveDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="totalCostEstimate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="estGrossProfit" type="xsd:double" />
+          <xsd:element minOccurs="0" name="estGrossProfitPercent" type="xsd:double" />
+          <xsd:element minOccurs="0" name="currencyName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="promoCode" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="amountRemaining" type="xsd:double" />
+          <xsd:element minOccurs="0" name="discountItem" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="source" type="xsd:string" />
+          <xsd:element minOccurs="0" name="discountRate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="taxItem" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="taxRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="unapplied" type="xsd:double" />
+          <xsd:element minOccurs="0" name="autoApply" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="applied" type="xsd:double" />
+          <xsd:element minOccurs="0" name="toBePrinted" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="toBeEmailed" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="email" type="xsd:string" />
+          <xsd:element minOccurs="0" name="toBeFaxed" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="fax" type="xsd:string" />
+          <xsd:element minOccurs="0" name="messageSel" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="message" type="xsd:string" />
+          <xsd:element minOccurs="0" name="transactionBillAddress" type="platformCommon:BillAddress" />
+          <xsd:element minOccurs="0" name="billAddressList" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="billAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" name="shipMethod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="shippingCost" type="xsd:double" />
+          <xsd:element minOccurs="0" name="shippingTax1Rate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="shippingTaxCode" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="handlingTaxCode" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="shippingTax2Rate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="handlingTax1Rate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="handlingTax2Rate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="handlingCost" type="xsd:double" />
+          <xsd:element minOccurs="0" name="subTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="discountTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="revenueStatus" type="platformCommonTyp:RevenueStatus" />
+          <xsd:element minOccurs="0" name="recognizedRevenue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="deferredRevenue" type="xsd:double" />
+          <xsd:element minOccurs="0" name="revRecOnRevCommitment" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="taxTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="tax2Total" type="xsd:double" />
+          <xsd:element minOccurs="0" name="altShippingCost" type="xsd:double" />
+          <xsd:element minOccurs="0" name="altHandlingCost" type="xsd:double" />
+          <xsd:element minOccurs="0" name="total" type="xsd:double" />
+          <xsd:element minOccurs="0" name="salesGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="syncSalesTeams" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="status" type="xsd:string" />
+          <xsd:element minOccurs="0" name="giftCert" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="giftCertTotal" type="xsd:double" />
+          <xsd:element minOccurs="0" name="giftCertApplied" type="xsd:double" />
+          <xsd:element minOccurs="0" name="giftCertAvailable" type="xsd:double" />
+          <xsd:element minOccurs="0" name="tranIsVsoeBundle" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="vsoeAutoCalc" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="syncPartnerTeams" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="salesTeamList" type="tranCust:CreditMemoSalesTeamList" />
+          <xsd:element minOccurs="0" name="itemList" type="tranCust:CreditMemoItemList" />
+          <xsd:element minOccurs="0" name="partnersList" type="tranCust:CreditMemoPartnersList" />
+          <xsd:element minOccurs="0" name="applyList" type="tranCust:CreditMemoApplyList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CreditMemoSalesTeam">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="employee" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="salesRole" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="isPrimary" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="contribution" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CreditMemoSalesTeamList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="salesTeam" type="tranCust:CreditMemoSalesTeam" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CreditMemoItem">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="job" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="item" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="orderLine" type="xsd:long" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+      <xsd:element minOccurs="0" name="quantity" type="xsd:double" />
+      <xsd:element minOccurs="0" name="description" type="xsd:string" />
+      <xsd:element minOccurs="0" name="binNumbers" type="xsd:string" />
+      <xsd:element minOccurs="0" name="price" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="rate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+      <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="options" type="platformCore:CustomFieldList" />
+      <xsd:element minOccurs="0" name="taxCode" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="taxRate1" type="xsd:double" />
+      <xsd:element minOccurs="0" name="taxRate2" type="xsd:double" />
+      <xsd:element minOccurs="0" name="tax1Amt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="grossAmt" type="xsd:double" />
+      <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="costEstimateType" type="platformCommonTyp:ItemCostEstimateType" />
+      <xsd:element minOccurs="0" name="costEstimate" type="xsd:double" />
+      <xsd:element minOccurs="0" name="revRecSchedule" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="revRecStartDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="revRecTermInMonths" type="xsd:long" />
+      <xsd:element minOccurs="0" name="revRecEndDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="units" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="inventoryDetail" type="platformCommon:InventoryDetail" />
+      <xsd:element minOccurs="0" name="serialNumbers" type="xsd:string" />
+      <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="giftCertFrom" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertRecipientName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertRecipientEmail" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertMessage" type="xsd:string" />
+      <xsd:element minOccurs="0" name="giftCertNumber" type="xsd:string" />
+      <xsd:element minOccurs="0" name="vsoeSopGroup" type="platformCommonTyp:VsoeSopGroup" />
+      <xsd:element minOccurs="0" name="vsoeIsEstimate" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="vsoePrice" type="xsd:double" />
+      <xsd:element minOccurs="0" name="vsoeAmount" type="xsd:double" />
+      <xsd:element minOccurs="0" name="vsoeAllocation" type="xsd:double" />
+      <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
+      <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
+      <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CreditMemoItemList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tranCust:CreditMemoItem" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CreditMemoApply">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="apply" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="doc" type="xsd:long" />
+      <xsd:element minOccurs="0" name="applyDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="job" type="xsd:string" />
+      <xsd:element minOccurs="0" name="type" type="xsd:string" />
+      <xsd:element minOccurs="0" name="refNum" type="xsd:string" />
+      <xsd:element minOccurs="0" name="total" type="xsd:double" />
+      <xsd:element minOccurs="0" name="due" type="xsd:double" />
+      <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CreditMemoApplyList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="apply" type="tranCust:CreditMemoApply" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CreditMemoPartnersList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="partners" type="platformCommon:Partners" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="CustomerRefund" type="tranCust:CustomerRefund" />
+  <xsd:complexType name="CustomerRefund">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="status" type="xsd:string" />
+          <xsd:element minOccurs="0" name="customer" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="balance" type="xsd:double" />
+          <xsd:element minOccurs="0" name="arAcct" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="currencyName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="exchangeRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="address" type="xsd:string" />
+          <xsd:element minOccurs="0" name="total" type="xsd:double" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="tranDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="voidJournal" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="postingPeriod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="memo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="paymentMethod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="account" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="toBePrinted" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="tranId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="debitCardIssueNo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="creditCardProcessor" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="chargeIt" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="pnRefNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="validFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="creditCard" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="ccIsPurchaseCardBin" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ccNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccProcessAsPurchaseCard" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ccExpireDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="ccName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccStreet" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccZipCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccApproved" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="applyList" type="tranCust:CustomerRefundApplyList" />
+          <xsd:element minOccurs="0" name="depositList" type="tranCust:CustomerRefundDepositList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerRefundApply">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="apply" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="doc" type="xsd:long" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+      <xsd:element minOccurs="0" name="applyDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="type" type="xsd:string" />
+      <xsd:element minOccurs="0" name="refNum" type="xsd:string" />
+      <xsd:element minOccurs="0" name="total" type="xsd:double" />
+      <xsd:element minOccurs="0" name="due" type="xsd:double" />
+      <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerRefundApplyList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="apply" type="tranCust:CustomerRefundApply" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="CustomerRefundDeposit">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="apply" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="doc" type="xsd:long" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+      <xsd:element minOccurs="0" name="depositDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="refNum" type="xsd:string" />
+      <xsd:element minOccurs="0" name="total" type="xsd:double" />
+      <xsd:element minOccurs="0" name="remaining" type="xsd:double" />
+      <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerRefundDepositList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="customerRefundDeposit" type="tranCust:CustomerRefundDeposit" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="CustomerDeposit" type="tranCust:CustomerDeposit" />
+  <xsd:complexType name="CustomerDeposit">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="status" type="xsd:string" />
+          <xsd:element minOccurs="0" name="customer" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="salesOrder" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="payment" type="xsd:double" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="tranDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="postingPeriod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="paymentMethod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="ccIsPurchaseCardBin" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="memo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccProcessAsPurchaseCard" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="currencyName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="exchangeRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="checkNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="creditCardProcessor" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="creditCard" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="ccSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="ccExpireDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="debitCardIssueNo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="validFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="ccName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccStreet" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccZipCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="chargeIt" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="ccApproved" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="pnRefNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="authCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccAvsStreetMatch" type="platformCommonTyp:AvsMatchCode" />
+          <xsd:element minOccurs="0" name="softDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ccAvsZipMatch" type="platformCommonTyp:AvsMatchCode" />
+          <xsd:element minOccurs="0" name="ccSecurityCodeMatch" type="platformCommonTyp:AvsMatchCode" />
+          <xsd:element minOccurs="0" name="threeDStatusCode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ignoreAvs" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="account" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="undepFunds" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="applyList" type="tranCust:CustomerDepositApplyList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerDepositApply">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="doc" type="xsd:long" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+      <xsd:element minOccurs="0" name="apply" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="applyDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="type" type="xsd:string" />
+      <xsd:element minOccurs="0" name="refNum" type="xsd:string" />
+      <xsd:element minOccurs="0" name="total" type="xsd:double" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+      <xsd:element minOccurs="0" name="job" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerDepositApplyList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="customerDepositApply" type="tranCust:CustomerDepositApply" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="DepositApplication" type="tranCust:DepositApplication" />
+  <xsd:complexType name="DepositApplication">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="arAcct" type="xsd:string" />
+          <xsd:element minOccurs="0" name="status" type="xsd:string" />
+          <xsd:element minOccurs="0" name="customer" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="tranDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="postingPeriod" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="deposit" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="depDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="exchangeRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="memo" type="xsd:string" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="total" type="xsd:double" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="applied" type="xsd:double" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="unapplied" type="xsd:double" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="tranId" type="xsd:string" />
+          <xsd:element minOccurs="0" name="applyList" type="tranCust:DepositApplicationApplyList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="DepositApplicationApply">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="doc" type="xsd:long" />
+      <xsd:element minOccurs="0" name="line" type="xsd:long" />
+      <xsd:element minOccurs="0" name="apply" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="applyDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="job" type="xsd:string" />
+      <xsd:element minOccurs="0" name="type" type="xsd:string" />
+      <xsd:element minOccurs="0" name="refNum" type="xsd:string" />
+      <xsd:element minOccurs="0" name="total" type="xsd:double" />
+      <xsd:element minOccurs="0" name="due" type="xsd:double" />
+      <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DepositApplicationApplyList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="apply" type="tranCust:DepositApplicationApply" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+</xsd:schema>

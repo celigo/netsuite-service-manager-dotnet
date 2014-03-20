@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tranEmployeesTyp="urn:types.employees_2013_1.transactions.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.employees_2013_1.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="TimeBillTimeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_actualTime" />
+      <xsd:enumeration value="_plannedTime" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tranPurchTyp="urn:types.purchases_2013_1.transactions.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.purchases_2013_1.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="PurchaseOrderOrderStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_closed" />
+      <xsd:enumeration value="_fullyBilled" />
+      <xsd:enumeration value="_partiallyReceived" />
+      <xsd:enumeration value="_pendingBillingPartiallyReceived" />
+      <xsd:enumeration value="_pendingBilling" />
+      <xsd:enumeration value="_pendingReceipt" />
+      <xsd:enumeration value="_pendingSupervisorApproval" />
+      <xsd:enumeration value="_rejectedBySupervisor" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransactionBillVarianceStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_journalNotPosted" />
+      <xsd:enumeration value="_journalPosted" />
+      <xsd:enumeration value="_noVariances" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="VendorReturnAuthorizationOrderStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_cancelled" />
+      <xsd:enumeration value="_closed" />
+      <xsd:enumeration value="_credited" />
+      <xsd:enumeration value="_partiallyReturned" />
+      <xsd:enumeration value="_pendingApproval" />
+      <xsd:enumeration value="_pendingCredit" />
+      <xsd:enumeration value="_pendingCreditPartiallyReturned" />
+      <xsd:enumeration value="_pendingReturn" />
+      <xsd:enumeration value="_undefined" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22BC03EC-F08D-4236-B868-C568DCC620AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>com.celigo.net.ServiceManager</RootNamespace>
+    <AssemblyName>ServiceManager.Design</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ServiceManager.Design.xml</DocumentationFile>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CELIGO_INTERNAL;REQUEST_LEVEL_AUTHENTICATION</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\ServiceManager.Design.xml</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Unit Testing|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Unit Testing\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DocumentationFile>bin\Debug\ServiceManager.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\ServiceManager.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MissingNSTypes.cs">
+      <DependentUpon>MissingNSTypes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SuiteTalk\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MissingNSTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SuiteTalk\accounting.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\accountingTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\AsyncResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\AsyncStatusResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\bank.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\bankTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\common.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\common.xsx">
+      <DependentUpon>common.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\commonTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\commonTypes.xsx">
+      <DependentUpon>commonTypes.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\communication.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\communicationTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\core.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\core.xsx">
+      <DependentUpon>core.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\coreTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\coreTypes.xsx">
+      <DependentUpon>coreTypes.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\customers.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\customerTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\customization.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\customizationTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\demandPlanning.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\demandPlanningTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\employees.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\employees0.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\employeeTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\employeeTypes0.xsd" />
+    <None Include="Web References\SuiteTalk\faults.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\faults.xsx">
+      <DependentUpon>faults.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\faultTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\faultTypes.xsx">
+      <DependentUpon>faultTypes.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\fileCabinet.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\fileCabinetTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\financial.xsd" />
+    <None Include="Web References\SuiteTalk\financialTypes.xsd" />
+    <None Include="Web References\SuiteTalk\general.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\general.xsx">
+      <DependentUpon>general.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetAllResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetBudgetExchangeRateResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetConsolidatedExchangeRateResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetCurrencyRateResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetCustomizationIdResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetDataCenterUrlsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetDeletedResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetItemAvailabilityResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetPostingTransactionSummaryResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetSavedSearchResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetSelectValueResult1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\GetServerTimeResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\inventory.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\inventoryTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\marketing.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\marketingTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\messages.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\netsuite.wsdl" />
+    <None Include="Web References\SuiteTalk\purchases.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\purchaseTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\ReadResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SuiteTalk\relationships.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\relationshipTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\sales.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\sales.xsx">
+      <DependentUpon>sales.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\saleTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\saleTypes.xsx">
+      <DependentUpon>saleTypes.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\scheduling.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\schedulingTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\SearchResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\SessionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\supplyChain.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\supplyChainTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\support.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\supportTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\supportTypes.xsx">
+      <DependentUpon>supportTypes.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\SuiteTalk\website.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\websiteTypes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Web References\SuiteTalk\WriteResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://webservices.netsuite.com/wsdl/v2013_1_0/netsuite.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SuiteTalk\</RelPath>
+      <UpdateFromURL>https://webservices.netsuite.com/wsdl/v2013_1_0/netsuite.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ServiceManager_SuiteTalk_NetSuiteService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <PreBuildEvent>cd "$(ProjectDir)"
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\xsd.exe" /c /n:com.celigo.net.ServiceManager.SuiteTalk "$(ProjectDir)Web References\SuiteTalk\saleTypes.xsd" "$(ProjectDir)Web References\SuiteTalk\accountingTypes.xsd" "$(ProjectDir)Web References\SuiteTalk\commonTypes.xsd" "$(ProjectDir)Web References\SuiteTalk\relationshipTypes.xsd" "$(ProjectDir)MissingNSTypes.xsd"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

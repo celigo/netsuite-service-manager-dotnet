@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:docFileCab="urn:filecabinet_2013_1.documents.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:generalCommTyp="urn:types.communication_2013_1.general.webservices.netsuite.com" xmlns:generalComm="urn:communication_2013_1.general.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:communication_2013_1.general.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/general/v2013_1_0/communicationTypes.xsd" namespace="urn:types.communication_2013_1.general.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/documents/v2013_1_0/fileCabinet.xsd" namespace="urn:filecabinet_2013_1.documents.webservices.netsuite.com" />
+  <xsd:element name="Note" type="generalComm:Note" />
+  <xsd:complexType name="Note">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="title" type="xsd:string" />
+          <xsd:element minOccurs="0" name="noteType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="direction" type="generalCommTyp:NoteDirection" />
+          <xsd:element minOccurs="0" name="noteDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="note" type="xsd:string" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="activity" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="author" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="entity" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="folder" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="item" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="media" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="record" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="recordType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="topic" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="transaction" type="platformCore:RecordRef" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="noteSearch" type="generalComm:NoteSearch" />
+  <xsd:complexType name="NoteSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:NoteSearchBasic" />
+          <xsd:element minOccurs="0" name="authorJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="callJoin" type="platformCommon:PhoneCallSearchBasic" />
+          <xsd:element minOccurs="0" name="campaignJoin" type="platformCommon:CampaignSearchBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchBasic" />
+          <xsd:element minOccurs="0" name="contactJoin" type="platformCommon:ContactSearchBasic" />
+          <xsd:element minOccurs="0" name="customerJoin" type="platformCommon:CustomerSearchBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="entityJoin" type="platformCommon:EntitySearchBasic" />
+          <xsd:element minOccurs="0" name="eventJoin" type="platformCommon:CalendarEventSearchBasic" />
+          <xsd:element minOccurs="0" name="issueJoin" type="platformCommon:IssueSearchBasic" />
+          <xsd:element minOccurs="0" name="itemJoin" type="platformCommon:ItemSearchBasic" />
+          <xsd:element minOccurs="0" name="opportunityJoin" type="platformCommon:OpportunitySearchBasic" />
+          <xsd:element minOccurs="0" name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchBasic" />
+          <xsd:element minOccurs="0" name="partnerJoin" type="platformCommon:PartnerSearchBasic" />
+          <xsd:element minOccurs="0" name="solutionJoin" type="platformCommon:SolutionSearchBasic" />
+          <xsd:element minOccurs="0" name="taskJoin" type="platformCommon:TaskSearchBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="vendorJoin" type="platformCommon:VendorSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="NoteSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="generalComm:NoteSearch" />
+          <xsd:element minOccurs="0" name="columns" type="generalComm:NoteSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="NoteSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:NoteSearchRowBasic" />
+          <xsd:element minOccurs="0" name="authorJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="callJoin" type="platformCommon:PhoneCallSearchRowBasic" />
+          <xsd:element minOccurs="0" name="campaignJoin" type="platformCommon:CampaignSearchRowBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchRowBasic" />
+          <xsd:element minOccurs="0" name="contactJoin" type="platformCommon:ContactSearchRowBasic" />
+          <xsd:element minOccurs="0" name="customerJoin" type="platformCommon:CustomerSearchRowBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="entityJoin" type="platformCommon:EntitySearchRowBasic" />
+          <xsd:element minOccurs="0" name="eventJoin" type="platformCommon:CalendarEventSearchRowBasic" />
+          <xsd:element minOccurs="0" name="issueJoin" type="platformCommon:IssueSearchRowBasic" />
+          <xsd:element minOccurs="0" name="itemJoin" type="platformCommon:ItemSearchRowBasic" />
+          <xsd:element minOccurs="0" name="opportunityJoin" type="platformCommon:OpportunitySearchRowBasic" />
+          <xsd:element minOccurs="0" name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchRowBasic" />
+          <xsd:element minOccurs="0" name="partnerJoin" type="platformCommon:PartnerSearchRowBasic" />
+          <xsd:element minOccurs="0" name="solutionJoin" type="platformCommon:SolutionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="taskJoin" type="platformCommon:TaskSearchRowBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="vendorJoin" type="platformCommon:VendorSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Message" type="generalComm:Message" />
+  <xsd:complexType name="Message">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="author" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="recipient" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="cc" type="xsd:string" />
+          <xsd:element minOccurs="0" name="bcc" type="xsd:string" />
+          <xsd:element minOccurs="0" name="messageDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="recordName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="recordTypeName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="subject" type="xsd:string" />
+          <xsd:element minOccurs="0" name="message" type="xsd:string" />
+          <xsd:element minOccurs="0" name="emailed" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="activity" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="compressAttachments" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="incoming" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="transaction" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="mediaItemList" type="generalComm:MessageMediaItemList" />
+          <xsd:element minOccurs="0" name="dateTime" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="MessageMediaItemList">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" name="mediaItem" type="docFileCab:File" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="messageSearch" type="generalComm:MessageSearch" />
+  <xsd:complexType name="MessageSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:MessageSearchBasic" />
+          <xsd:element minOccurs="0" name="attachmentsJoin" type="platformCommon:FileSearchBasic" />
+          <xsd:element minOccurs="0" name="authorJoin" type="platformCommon:EntitySearchBasic" />
+          <xsd:element minOccurs="0" name="campaignJoin" type="platformCommon:CampaignSearchBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchBasic" />
+          <xsd:element minOccurs="0" name="contactJoin" type="platformCommon:ContactSearchBasic" />
+          <xsd:element minOccurs="0" name="customerJoin" type="platformCommon:CustomerSearchBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="entityJoin" type="platformCommon:EntitySearchBasic" />
+          <xsd:element minOccurs="0" name="opportunityJoin" type="platformCommon:OpportunitySearchBasic" />
+          <xsd:element minOccurs="0" name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchBasic" />
+          <xsd:element minOccurs="0" name="partnerJoin" type="platformCommon:PartnerSearchBasic" />
+          <xsd:element minOccurs="0" name="recipientJoin" type="platformCommon:EntitySearchBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="vendorJoin" type="platformCommon:VendorSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="MessageSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="generalComm:MessageSearch" />
+          <xsd:element minOccurs="0" name="columns" type="generalComm:MessageSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="MessageSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:MessageSearchRowBasic" />
+          <xsd:element minOccurs="0" name="attachmentsJoin" type="platformCommon:FileSearchRowBasic" />
+          <xsd:element minOccurs="0" name="authorJoin" type="platformCommon:EntitySearchRowBasic" />
+          <xsd:element minOccurs="0" name="campaignJoin" type="platformCommon:CampaignSearchRowBasic" />
+          <xsd:element minOccurs="0" name="caseJoin" type="platformCommon:SupportCaseSearchRowBasic" />
+          <xsd:element minOccurs="0" name="contactJoin" type="platformCommon:ContactSearchRowBasic" />
+          <xsd:element minOccurs="0" name="customerJoin" type="platformCommon:CustomerSearchRowBasic" />
+          <xsd:element minOccurs="0" name="employeeJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="entityJoin" type="platformCommon:EntitySearchRowBasic" />
+          <xsd:element minOccurs="0" name="opportunityJoin" type="platformCommon:OpportunitySearchRowBasic" />
+          <xsd:element minOccurs="0" name="originatingLeadJoin" type="platformCommon:OriginatingLeadSearchRowBasic" />
+          <xsd:element minOccurs="0" name="partnerJoin" type="platformCommon:PartnerSearchRowBasic" />
+          <xsd:element minOccurs="0" name="recipientJoin" type="platformCommon:EntitySearchRowBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="vendorJoin" type="platformCommon:VendorSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:setupCustomTyp="urn:types.customization_2013_1.setup.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.customization_2013_1.setup.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="CustomizationFieldType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_checkBox" />
+      <xsd:enumeration value="_currency" />
+      <xsd:enumeration value="_date" />
+      <xsd:enumeration value="_datetime" />
+      <xsd:enumeration value="_decimalNumber" />
+      <xsd:enumeration value="_document" />
+      <xsd:enumeration value="_eMailAddress" />
+      <xsd:enumeration value="_freeFormText" />
+      <xsd:enumeration value="_help" />
+      <xsd:enumeration value="_hyperlink" />
+      <xsd:enumeration value="_image" />
+      <xsd:enumeration value="_inlineHTML" />
+      <xsd:enumeration value="_integerNumber" />
+      <xsd:enumeration value="_listRecord" />
+      <xsd:enumeration value="_longText" />
+      <xsd:enumeration value="_multipleSelect" />
+      <xsd:enumeration value="_password" />
+      <xsd:enumeration value="_percent" />
+      <xsd:enumeration value="_phoneNumber" />
+      <xsd:enumeration value="_richText" />
+      <xsd:enumeration value="_textArea" />
+      <xsd:enumeration value="_timeOfDay" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomizationDynamicDefault">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_currentDateTime" />
+      <xsd:enumeration value="_currentUser" />
+      <xsd:enumeration value="_currentUsersDepartment" />
+      <xsd:enumeration value="_currentUsersLocation" />
+      <xsd:enumeration value="_currentUsersSupervisor" />
+      <xsd:enumeration value="_currentUsersSubsidiary" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomizationDisplayType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_disabled" />
+      <xsd:enumeration value="_hidden" />
+      <xsd:enumeration value="_inlineText" />
+      <xsd:enumeration value="_normal" />
+      <xsd:enumeration value="_showAsList" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomizationFilterCompareType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_equal" />
+      <xsd:enumeration value="_greaterThan" />
+      <xsd:enumeration value="_greaterThanOrEqual" />
+      <xsd:enumeration value="_lessThan" />
+      <xsd:enumeration value="_lessThanOrEqual" />
+      <xsd:enumeration value="_notEqual" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomRecordTypePermissionsPermittedLevel">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_create" />
+      <xsd:enumeration value="_edit" />
+      <xsd:enumeration value="_full" />
+      <xsd:enumeration value="_none" />
+      <xsd:enumeration value="_view" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomRecordTypePermissionsRestriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_editingOnly" />
+      <xsd:enumeration value="_viewingAndEditing" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemCustomFieldItemSubType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_both" />
+      <xsd:enumeration value="_purchase" />
+      <xsd:enumeration value="_sale" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomizationAccessLevel">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_none" />
+      <xsd:enumeration value="_edit" />
+      <xsd:enumeration value="_view" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomizationSearchLevel">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_none" />
+      <xsd:enumeration value="_edit" />
+      <xsd:enumeration value="_run" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomRecordTypeAccessType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_noPermissionRequired" />
+      <xsd:enumeration value="_requireCustomRecordEntriesPermission" />
+      <xsd:enumeration value="_usePermissionList" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

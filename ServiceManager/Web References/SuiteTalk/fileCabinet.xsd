@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" xmlns:docFileCab="urn:filecabinet_2013_1.documents.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:docFileCabTyp="urn:types.filecabinet_2013_1.documents.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:filecabinet_2013_1.documents.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/documents/v2013_1_0/fileCabinetTypes.xsd" namespace="urn:types.filecabinet_2013_1.documents.webservices.netsuite.com" />
+  <xsd:complexType name="File">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="attachFrom" type="docFileCabTyp:FileAttachFrom" />
+          <xsd:element minOccurs="0" name="mediaTypeName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="fileType" type="docFileCabTyp:MediaType" />
+          <xsd:element minOccurs="0" name="content" type="xsd:base64Binary" />
+          <xsd:element minOccurs="0" name="folder" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="fileSize" type="xsd:double" />
+          <xsd:element minOccurs="0" name="url" type="xsd:string" />
+          <xsd:element minOccurs="0" name="urlComponent" type="xsd:string" />
+          <xsd:element minOccurs="0" name="mediaFile" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="textFileEncoding" type="docFileCabTyp:TextFileEncoding" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="encoding" type="docFileCabTyp:FileEncoding" />
+          <xsd:element minOccurs="0" name="altTagCaption" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isOnline" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="class" type="xsd:string" />
+          <xsd:element minOccurs="0" name="bundleable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="department" type="xsd:string" />
+          <xsd:element minOccurs="0" name="hideInBundle" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isPrivate" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="owner" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="caption" type="xsd:string" />
+          <xsd:element minOccurs="0" name="storeDisplayThumbnail" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="siteDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" name="featuredDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="siteCategoryList" type="docFileCab:FileSiteCategoryList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="FileSiteCategory">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="isDefault" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="category" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="categoryDescription" type="xsd:string" />
+      <xsd:element minOccurs="0" name="website" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FileSiteCategoryList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="siteCategory" type="docFileCab:FileSiteCategory" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="fileSearch" type="docFileCab:FileSearch" />
+  <xsd:complexType name="FileSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:FileSearchBasic" />
+          <xsd:element minOccurs="0" name="shopperJoin" type="platformCommon:CustomerSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="FileSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="docFileCab:FileSearch" />
+          <xsd:element minOccurs="0" name="columns" type="docFileCab:FileSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="FileSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:FileSearchRowBasic" />
+          <xsd:element minOccurs="0" name="shopperJoin" type="platformCommon:CustomerSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="folderSearch" type="docFileCab:FolderSearch" />
+  <xsd:complexType name="Folder">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isPrivate" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="bundleable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="hideInBundle" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="isOnline" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="group" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="parent" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="FolderSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:FolderSearchBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="FolderSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="docFileCab:FolderSearch" />
+          <xsd:element minOccurs="0" name="columns" type="docFileCab:FolderSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="FolderSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:FolderSearchRowBasic" />
+          <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

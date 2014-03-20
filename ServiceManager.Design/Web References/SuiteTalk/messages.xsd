@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:platformMsgs="urn:messages_2013_1.platform.webservices.netsuite.com" xmlns:platformFaultTyp="urn:types.faults_2013_1.platform.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:messages_2013_1.platform.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/faultTypes.xsd" namespace="urn:types.faults_2013_1.platform.webservices.netsuite.com" />
+  <xsd:complexType name="ApplicationInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="applicationId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="applicationInfo" type="platformMsgs:ApplicationInfo" />
+  <xsd:complexType name="PartnerInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="partnerId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="partnerInfo" type="platformMsgs:PartnerInfo" />
+  <xsd:complexType name="DocumentInfo">
+    <xsd:sequence>
+      <xsd:element name="nsId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="documentInfo" type="platformMsgs:DocumentInfo" />
+  <xsd:complexType name="Preferences">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="warningAsError" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="disableMandatoryCustomFieldValidation" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="disableSystemNotesForCustomFields" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="ignoreReadOnlyFields" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="preferences" type="platformMsgs:Preferences" />
+  <xsd:complexType name="SearchPreferences">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" default="true" name="bodyFieldsOnly" type="xsd:boolean" />
+      <xsd:element minOccurs="0" default="true" name="returnSearchColumns" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="pageSize" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="searchPreferences" type="platformMsgs:SearchPreferences" />
+  <xsd:element name="passport" type="platformCore:Passport" />
+  <xsd:complexType name="SessionResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:status" />
+      <xsd:element minOccurs="0" name="userId" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" ref="platformCore:wsRoleList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="sessionResponse" type="platformMsgs:SessionResponse" />
+  <xsd:complexType name="WriteResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:status" />
+      <xsd:element minOccurs="0" name="baseRef" type="platformCore:BaseRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="writeResponse" type="platformMsgs:WriteResponse" />
+  <xsd:complexType name="ReadResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:status" />
+      <xsd:element minOccurs="0" name="record" type="platformCore:Record" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="readResponse" type="platformMsgs:ReadResponse" />
+  <xsd:complexType name="WriteResponseList">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" name="writeResponse" type="platformMsgs:WriteResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="writeResponseList" type="platformMsgs:WriteResponseList" />
+  <xsd:complexType name="ReadResponseList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="readResponse" type="platformMsgs:ReadResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="readResponseList" type="platformMsgs:ReadResponseList" />
+  <xsd:complexType name="LoginResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:sessionResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="loginResponse" type="platformMsgs:LoginResponse" />
+  <xsd:complexType name="SsoLoginResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:sessionResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ssoLoginResponse" type="platformMsgs:SsoLoginResponse" />
+  <xsd:complexType name="MapSsoResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:sessionResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="mapSsoResponse" type="platformMsgs:MapSsoResponse" />
+  <xsd:complexType name="ChangePasswordResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:sessionResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="changePasswordResponse" type="platformMsgs:ChangePasswordResponse" />
+  <xsd:complexType name="ChangeEmailResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:sessionResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="changeEmailResponse" type="platformMsgs:ChangeEmailResponse" />
+  <xsd:complexType name="LogoutResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:sessionResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="logoutResponse" type="platformMsgs:LogoutResponse" />
+  <xsd:complexType name="AddResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="addResponse" type="platformMsgs:AddResponse" />
+  <xsd:complexType name="AddListResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponseList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="addListResponse" type="platformMsgs:AddListResponse" />
+  <xsd:complexType name="UpdateResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateResponse" type="platformMsgs:UpdateResponse" />
+  <xsd:complexType name="UpdateListResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponseList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateListResponse" type="platformMsgs:UpdateListResponse" />
+  <xsd:complexType name="UpsertResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="upsertResponse" type="platformMsgs:UpsertResponse" />
+  <xsd:complexType name="UpsertListResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponseList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="upsertListResponse" type="platformMsgs:UpsertListResponse" />
+  <xsd:complexType name="DeleteResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="deleteResponse" type="platformMsgs:DeleteResponse" />
+  <xsd:complexType name="DeleteListResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponseList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="deleteListResponse" type="platformMsgs:DeleteListResponse" />
+  <xsd:complexType name="SearchResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:searchResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="searchResponse" type="platformMsgs:SearchResponse" />
+  <xsd:complexType name="SearchMoreResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:searchResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="searchMoreResponse" type="platformMsgs:SearchMoreResponse" />
+  <xsd:complexType name="SearchMoreWithIdResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:searchResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="searchMoreWithIdResponse" type="platformMsgs:SearchMoreWithIdResponse" />
+  <xsd:complexType name="SearchNextResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:searchResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="searchNextResponse" type="platformMsgs:SearchNextResponse" />
+  <xsd:complexType name="GetResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:readResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getResponse" type="platformMsgs:GetResponse" />
+  <xsd:complexType name="GetListResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:readResponseList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getListResponse" type="platformMsgs:GetListResponse" />
+  <xsd:complexType name="GetAllResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getAllResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getAllResponse" type="platformMsgs:GetAllResponse" />
+  <xsd:complexType name="GetSavedSearchResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getSavedSearchResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getSavedSearchResponse" type="platformMsgs:GetSavedSearchResponse" />
+  <xsd:complexType name="GetCustomizationIdResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getCustomizationIdResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getCustomizationIdResponse" type="platformMsgs:GetCustomizationIdResponse" />
+  <xsd:complexType name="InitializeResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:readResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="initializeResponse" type="platformMsgs:InitializeResponse" />
+  <xsd:complexType name="InitializeListResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:readResponseList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="initializeListResponse" type="platformMsgs:InitializeListResponse" />
+  <xsd:complexType name="getSelectValueResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getSelectValueResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getSelectValueResponse" type="platformMsgs:getSelectValueResponse" />
+  <xsd:complexType name="GetItemAvailabilityResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getItemAvailabilityResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getItemAvailabilityResponse" type="platformMsgs:GetItemAvailabilityResponse" />
+  <xsd:complexType name="GetBudgetExchangeRateResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getBudgetExchangeRateResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getBudgetExchangeRateResponse" type="platformMsgs:GetBudgetExchangeRateResponse" />
+  <xsd:complexType name="GetConsolidatedExchangeRateResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getConsolidatedExchangeRateResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getConsolidatedExchangeRateResponse" type="platformMsgs:GetConsolidatedExchangeRateResponse" />
+  <xsd:complexType name="GetCurrencyRateResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getCurrencyRateResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getCurrencyRateResponse" type="platformMsgs:GetCurrencyRateResponse" />
+  <xsd:complexType name="GetDataCenterUrlsResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getDataCenterUrlsResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getDataCenterUrlsResponse" type="platformMsgs:GetDataCenterUrlsResponse" />
+  <xsd:complexType name="GetPostingTransactionSummaryResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getPostingTransactionSummaryResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getPostingTransactionSummaryResponse" type="platformMsgs:GetPostingTransactionSummaryResponse" />
+  <xsd:complexType name="GetServerTimeResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getServerTimeResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getServerTimeResponse" type="platformMsgs:GetServerTimeResponse" />
+  <xsd:complexType name="AttachResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="attachResponse" type="platformMsgs:AttachResponse" />
+  <xsd:complexType name="DetachResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="detachResponse" type="platformMsgs:DetachResponse" />
+  <xsd:complexType name="UpdateInviteeStatusResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateInviteeStatusResponse" type="platformMsgs:UpdateInviteeStatusResponse" />
+  <xsd:complexType name="UpdateInviteeStatusListResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformMsgs:writeResponseList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateInviteeStatusListResponse" type="platformMsgs:UpdateInviteeStatusListResponse" />
+  <xsd:complexType name="AsyncStatusResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:asyncStatusResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="asyncAddListResponse" type="platformMsgs:AsyncStatusResponse" />
+  <xsd:element name="asyncUpdateListResponse" type="platformMsgs:AsyncStatusResponse" />
+  <xsd:element name="asyncUpsertListResponse" type="platformMsgs:AsyncStatusResponse" />
+  <xsd:element name="asyncDeleteListResponse" type="platformMsgs:AsyncStatusResponse" />
+  <xsd:element name="asyncGetListResponse" type="platformMsgs:AsyncStatusResponse" />
+  <xsd:element name="asyncInitializeListResponse" type="platformMsgs:AsyncStatusResponse" />
+  <xsd:element name="asyncSearchResponse" type="platformMsgs:AsyncStatusResponse" />
+  <xsd:element name="checkAsyncStatusResponse" type="platformMsgs:AsyncStatusResponse" />
+  <xsd:complexType name="GetAsyncResultResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" ref="platformMsgs:asyncResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getAsyncResultResponse" type="platformMsgs:GetAsyncResultResponse" />
+  <xsd:complexType name="AsyncResult" abstract="true" />
+  <xsd:element name="asyncResult" type="platformMsgs:AsyncResult" />
+  <xsd:complexType name="AsyncAddListResult">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformMsgs:AsyncResult">
+        <xsd:sequence>
+          <xsd:element ref="platformMsgs:writeResponseList" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="asyncAddListResult" type="platformMsgs:AsyncAddListResult" />
+  <xsd:complexType name="AsyncUpdateListResult">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformMsgs:AsyncResult">
+        <xsd:sequence>
+          <xsd:element ref="platformMsgs:writeResponseList" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="asyncUpdateListResult" type="platformMsgs:AsyncUpdateListResult" />
+  <xsd:complexType name="AsyncUpsertListResult">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformMsgs:AsyncResult">
+        <xsd:sequence>
+          <xsd:element ref="platformMsgs:writeResponseList" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="asyncUpsertListResult" type="platformMsgs:AsyncUpsertListResult" />
+  <xsd:complexType name="AsyncDeleteListResult">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformMsgs:AsyncResult">
+        <xsd:sequence>
+          <xsd:element ref="platformMsgs:writeResponseList" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="asyncDeleteListResult" type="platformMsgs:AsyncDeleteListResult" />
+  <xsd:complexType name="AsyncGetListResult">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformMsgs:AsyncResult">
+        <xsd:sequence>
+          <xsd:element ref="platformMsgs:readResponseList" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="asyncGetListResult" type="platformMsgs:AsyncGetListResult" />
+  <xsd:complexType name="AsyncSearchResult">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformMsgs:AsyncResult">
+        <xsd:sequence>
+          <xsd:element ref="platformCore:searchResult" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AsyncInitializeListResult">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformMsgs:AsyncResult">
+        <xsd:sequence>
+          <xsd:element ref="platformMsgs:writeResponseList" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="asyncInitializeListResult" type="platformMsgs:AsyncInitializeListResult" />
+  <xsd:element name="asyncSearchResult" type="platformMsgs:AsyncSearchResult" />
+  <xsd:complexType name="GetDeletedResponse">
+    <xsd:sequence>
+      <xsd:element ref="platformCore:getDeletedResult" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getDeletedResponse" type="platformMsgs:GetDeletedResponse" />
+  <xsd:complexType name="LoginRequest">
+    <xsd:sequence>
+      <xsd:element name="passport" type="platformCore:Passport" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="login" type="platformMsgs:LoginRequest" />
+  <xsd:complexType name="SsoLoginRequest">
+    <xsd:sequence>
+      <xsd:element name="ssoPassport" type="platformCore:SsoPassport" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ssoLogin" type="platformMsgs:SsoLoginRequest" />
+  <xsd:complexType name="MapSsoRequest">
+    <xsd:sequence>
+      <xsd:element name="ssoCredentials" type="platformCore:SsoCredentials" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="mapSso" type="platformMsgs:MapSsoRequest" />
+  <xsd:complexType name="ChangePasswordRequest">
+    <xsd:sequence>
+      <xsd:element name="changePassword" type="platformCore:ChangePassword" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="changePassword" type="platformMsgs:ChangePasswordRequest" />
+  <xsd:complexType name="ChangeEmailRequest">
+    <xsd:sequence>
+      <xsd:element name="changeEmail" type="platformCore:ChangeEmail" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="changeEmail" type="platformMsgs:ChangeEmailRequest" />
+  <xsd:complexType name="LogoutRequest" />
+  <xsd:element name="logout" type="platformMsgs:LogoutRequest" />
+  <xsd:complexType name="AddRequest">
+    <xsd:sequence>
+      <xsd:element name="record" type="platformCore:Record" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="add" type="platformMsgs:AddRequest" />
+  <xsd:complexType name="DeleteRequest">
+    <xsd:sequence>
+      <xsd:element name="baseRef" type="platformCore:BaseRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="delete" type="platformMsgs:DeleteRequest" />
+  <xsd:complexType name="SearchRequest">
+    <xsd:sequence>
+      <xsd:element name="searchRecord" type="platformCore:SearchRecord" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="search" type="platformMsgs:SearchRequest" />
+  <xsd:complexType name="SearchMoreRequest">
+    <xsd:sequence>
+      <xsd:element name="pageIndex" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="searchMore" type="platformMsgs:SearchMoreRequest" />
+  <xsd:complexType name="SearchMoreWithIdRequest">
+    <xsd:sequence>
+      <xsd:element name="searchId" type="xsd:string" />
+      <xsd:element name="pageIndex" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="searchMoreWithId" type="platformMsgs:SearchMoreWithIdRequest" />
+  <xsd:complexType name="SearchNextRequest">
+    <xsd:sequence />
+  </xsd:complexType>
+  <xsd:element name="searchNext" type="platformMsgs:SearchNextRequest" />
+  <xsd:complexType name="UpdateRequest">
+    <xsd:sequence>
+      <xsd:element name="record" type="platformCore:Record" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="update" type="platformMsgs:UpdateRequest" />
+  <xsd:complexType name="UpsertRequest">
+    <xsd:sequence>
+      <xsd:element name="record" type="platformCore:Record" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="upsert" type="platformMsgs:UpsertRequest" />
+  <xsd:complexType name="AddListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="record" type="platformCore:Record" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="addList" type="platformMsgs:AddListRequest" />
+  <xsd:complexType name="DeleteListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="baseRef" type="platformCore:BaseRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="deleteList" type="platformMsgs:DeleteListRequest" />
+  <xsd:complexType name="UpdateListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="record" type="platformCore:Record" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateList" type="platformMsgs:UpdateListRequest" />
+  <xsd:complexType name="UpsertListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="record" type="platformCore:Record" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="upsertList" type="platformMsgs:UpsertListRequest" />
+  <xsd:complexType name="GetRequest">
+    <xsd:sequence>
+      <xsd:element name="baseRef" type="platformCore:BaseRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="get" type="platformMsgs:GetRequest" />
+  <xsd:complexType name="GetListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="baseRef" type="platformCore:BaseRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getList" type="platformMsgs:GetListRequest" />
+  <xsd:complexType name="GetAllRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" name="record" type="platformCore:GetAllRecord" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getAll" type="platformMsgs:GetAllRequest" />
+  <xsd:complexType name="GetSavedSearchRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" name="record" type="platformCore:GetSavedSearchRecord" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getSavedSearch" type="platformMsgs:GetSavedSearchRequest" />
+  <xsd:complexType name="GetCustomizationIdRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" name="customizationType" type="platformCore:CustomizationType" />
+      <xsd:element minOccurs="1" name="includeInactives" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getCustomizationId" type="platformMsgs:GetCustomizationIdRequest" />
+  <xsd:complexType name="InitializeRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" name="initializeRecord" type="platformCore:InitializeRecord" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="initialize" type="platformMsgs:InitializeRequest" />
+  <xsd:complexType name="InitializeListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="initializeRecord" type="platformCore:InitializeRecord" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="initializeList" type="platformMsgs:InitializeListRequest" />
+  <xsd:complexType name="getSelectValueRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="fieldDescription" type="platformCore:GetSelectValueFieldDescription" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="pageIndex" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getSelectValue" type="platformMsgs:getSelectValueRequest" />
+  <xsd:complexType name="GetItemAvailabilityRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="itemAvailabilityFilter" type="platformCore:ItemAvailabilityFilter" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getItemAvailability" type="platformMsgs:GetItemAvailabilityRequest" />
+  <xsd:complexType name="GetBudgetExchangeRateRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="budgetExchangeRateFilter" type="platformCore:BudgetExchangeRateFilter" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getBudgetExchangeRate" type="platformMsgs:GetBudgetExchangeRateRequest" />
+  <xsd:complexType name="GetConsolidatedExchangeRateRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="consolidatedExchangeRateFilter" type="platformCore:ConsolidatedExchangeRateFilter" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getConsolidatedExchangeRate" type="platformMsgs:GetConsolidatedExchangeRateRequest" />
+  <xsd:complexType name="GetCurrencyRateRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="currencyRateFilter" type="platformCore:CurrencyRateFilter" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getCurrencyRate" type="platformMsgs:GetCurrencyRateRequest" />
+  <xsd:complexType name="GetDataCenterUrlsRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="account" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getDataCenterUrls" type="platformMsgs:GetDataCenterUrlsRequest" />
+  <xsd:complexType name="GetPostingTransactionSummaryRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="fields" type="platformCore:PostingTransactionSummaryField" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="filters" type="platformCore:PostingTransactionSummaryFilter" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="pageIndex" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getPostingTransactionSummary" type="platformMsgs:GetPostingTransactionSummaryRequest" />
+  <xsd:complexType name="GetServerTimeRequest" />
+  <xsd:element name="getServerTime" type="platformMsgs:GetServerTimeRequest" />
+  <xsd:complexType name="AttachRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="attachReference" type="platformCore:AttachReference" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="attach" type="platformMsgs:AttachRequest" />
+  <xsd:complexType name="DetachRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="detachReference" type="platformCore:DetachReference" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="detach" type="platformMsgs:DetachRequest" />
+  <xsd:complexType name="AsyncAddListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="record" type="platformCore:Record" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UpdateInviteeStatusRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" name="updateInviteeStatusReference" type="platformCore:UpdateInviteeStatusReference" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateInviteeStatus" type="platformMsgs:UpdateInviteeStatusRequest" />
+  <xsd:complexType name="UpdateInviteeStatusListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="updateInviteeStatusReference" type="platformCore:UpdateInviteeStatusReference" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="updateInviteeStatusList" type="platformMsgs:UpdateInviteeStatusListRequest" />
+  <xsd:element name="asyncAddList" type="platformMsgs:AsyncAddListRequest" />
+  <xsd:complexType name="AsyncUpdateListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="record" type="platformCore:Record" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="asyncUpdateList" type="platformMsgs:AsyncUpdateListRequest" />
+  <xsd:complexType name="AsyncUpsertListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="record" type="platformCore:Record" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="asyncUpsertList" type="platformMsgs:AsyncUpsertListRequest" />
+  <xsd:complexType name="AsyncDeleteListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="baseRef" type="platformCore:BaseRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="asyncDeleteList" type="platformMsgs:AsyncDeleteListRequest" />
+  <xsd:complexType name="AsyncGetListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="baseRef" type="platformCore:BaseRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="asyncGetList" type="platformMsgs:AsyncGetListRequest" />
+  <xsd:complexType name="AsyncInitializeListRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="initializeRecord" type="platformCore:InitializeRecord" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="asyncInitializeList" type="platformMsgs:AsyncInitializeListRequest" />
+  <xsd:complexType name="AsyncSearchRequest">
+    <xsd:sequence>
+      <xsd:element name="searchRecord" type="platformCore:SearchRecord" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="asyncSearch" type="platformMsgs:AsyncSearchRequest" />
+  <xsd:complexType name="CheckAsyncStatusRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="jobId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="checkAsyncStatus" type="platformMsgs:CheckAsyncStatusRequest" />
+  <xsd:complexType name="GetAsyncResultRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="jobId" type="xsd:string" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="pageIndex" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getAsyncResult" type="platformMsgs:GetAsyncResultRequest" />
+  <xsd:complexType name="GetDeletedRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="getDeletedFilter" type="platformCore:GetDeletedFilter" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getDeleted" type="platformMsgs:GetDeletedRequest" />
+</xsd:schema>

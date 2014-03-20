@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tranInvtTyp="urn:types.inventory_2013_1.transactions.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.inventory_2013_1.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="TransferOrderItemCommitInventory">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_availableQty" />
+      <xsd:enumeration value="_completeQty" />
+      <xsd:enumeration value="_doNotCommit" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransferOrderOrderStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_pendingApproval" />
+      <xsd:enumeration value="_pendingFulfillment" />
+      <xsd:enumeration value="_rejected" />
+      <xsd:enumeration value="_partiallyFulfilled" />
+      <xsd:enumeration value="_pendingReceiptPartFulfilled" />
+      <xsd:enumeration value="_pendingReceipt" />
+      <xsd:enumeration value="_received" />
+      <xsd:enumeration value="_closed" />
+      <xsd:enumeration value="_undefined" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="WorkOrderItemItemCreatePo">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_dropShipment" />
+      <xsd:enumeration value="_specialOrder" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="WorkOrderItemItemCommitInventory">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_availableQty" />
+      <xsd:enumeration value="_completeQty" />
+      <xsd:enumeration value="_doNotCommit" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>
