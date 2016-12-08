@@ -15,6 +15,7 @@ namespace com.celigo.net.ServiceManager.SuiteTalk
 
     public partial class Record
     {
+#if !FIRSTBUILD
         /// <summary>
         /// Gets the Internal ID.
         /// </summary>
@@ -26,5 +27,6 @@ namespace com.celigo.net.ServiceManager.SuiteTalk
         /// </summary>
         /// <param name="id">The Internal ID.</param>
         public abstract void SetInternalId(string id);
+#endif
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:listAcctTyp="urn:types.accounting_2013_1.lists.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.accounting_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:listAcctTyp="urn:types.accounting_2015_2.lists.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.accounting_2015_2.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:simpleType name="CurrencyLocale">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_afghanistanPashto" />
@@ -268,6 +268,7 @@
       <xsd:enumeration value="_otherCurrentLiability" />
       <xsd:enumeration value="_otherExpense" />
       <xsd:enumeration value="_otherIncome" />
+      <xsd:enumeration value="_statistical" />
       <xsd:enumeration value="_unbilledReceivable" />
     </xsd:restriction>
   </xsd:simpleType>
@@ -477,6 +478,7 @@
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_build" />
       <xsd:enumeration value="_purchase" />
+      <xsd:enumeration value="_transfer" />
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="ItemSupplyReplenishmentMethod">
@@ -508,19 +510,28 @@
       <xsd:enumeration value="_variable" />
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="RevRecScheduleAmortizationStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_notStarted" />
+      <xsd:enumeration value="_inProgress" />
+      <xsd:enumeration value="_completed" />
+      <xsd:enumeration value="_onHold" />
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="CostCategoryItemCostType">
     <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="_landed" />
-      <xsd:enumeration value="_material" />
-      <xsd:enumeration value="_service" />
       <xsd:enumeration value="_laborRun" />
       <xsd:enumeration value="_laborRunOverhead" />
       <xsd:enumeration value="_laborSetup" />
       <xsd:enumeration value="_laborSetupOverhead" />
+      <xsd:enumeration value="_landed" />
       <xsd:enumeration value="_machineRun" />
       <xsd:enumeration value="_machineRunOverhead" />
       <xsd:enumeration value="_machineSetup" />
       <xsd:enumeration value="_machineSetupOverhead" />
+      <xsd:enumeration value="_material" />
+      <xsd:enumeration value="_materialOverhead" />
+      <xsd:enumeration value="_service" />
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="ItemAtpMethod">
@@ -560,6 +571,206 @@
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_fedexUspsMore" />
       <xsd:enumeration value="_ups" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TaxAcctType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_sale" />
+      <xsd:enumeration value="_purchase" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemOverheadType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_amountBaseUnit" />
+      <xsd:enumeration value="_percentOfMaterial" />
+      <xsd:enumeration value="_percentOfTotal" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemCostAccountingStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_complete" />
+      <xsd:enumeration value="_failed" />
+      <xsd:enumeration value="_pending" />
+      <xsd:enumeration value="_processing" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleRecurrenceRecurrenceUnits">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_custom" />
+      <xsd:enumeration value="_days" />
+      <xsd:enumeration value="_months" />
+      <xsd:enumeration value="_weeks" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_chargeBased" />
+      <xsd:enumeration value="_fixedBidInterval" />
+      <xsd:enumeration value="_fixedBidMilestone" />
+      <xsd:enumeration value="_standard" />
+      <xsd:enumeration value="_timeAndMaterials" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleFrequency">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_annually" />
+      <xsd:enumeration value="_custom" />
+      <xsd:enumeration value="_daily" />
+      <xsd:enumeration value="_endOfPeriod" />
+      <xsd:enumeration value="_monthly" />
+      <xsd:enumeration value="_never" />
+      <xsd:enumeration value="_oneTime" />
+      <xsd:enumeration value="_startOfPeriod" />
+      <xsd:enumeration value="_weekly" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemAccountMappingItemAccount">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_asset" />
+      <xsd:enumeration value="_costOfGoods" />
+      <xsd:enumeration value="_customerReturnVariance" />
+      <xsd:enumeration value="_deferral" />
+      <xsd:enumeration value="_deferredRevenue" />
+      <xsd:enumeration value="_discount" />
+      <xsd:enumeration value="_dropShipExpense" />
+      <xsd:enumeration value="_exchangeRateVariance" />
+      <xsd:enumeration value="_expense" />
+      <xsd:enumeration value="_gainLoss" />
+      <xsd:enumeration value="_income" />
+      <xsd:enumeration value="_intercompanyCostOfGoods" />
+      <xsd:enumeration value="_intercompanyExpense" />
+      <xsd:enumeration value="_intercompanyIncome" />
+      <xsd:enumeration value="_liability" />
+      <xsd:enumeration value="_markup" />
+      <xsd:enumeration value="_payment" />
+      <xsd:enumeration value="_priceVariance" />
+      <xsd:enumeration value="_productionPriceVariance" />
+      <xsd:enumeration value="_productionQuantityVariance" />
+      <xsd:enumeration value="_purchasePriceVariance" />
+      <xsd:enumeration value="_quantityVariance" />
+      <xsd:enumeration value="_scrap" />
+      <xsd:enumeration value="_unbuildVariance" />
+      <xsd:enumeration value="_vendorReturnVariance" />
+      <xsd:enumeration value="_wipVariance" />
+      <xsd:enumeration value="_workInProcess" />
+      <xsd:enumeration value="_writeOff" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AccountingBookStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_active" />
+      <xsd:enumeration value="_inactive" />
+      <xsd:enumeration value="_pending" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleRepeatEvery">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_1" />
+      <xsd:enumeration value="_2" />
+      <xsd:enumeration value="_3" />
+      <xsd:enumeration value="_4" />
+      <xsd:enumeration value="_6" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleMonthDow">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_sunday" />
+      <xsd:enumeration value="_monday" />
+      <xsd:enumeration value="_tuesday" />
+      <xsd:enumeration value="_wednesday" />
+      <xsd:enumeration value="_thursday" />
+      <xsd:enumeration value="_friday" />
+      <xsd:enumeration value="_saturday" />
+      <xsd:enumeration value="_day" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleYearMonth">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_january" />
+      <xsd:enumeration value="_february" />
+      <xsd:enumeration value="_march" />
+      <xsd:enumeration value="_april" />
+      <xsd:enumeration value="_may" />
+      <xsd:enumeration value="_june" />
+      <xsd:enumeration value="_july" />
+      <xsd:enumeration value="_august" />
+      <xsd:enumeration value="_september" />
+      <xsd:enumeration value="_october" />
+      <xsd:enumeration value="_november" />
+      <xsd:enumeration value="_december" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleYearDow">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_sunday" />
+      <xsd:enumeration value="_monday" />
+      <xsd:enumeration value="_tuesday" />
+      <xsd:enumeration value="_wednesday" />
+      <xsd:enumeration value="_thursday" />
+      <xsd:enumeration value="_friday" />
+      <xsd:enumeration value="_saturday" />
+      <xsd:enumeration value="_day" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleYearDowim">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_first" />
+      <xsd:enumeration value="_second" />
+      <xsd:enumeration value="_third" />
+      <xsd:enumeration value="_fourth" />
+      <xsd:enumeration value="_last" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleYearDowimMonth">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_january" />
+      <xsd:enumeration value="_february" />
+      <xsd:enumeration value="_march" />
+      <xsd:enumeration value="_april" />
+      <xsd:enumeration value="_may" />
+      <xsd:enumeration value="_june" />
+      <xsd:enumeration value="_july" />
+      <xsd:enumeration value="_august" />
+      <xsd:enumeration value="_september" />
+      <xsd:enumeration value="_october" />
+      <xsd:enumeration value="_november" />
+      <xsd:enumeration value="_december" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleMonthDowim">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_first" />
+      <xsd:enumeration value="_second" />
+      <xsd:enumeration value="_third" />
+      <xsd:enumeration value="_fourth" />
+      <xsd:enumeration value="_last" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleRecurrenceMode">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_dom" />
+      <xsd:enumeration value="_dowim" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="InventoryItemFraudRisk">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_high" />
+      <xsd:enumeration value="_low" />
+      <xsd:enumeration value="_medium" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingScheduleRecurrencePattern">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_anniversaryBillDate" />
+      <xsd:enumeration value="_fixedBillDate" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ItemCreateRevenuePlansOn">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_billing" />
+      <xsd:enumeration value="_fulfillment" />
+      <xsd:enumeration value="_projectProgress" />
+      <xsd:enumeration value="_revenueArrangementCreation" />
     </xsd:restriction>
   </xsd:simpleType>
 </xsd:schema>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:tranInvtTyp="urn:types.inventory_2013_1.transactions.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.inventory_2013_1.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:tranInvtTyp="urn:types.inventory_2015_2.transactions.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.inventory_2015_2.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:simpleType name="TransferOrderItemCommitInventory">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_availableQty" />
@@ -31,6 +31,23 @@
       <xsd:enumeration value="_availableQty" />
       <xsd:enumeration value="_completeQty" />
       <xsd:enumeration value="_doNotCommit" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="WorkOrderOrderStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_built" />
+      <xsd:enumeration value="_cancelled" />
+      <xsd:enumeration value="_closed" />
+      <xsd:enumeration value="_inProcess" />
+      <xsd:enumeration value="_planned" />
+      <xsd:enumeration value="_released" />
+      <xsd:enumeration value="_undefined" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="WorkOrderSchedulingMethod">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_backward" />
+      <xsd:enumeration value="_forward" />
     </xsd:restriction>
   </xsd:simpleType>
 </xsd:schema>

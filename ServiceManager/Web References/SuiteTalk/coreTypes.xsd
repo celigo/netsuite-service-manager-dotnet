@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:platformCoreTyp="urn:types.core_2015_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:types.core_2015_2.platform.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:simpleType name="RecordType">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="account" />
@@ -9,6 +9,8 @@
       <xsd:enumeration value="assemblyBuild" />
       <xsd:enumeration value="assemblyUnbuild" />
       <xsd:enumeration value="assemblyItem" />
+      <xsd:enumeration value="billingAccount" />
+      <xsd:enumeration value="billingSchedule" />
       <xsd:enumeration value="bin" />
       <xsd:enumeration value="binTransfer" />
       <xsd:enumeration value="binWorksheet" />
@@ -28,6 +30,7 @@
       <xsd:enumeration value="cashRefund" />
       <xsd:enumeration value="cashSale" />
       <xsd:enumeration value="check" />
+      <xsd:enumeration value="charge" />
       <xsd:enumeration value="classification" />
       <xsd:enumeration value="contact" />
       <xsd:enumeration value="contactCategory" />
@@ -42,6 +45,8 @@
       <xsd:enumeration value="customRecord" />
       <xsd:enumeration value="customRecordCustomField" />
       <xsd:enumeration value="customRecordType" />
+      <xsd:enumeration value="customTransaction" />
+      <xsd:enumeration value="customTransactionType" />
       <xsd:enumeration value="customer" />
       <xsd:enumeration value="customerCategory" />
       <xsd:enumeration value="customerDeposit" />
@@ -49,6 +54,7 @@
       <xsd:enumeration value="customerPayment" />
       <xsd:enumeration value="customerRefund" />
       <xsd:enumeration value="customerStatus" />
+      <xsd:enumeration value="deposit" />
       <xsd:enumeration value="depositApplication" />
       <xsd:enumeration value="department" />
       <xsd:enumeration value="descriptionItem" />
@@ -64,13 +70,16 @@
       <xsd:enumeration value="folder" />
       <xsd:enumeration value="giftCertificate" />
       <xsd:enumeration value="giftCertificateItem" />
+      <xsd:enumeration value="globalAccountMapping" />
       <xsd:enumeration value="interCompanyJournalEntry" />
       <xsd:enumeration value="interCompanyTransferOrder" />
       <xsd:enumeration value="inventoryAdjustment" />
+      <xsd:enumeration value="inventoryCostRevaluation" />
       <xsd:enumeration value="inventoryItem" />
       <xsd:enumeration value="inventoryNumber" />
       <xsd:enumeration value="inventoryTransfer" />
       <xsd:enumeration value="invoice" />
+      <xsd:enumeration value="itemAccountMapping" />
       <xsd:enumeration value="itemCustomField" />
       <xsd:enumeration value="itemDemandPlan" />
       <xsd:enumeration value="itemFulfillment" />
@@ -119,6 +128,8 @@
       <xsd:enumeration value="projectTask" />
       <xsd:enumeration value="promotionCode" />
       <xsd:enumeration value="purchaseOrder" />
+      <xsd:enumeration value="purchaseRequisition" />
+      <xsd:enumeration value="resourceAllocation" />
       <xsd:enumeration value="returnAuthorization" />
       <xsd:enumeration value="revRecSchedule" />
       <xsd:enumeration value="revRecTemplate" />
@@ -133,6 +144,7 @@
       <xsd:enumeration value="solution" />
       <xsd:enumeration value="siteCategory" />
       <xsd:enumeration value="state" />
+      <xsd:enumeration value="statisticalJournalEntry" />
       <xsd:enumeration value="subsidiary" />
       <xsd:enumeration value="subtotalItem" />
       <xsd:enumeration value="supportCase" />
@@ -142,10 +154,12 @@
       <xsd:enumeration value="supportCaseStatus" />
       <xsd:enumeration value="supportCaseType" />
       <xsd:enumeration value="task" />
+      <xsd:enumeration value="taxAcct" />
       <xsd:enumeration value="taxGroup" />
       <xsd:enumeration value="taxType" />
       <xsd:enumeration value="term" />
       <xsd:enumeration value="timeBill" />
+      <xsd:enumeration value="timeSheet" />
       <xsd:enumeration value="topic" />
       <xsd:enumeration value="transferOrder" />
       <xsd:enumeration value="transactionBodyCustomField" />
@@ -207,6 +221,7 @@
       <xsd:enumeration value="pricingGroup" />
       <xsd:enumeration value="projectTask" />
       <xsd:enumeration value="promotionCode" />
+      <xsd:enumeration value="resourceAllocation" />
       <xsd:enumeration value="revRecSchedule" />
       <xsd:enumeration value="revRecTemplate" />
       <xsd:enumeration value="salesRole" />
@@ -243,6 +258,7 @@
       <xsd:enumeration value="supportCasePriority" />
       <xsd:enumeration value="supportCaseStatus" />
       <xsd:enumeration value="supportCaseType" />
+      <xsd:enumeration value="taxAcct" />
       <xsd:enumeration value="taxGroup" />
       <xsd:enumeration value="taxType" />
     </xsd:restriction>
@@ -252,6 +268,7 @@
       <xsd:enumeration value="crmCustomField" />
       <xsd:enumeration value="customList" />
       <xsd:enumeration value="customRecordType" />
+      <xsd:enumeration value="customTransactionType" />
       <xsd:enumeration value="entityCustomField" />
       <xsd:enumeration value="itemCustomField" />
       <xsd:enumeration value="itemNumberCustomField" />
@@ -277,6 +294,7 @@
       <xsd:enumeration value="itemFulfillment" />
       <xsd:enumeration value="itemReceipt" />
       <xsd:enumeration value="inventoryTransfer" />
+      <xsd:enumeration value="purchaseOrder" />
       <xsd:enumeration value="returnAuthorization" />
       <xsd:enumeration value="salesOrder" />
       <xsd:enumeration value="vendorBill" />
@@ -305,6 +323,7 @@
       <xsd:enumeration value="lotNumberedAssemblyItem" />
       <xsd:enumeration value="opportunity" />
       <xsd:enumeration value="purchaseOrder" />
+      <xsd:enumeration value="purchaseRequisition" />
       <xsd:enumeration value="returnAuthorization" />
       <xsd:enumeration value="salesOrder" />
       <xsd:enumeration value="serializedAssemblyItem" />
@@ -327,6 +346,7 @@
       <xsd:enumeration value="assemblyBuild" />
       <xsd:enumeration value="assemblyItem" />
       <xsd:enumeration value="assemblyUnbuild" />
+      <xsd:enumeration value="billingSchedule" />
       <xsd:enumeration value="bin" />
       <xsd:enumeration value="binTransfer" />
       <xsd:enumeration value="binWorksheet" />
@@ -334,6 +354,7 @@
       <xsd:enumeration value="campaign" />
       <xsd:enumeration value="cashRefund" />
       <xsd:enumeration value="cashSale" />
+      <xsd:enumeration value="charge" />
       <xsd:enumeration value="check" />
       <xsd:enumeration value="contact" />
       <xsd:enumeration value="contactCategory" />
@@ -342,6 +363,7 @@
       <xsd:enumeration value="creditMemo" />
       <xsd:enumeration value="currencyRate" />
       <xsd:enumeration value="customRecord" />
+      <xsd:enumeration value="customTransaction" />
       <xsd:enumeration value="customer" />
       <xsd:enumeration value="customerCategory" />
       <xsd:enumeration value="customerMessage" />
@@ -349,6 +371,7 @@
       <xsd:enumeration value="customerPayment" />
       <xsd:enumeration value="customerRefund" />
       <xsd:enumeration value="customerStatus" />
+      <xsd:enumeration value="deposit" />
       <xsd:enumeration value="depositApplication" />
       <xsd:enumeration value="descriptionItem" />
       <xsd:enumeration value="discountItem" />
@@ -359,14 +382,17 @@
       <xsd:enumeration value="file" />
       <xsd:enumeration value="folder" />
       <xsd:enumeration value="giftCertificateItem" />
+      <xsd:enumeration value="globalAccountMapping" />
       <xsd:enumeration value="interCompanyJournalEntry" />
       <xsd:enumeration value="interCompanyTransferOrder" />
       <xsd:enumeration value="inventoryAdjustment" />
+      <xsd:enumeration value="inventoryCostRevaluation" />
       <xsd:enumeration value="inventoryItem" />
       <xsd:enumeration value="inventoryNumber" />
       <xsd:enumeration value="inventoryTransfer" />
       <xsd:enumeration value="invoice" />
       <xsd:enumeration value="issue" />
+      <xsd:enumeration value="itemAccountMapping" />
       <xsd:enumeration value="itemDemandPlan" />
       <xsd:enumeration value="itemFulfillment" />
       <xsd:enumeration value="itemSupplyPlan" />
@@ -405,6 +431,8 @@
       <xsd:enumeration value="projectTask" />
       <xsd:enumeration value="promotionCode" />
       <xsd:enumeration value="purchaseOrder" />
+      <xsd:enumeration value="purchaseRequisition" />
+      <xsd:enumeration value="resourceAllocation" />
       <xsd:enumeration value="returnAuthorization" />
       <xsd:enumeration value="salesOrder" />
       <xsd:enumeration value="salesTaxItem" />
@@ -413,6 +441,7 @@
       <xsd:enumeration value="servicePurchaseItem" />
       <xsd:enumeration value="serviceResaleItem" />
       <xsd:enumeration value="serviceSaleItem" />
+      <xsd:enumeration value="statisticalJournalEntry" />
       <xsd:enumeration value="subtotalItem" />
       <xsd:enumeration value="supportCase" />
       <xsd:enumeration value="supportCaseIssue" />
@@ -422,6 +451,7 @@
       <xsd:enumeration value="supportCaseType" />
       <xsd:enumeration value="task" />
       <xsd:enumeration value="term" />
+      <xsd:enumeration value="timeSheet" />
       <xsd:enumeration value="transferOrder" />
       <xsd:enumeration value="vendor" />
       <xsd:enumeration value="vendorBill" />
@@ -549,27 +579,34 @@
       <xsd:enumeration value="fiscalQuarterBeforeLastToDate" />
       <xsd:enumeration value="fiscalYearBeforeLast" />
       <xsd:enumeration value="fiscalYearBeforeLastToDate" />
+      <xsd:enumeration value="fiveDaysAgo" />
+      <xsd:enumeration value="fiveDaysFromNow" />
+      <xsd:enumeration value="fourDaysAgo" />
+      <xsd:enumeration value="fourDaysFromNow" />
+      <xsd:enumeration value="fourWeeksStartingThisWeek" />
       <xsd:enumeration value="lastBusinessWeek" />
       <xsd:enumeration value="lastFiscalHalf" />
-      <xsd:enumeration value="lastFiscalHalfOneYearAgo" />
+      <xsd:enumeration value="lastFiscalHalfOneFiscalYearAgo" />
       <xsd:enumeration value="lastFiscalHalfToDate" />
       <xsd:enumeration value="lastFiscalQuarter" />
-      <xsd:enumeration value="lastFiscalQuarterOneYearAgo" />
+      <xsd:enumeration value="lastFiscalQuarterOneFiscalYearAgo" />
       <xsd:enumeration value="lastFiscalQuarterToDate" />
+      <xsd:enumeration value="lastFiscalQuarterTwoFiscalYearsAgo" />
       <xsd:enumeration value="lastFiscalYear" />
       <xsd:enumeration value="lastFiscalYearToDate" />
       <xsd:enumeration value="lastMonth" />
-      <xsd:enumeration value="lastMonthOneQuarterAgo" />
-      <xsd:enumeration value="lastMonthOneYearAgo" />
+      <xsd:enumeration value="lastMonthOneFiscalQuarterAgo" />
+      <xsd:enumeration value="lastMonthOneFiscalYearAgo" />
       <xsd:enumeration value="lastMonthToDate" />
-      <xsd:enumeration value="lastMonthTwoQuartersAgo" />
-      <xsd:enumeration value="lastMonthTwoYearsAgo" />
-      <xsd:enumeration value="lastQuarterTwoYearsAgo" />
+      <xsd:enumeration value="lastMonthTwoFiscalQuartersAgo" />
+      <xsd:enumeration value="lastMonthTwoFiscalYearsAgo" />
       <xsd:enumeration value="lastRollingHalf" />
       <xsd:enumeration value="lastRollingQuarter" />
       <xsd:enumeration value="lastRollingYear" />
       <xsd:enumeration value="lastWeek" />
       <xsd:enumeration value="lastWeekToDate" />
+      <xsd:enumeration value="monthAfterNext" />
+      <xsd:enumeration value="monthAfterNextToDate" />
       <xsd:enumeration value="monthBeforeLast" />
       <xsd:enumeration value="monthBeforeLastToDate" />
       <xsd:enumeration value="nextBusinessWeek" />
@@ -584,12 +621,16 @@
       <xsd:enumeration value="nextOneWeek" />
       <xsd:enumeration value="nextOneYear" />
       <xsd:enumeration value="nextWeek" />
+      <xsd:enumeration value="ninetyDaysAgo" />
+      <xsd:enumeration value="ninetyDaysFromNow" />
       <xsd:enumeration value="oneYearBeforeLast" />
+      <xsd:enumeration value="previousFiscalQuartersLastFiscalYear" />
+      <xsd:enumeration value="previousFiscalQuartersThisFiscalYear" />
       <xsd:enumeration value="previousMonthsLastFiscalHalf" />
       <xsd:enumeration value="previousMonthsLastFiscalQuarter" />
       <xsd:enumeration value="previousMonthsLastFiscalYear" />
-      <xsd:enumeration value="previousMonthsSameFiscalHalfLastYear" />
-      <xsd:enumeration value="previousMonthsSameFiscalQuartherLastFiscalYear" />
+      <xsd:enumeration value="previousMonthsSameFiscalHalfLastFiscalYear" />
+      <xsd:enumeration value="previousMonthsSameFiscalQuarterLastFiscalYear" />
       <xsd:enumeration value="previousMonthsThisFiscalHalf" />
       <xsd:enumeration value="previousMonthsThisFiscalQuarter" />
       <xsd:enumeration value="previousMonthsThisFiscalYear" />
@@ -599,8 +640,6 @@
       <xsd:enumeration value="previousOneQuarter" />
       <xsd:enumeration value="previousOneWeek" />
       <xsd:enumeration value="previousOneYear" />
-      <xsd:enumeration value="previousQuartersLastFiscalYear" />
-      <xsd:enumeration value="previousQuartersThisFiscalYear" />
       <xsd:enumeration value="previousRollingHalf" />
       <xsd:enumeration value="previousRollingQuarter" />
       <xsd:enumeration value="previousRollingYear" />
@@ -612,49 +651,51 @@
       <xsd:enumeration value="sameDayLastWeek" />
       <xsd:enumeration value="sameDayMonthBeforeLast" />
       <xsd:enumeration value="sameDayWeekBeforeLast" />
+      <xsd:enumeration value="sameFiscalHalfLastFiscalYear" />
+      <xsd:enumeration value="sameFiscalHalfLastFiscalYearToDate" />
       <xsd:enumeration value="sameFiscalQuarterFiscalYearBeforeLast" />
-      <xsd:enumeration value="sameHalfLastFiscalYearToDate" />
+      <xsd:enumeration value="sameFiscalQuarterLastFiscalYear" />
+      <xsd:enumeration value="sameFiscalQuarterLastFiscalYearToDate" />
       <xsd:enumeration value="sameMonthFiscalQuarterBeforeLast" />
       <xsd:enumeration value="sameMonthFiscalYearBeforeLast" />
       <xsd:enumeration value="sameMonthLastFiscalQuarter" />
       <xsd:enumeration value="sameMonthLastFiscalQuarterToDate" />
       <xsd:enumeration value="sameMonthLastFiscalYear" />
       <xsd:enumeration value="sameMonthLastFiscalYearToDate" />
-      <xsd:enumeration value="sameQuarterLastFiscalYear" />
-      <xsd:enumeration value="sameQuarterLastFiscalYearToDate" />
       <xsd:enumeration value="sameWeekFiscalYearBeforeLast" />
       <xsd:enumeration value="sameWeekLastFiscalYear" />
+      <xsd:enumeration value="sixtyDaysAgo" />
+      <xsd:enumeration value="sixtyDaysFromNow" />
+      <xsd:enumeration value="startOfFiscalHalfBeforeLast" />
+      <xsd:enumeration value="startOfFiscalQuarterBeforeLast" />
+      <xsd:enumeration value="startOfFiscalYearBeforeLast" />
       <xsd:enumeration value="startOfLastBusinessWeek" />
       <xsd:enumeration value="startOfLastFiscalHalf" />
+      <xsd:enumeration value="startOfLastFiscalHalfOneFiscalYearAgo" />
       <xsd:enumeration value="startOfLastFiscalQuarter" />
+      <xsd:enumeration value="startOfLastFiscalQuarterOneFiscalYearAgo" />
       <xsd:enumeration value="startOfLastFiscalYear" />
-      <xsd:enumeration value="startOfLastHalfOneYearAgo" />
       <xsd:enumeration value="startOfLastMonth" />
-      <xsd:enumeration value="startOfLastMonthOneQuarterAgo" />
-      <xsd:enumeration value="startOfLastMonthOneYearAgo" />
-      <xsd:enumeration value="startOfLastQuarterOneYearAgo" />
+      <xsd:enumeration value="startOfLastMonthOneFiscalQuarterAgo" />
+      <xsd:enumeration value="startOfLastMonthOneFiscalYearAgo" />
       <xsd:enumeration value="startOfLastRollingHalf" />
       <xsd:enumeration value="startOfLastRollingQuarter" />
       <xsd:enumeration value="startOfLastRollingYear" />
       <xsd:enumeration value="startOfLastWeek" />
+      <xsd:enumeration value="startOfMonthBeforeLast" />
       <xsd:enumeration value="startOfNextBusinessWeek" />
       <xsd:enumeration value="startOfNextFiscalHalf" />
       <xsd:enumeration value="startOfNextFiscalQuarter" />
+      <xsd:enumeration value="startOfNextFiscalYear" />
       <xsd:enumeration value="startOfNextMonth" />
       <xsd:enumeration value="startOfNextWeek" />
-      <xsd:enumeration value="startOfNextYear" />
       <xsd:enumeration value="startOfPreviousRollingHalf" />
       <xsd:enumeration value="startOfPreviousRollingQuarter" />
       <xsd:enumeration value="startOfPreviousRollingYear" />
-      <xsd:enumeration value="startOfSameHalfLastFiscalYear" />
+      <xsd:enumeration value="startOfSameFiscalHalfLastFiscalYear" />
+      <xsd:enumeration value="startOfSameFiscalQuarterLastFiscalYear" />
       <xsd:enumeration value="startOfSameMonthLastFiscalQuarter" />
       <xsd:enumeration value="startOfSameMonthLastFiscalYear" />
-      <xsd:enumeration value="startOfSameQuarterLastFiscalYear" />
-      <xsd:enumeration value="startOfTheHalfBeforeLast" />
-      <xsd:enumeration value="startOfTheMonthBeforeLast" />
-      <xsd:enumeration value="startOfTheQuarterBeforeLast" />
-      <xsd:enumeration value="startOfTheWeekBeforeLast" />
-      <xsd:enumeration value="startOfTheYearBeforeLast" />
       <xsd:enumeration value="startOfThisBusinessWeek" />
       <xsd:enumeration value="startOfThisFiscalHalf" />
       <xsd:enumeration value="startOfThisFiscalQuarter" />
@@ -662,6 +703,11 @@
       <xsd:enumeration value="startOfThisMonth" />
       <xsd:enumeration value="startOfThisWeek" />
       <xsd:enumeration value="startOfThisYear" />
+      <xsd:enumeration value="startOfWeekBeforeLast" />
+      <xsd:enumeration value="tenDaysAgo" />
+      <xsd:enumeration value="tenDaysFromNow" />
+      <xsd:enumeration value="thirtyDaysAgo" />
+      <xsd:enumeration value="thirtyDaysFromNow" />
       <xsd:enumeration value="thisBusinessWeek" />
       <xsd:enumeration value="thisFiscalHalf" />
       <xsd:enumeration value="thisFiscalHalfToDate" />
@@ -677,12 +723,20 @@
       <xsd:enumeration value="thisWeek" />
       <xsd:enumeration value="thisWeekToDate" />
       <xsd:enumeration value="thisYear" />
+      <xsd:enumeration value="threeDaysAgo" />
+      <xsd:enumeration value="threeDaysFromNow" />
+      <xsd:enumeration value="threeFiscalQuartersAgo" />
+      <xsd:enumeration value="threeFiscalQuartersAgoToDate" />
+      <xsd:enumeration value="threeFiscalYearsAgo" />
+      <xsd:enumeration value="threeFiscalYearsAgoToDate" />
       <xsd:enumeration value="threeMonthsAgo" />
-      <xsd:enumeration value="threeQuartersAgo" />
-      <xsd:enumeration value="threeYearsAgo" />
+      <xsd:enumeration value="threeMonthsAgoToDate" />
       <xsd:enumeration value="today" />
       <xsd:enumeration value="tomorrow" />
       <xsd:enumeration value="twoDaysAgo" />
+      <xsd:enumeration value="twoDaysFromNow" />
+      <xsd:enumeration value="weekAfterNext" />
+      <xsd:enumeration value="weekAfterNextToDate" />
       <xsd:enumeration value="weekBeforeLast" />
       <xsd:enumeration value="weekBeforeLastToDate" />
       <xsd:enumeration value="yesterday" />
@@ -706,6 +760,12 @@
       <xsd:enumeration value="contains" />
       <xsd:enumeration value="is" />
       <xsd:enumeration value="startsWith" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SignatureAlgorithm">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="HMAC_SHA256" />
+      <xsd:enumeration value="HMAC_SHA1" />
     </xsd:restriction>
   </xsd:simpleType>
 </xsd:schema>

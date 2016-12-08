@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:tranCust="urn:customers_2013_1.transactions.webservices.netsuite.com" xmlns:tranCustTyp="urn:types.customers_2013_1.transactions.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:customers_2013_1.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/commonTypes.xsd" namespace="urn:types.common_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/customerTypes.xsd" namespace="urn:types.customers_2013_1.transactions.webservices.netsuite.com" />
+<xsd:schema xmlns:platformCoreTyp="urn:types.core_2015_2.platform.webservices.netsuite.com" xmlns:tranCust="urn:customers_2015_2.transactions.webservices.netsuite.com" xmlns:tranCustTyp="urn:types.customers_2015_2.transactions.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2015_2.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2015_2.platform.webservices.netsuite.com" xmlns:platformCore="urn:core_2015_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:customers_2015_2.transactions.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/core.xsd" namespace="urn:core_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/common.xsd" namespace="urn:common_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/commonTypes.xsd" namespace="urn:types.common_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/customerTypes.xsd" namespace="urn:types.customers_2015_2.transactions.webservices.netsuite.com" />
   <xsd:element name="CashRefund" type="tranCust:CashRefund" />
   <xsd:complexType name="CashRefund">
     <xsd:complexContent mixed="false">
@@ -53,9 +53,8 @@
           <xsd:element minOccurs="0" name="fax" type="xsd:string" />
           <xsd:element minOccurs="0" name="messageSel" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="message" type="xsd:string" />
-          <xsd:element minOccurs="0" name="transactionBillAddress" type="platformCommon:BillAddress" />
+          <xsd:element minOccurs="0" name="billingAddress" type="platformCommon:Address" />
           <xsd:element minOccurs="0" name="billAddressList" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="billAddress" type="xsd:string" />
           <xsd:element minOccurs="0" name="shipMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="shippingTaxCode" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="shippingTax1Rate" type="xsd:double" />
@@ -144,6 +143,8 @@
       <xsd:element minOccurs="0" name="revRecSchedule" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="revRecStartDate" type="xsd:dateTime" />
       <xsd:element minOccurs="0" name="revRecEndDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="catchUpPeriod" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
       <xsd:element minOccurs="0" name="giftCertFrom" type="xsd:string" />
       <xsd:element minOccurs="0" name="costEstimateType" type="platformCommonTyp:ItemCostEstimateType" />
       <xsd:element minOccurs="0" name="costEstimate" type="xsd:double" />
@@ -159,6 +160,8 @@
       <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
       <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
       <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="chargeType" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="chargesList" type="platformCore:RecordRefList" />
       <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
     </xsd:sequence>
   </xsd:complexType>
@@ -204,6 +207,7 @@
           <xsd:element minOccurs="0" name="payment" type="xsd:double" />
           <xsd:element minOccurs="0" name="autoApply" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="tranDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="tranId" type="xsd:string" />
           <xsd:element minOccurs="0" name="postingPeriod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="paymentMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="ccIsPurchaseCardBin" type="xsd:boolean" />
@@ -223,6 +227,7 @@
           <xsd:element minOccurs="0" name="authCode" type="xsd:string" />
           <xsd:element minOccurs="0" name="ccAvsStreetMatch" type="platformCommonTyp:AvsMatchCode" />
           <xsd:element minOccurs="0" name="ccAvsZipMatch" type="platformCommonTyp:AvsMatchCode" />
+          <xsd:element minOccurs="0" name="isRecurringPayment" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="ccSecurityCode" type="xsd:string" />
           <xsd:element minOccurs="0" name="ignoreAvs" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="ccSecurityCodeMatch" type="platformCommonTyp:AvsMatchCode" />
@@ -362,9 +367,8 @@
           <xsd:element minOccurs="0" name="toBeFaxed" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="messageSel" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="message" type="xsd:string" />
-          <xsd:element minOccurs="0" name="transactionBillAddress" type="platformCommon:BillAddress" />
+          <xsd:element minOccurs="0" name="billingAddress" type="platformCommon:Address" />
           <xsd:element minOccurs="0" name="billAddressList" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="billAddress" type="xsd:string" />
           <xsd:element minOccurs="0" name="shipAddressList" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="shipAddress" type="xsd:string" />
           <xsd:element minOccurs="0" name="salesGroup" type="platformCore:RecordRef" />
@@ -440,6 +444,7 @@
       <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
       <xsd:element minOccurs="0" name="isClosed" type="xsd:boolean" />
       <xsd:element minOccurs="0" name="isDropShipment" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="catchUpPeriod" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="costEstimateType" type="platformCommonTyp:ItemCostEstimateType" />
       <xsd:element minOccurs="0" name="costEstimate" type="xsd:double" />
@@ -552,9 +557,8 @@
           <xsd:element minOccurs="0" name="fax" type="xsd:string" />
           <xsd:element minOccurs="0" name="messageSel" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="message" type="xsd:string" />
-          <xsd:element minOccurs="0" name="transactionBillAddress" type="platformCommon:BillAddress" />
+          <xsd:element minOccurs="0" name="billingAddress" type="platformCommon:Address" />
           <xsd:element minOccurs="0" name="billAddressList" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="billAddress" type="xsd:string" />
           <xsd:element minOccurs="0" name="shipMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="shippingCost" type="xsd:double" />
           <xsd:element minOccurs="0" name="shippingTax1Rate" type="xsd:double" />
@@ -655,6 +659,10 @@
       <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
       <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
       <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="catchUpPeriod" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="chargeType" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="subscriptionLine" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="chargesList" type="platformCore:RecordRefList" />
       <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
     </xsd:sequence>
   </xsd:complexType>
@@ -699,6 +707,7 @@
           <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
           <xsd:element minOccurs="0" name="lastModifiedDate" type="xsd:dateTime" />
           <xsd:element minOccurs="0" name="status" type="xsd:string" />
+          <xsd:element minOccurs="0" name="transactionNumber" type="xsd:string" />
           <xsd:element minOccurs="0" name="customer" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="balance" type="xsd:double" />
@@ -825,6 +834,7 @@
           <xsd:element minOccurs="0" name="ccAvsStreetMatch" type="platformCommonTyp:AvsMatchCode" />
           <xsd:element minOccurs="0" name="softDescriptor" type="xsd:string" />
           <xsd:element minOccurs="0" name="ccAvsZipMatch" type="platformCommonTyp:AvsMatchCode" />
+          <xsd:element minOccurs="0" name="isRecurringPayment" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="ccSecurityCodeMatch" type="platformCommonTyp:AvsMatchCode" />
           <xsd:element minOccurs="0" name="threeDStatusCode" type="xsd:string" />
           <xsd:element minOccurs="0" name="ignoreAvs" type="xsd:boolean" />
@@ -910,5 +920,93 @@
       <xsd:element minOccurs="0" maxOccurs="unbounded" name="apply" type="tranCust:DepositApplicationApply" />
     </xsd:sequence>
     <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="charge" type="tranCust:Charge" />
+  <xsd:complexType name="Charge">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="salesOrder" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="billTo" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="billingAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="stage" type="tranCustTyp:ChargeStage" />
+          <xsd:element minOccurs="0" name="chargeDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="use" type="tranCustTyp:ChargeUse" />
+          <xsd:element minOccurs="0" name="chargeType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="projectTask" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="createdDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="timeRecord" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="rate" type="xsd:string" />
+          <xsd:element minOccurs="0" name="quantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="billingItem" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="transaction" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="transactionLine" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="salesOrderLine" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subscriptionLine" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="invoice" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="invoiceLine" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="rule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="runId" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="chargeSearch" type="tranCust:ChargeSearch" />
+  <xsd:complexType name="ChargeSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:ChargeSearchBasic" />
+          <xsd:element minOccurs="0" name="billingAccountJoin" type="platformCommon:BillingAccountSearchBasic" />
+          <xsd:element minOccurs="0" name="chargeEmployeeJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" name="invoiceJoin" type="platformCommon:TransactionSearchBasic" />
+          <xsd:element minOccurs="0" name="jobJoin" type="platformCommon:JobSearchBasic" />
+          <xsd:element minOccurs="0" name="salesOrderJoin" type="platformCommon:TransactionSearchBasic" />
+          <xsd:element minOccurs="0" name="timeJoin" type="platformCommon:TimeBillSearchBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ChargeSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="tranCust:ChargeSearch" />
+          <xsd:element minOccurs="0" name="columns" type="tranCust:ChargeSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ChargeSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:ChargeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="billingAccountJoin" type="platformCommon:BillingAccountSearchRowBasic" />
+          <xsd:element minOccurs="0" name="chargeEmployeeJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" name="invoiceJoin" type="platformCommon:TransactionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="jobJoin" type="platformCommon:JobSearchRowBasic" />
+          <xsd:element minOccurs="0" name="salesOrderJoin" type="platformCommon:TransactionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="timeJoin" type="platformCommon:TimeBillSearchRowBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
 </xsd:schema>

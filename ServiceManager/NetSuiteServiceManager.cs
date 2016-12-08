@@ -1,3 +1,5 @@
+#if !FIRSTBUILD
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -43,14 +45,6 @@ namespace com.celigo.net.ServiceManager
         /// </summary>
         /// <value>The service proxy.</value>
         protected INetSuiteService ServiceProxy { get; private set; }
-
-        /// <summary>Gets or sets the SuiteTalk webservice URL.</summary>
-        [Obsolete("Use NetSuiteServiceManager.ServiceConfiguration.EndPointUrl instead.")]
-        public string RemoteUrl
-        {
-            get { return ServiceProxy.Url; }
-            set { ServiceProxy.Url = value; }
-        }
 
         /// <summary>
         /// Gets the service configuration under which the Service Manager
@@ -110,7 +104,17 @@ namespace com.celigo.net.ServiceManager
         }
         
         /// <summary>
-        /// Invokes NetSuite's changeEmail(..) method.
+        /// Invokes NetSuite's changeEmailOrPassword(..) method.
+        /// </summary>
+        /// <param name="cpec">The credentials required for the password/email change.</param>
+        /// <returns>Response from the WebService.</returns>
+        public virtual SessionResponse ChangePassword(ChangePassword cpec)
+        {
+            return InvokeService<SessionResponse>(cpec, "changePassword");
+        }
+
+        /// <summary>
+        /// Invokes NetSuite's changeEmailOrPassword(..) method.
         /// </summary>
         /// <param name="cpec">The credentials required for the password/email change.</param>
         /// <returns>Response from the WebService.</returns>
@@ -118,17 +122,7 @@ namespace com.celigo.net.ServiceManager
         {
             return InvokeService<SessionResponse>(cpec, "changeEmail");
         }
-
-        /// <summary>
-        /// Invokes NetSuite's changeEmail(..) method.
-        /// </summary>
-        /// <param name="cpec">The credentials required for the password/email change.</param>
-        /// <returns>Response from the WebService.</returns>
-        public virtual SessionResponse ChangePassword(ChangePassword cpec)
-        {
-            return InvokeService<SessionResponse>(cpec, "changeEmail");
-        }
-
+  
         /// <summary>Performs the actual login</summary>
         /// <returns></returns>
         private SessionResponse ExecuteLogin(INetSuiteService serviceProxy, 
@@ -143,7 +137,7 @@ namespace com.celigo.net.ServiceManager
 
             SessionResponse ssnResponse = null;
             
-            ServiceInvocationEventArgs invokerEventArgs = new ServiceInvocationEventArgs("login", credential);
+            ServiceInvocationEventArgs invokerEventArgs = new ServiceInvocationEventArgs("login", credential, typeof(SessionResponse));
             for (; invokerEventArgs.InvokationAttempt < Configuration.RetryCount; invokerEventArgs.InvokationAttempt++)
             {
                 ssnResponse = TryLogin(serviceProxy, 
@@ -159,7 +153,7 @@ namespace com.celigo.net.ServiceManager
                     break;
                 else if (!invokerEventArgs.ForceRetry)
                     throw invokerEventArgs.Exception;
-                else if (invokerEventArgs.InvokationAttempt != Configuration.RetryCount - 1)
+                else if (invokerEventArgs.InvokationAttempt != Configuration.RetryCount - 1 && invokerEventArgs.WaitBeforeRetrying)
                     WaitForRetryInterval();
             }
 
@@ -192,7 +186,7 @@ namespace com.celigo.net.ServiceManager
             }
         }
 
-        private static SessionResponse TryLogin(INetSuiteService serviceProxy,
+        private SessionResponse TryLogin(INetSuiteService serviceProxy,
                                             Passport passport, 
                                             ILogger log,
                                             ServiceInvocationEventArgs invokerEventArgs,
@@ -203,9 +197,9 @@ namespace com.celigo.net.ServiceManager
             {
                 if (log.IsDebugEnabled)
                 {
-                    log.Debug(string.Format("Logging into NetSuite [Username={0}, Account={1}, RoleId={2}]", 
-                                              passport.email, 
-                                              passport.account, 
+                    log.Debug(string.Format("Logging into NetSuite [Username={0}, Account={1}, RoleId={2}]",
+                                              passport.email,
+                                              passport.account,
                                               passport.role == null ? null : passport.role.internalId
                                             ));
                 }
@@ -229,6 +223,17 @@ namespace com.celigo.net.ServiceManager
                 {
                     invokerEventArgs.Exception = new InvalidCredentialException(invokerEventArgs.Exception);
                     onErrorCallback(invokerEventArgs);
+                }
+            }
+            catch (WebException ex)
+            {
+                invokerEventArgs.Exception = ex;
+
+                if (IsRedirection(ex))
+                {
+                    SetDataCenterUrl(ex.Response as HttpWebResponse, serviceProxy);
+                    invokerEventArgs.ForceRetry = true;
+                    invokerEventArgs.WaitBeforeRetrying = false;
                 }
             }
             catch (Exception ex)
@@ -340,45 +345,8 @@ namespace com.celigo.net.ServiceManager
 
         #endregion
 
-        #region : Service Base Overrides :
-
-        /// <summary>
-        /// Invokes NetSuite's addList(..) method.
-        /// </summary>
-        /// <param name="records">The records to be added.</param>
-        /// <returns>Response from the WebService.</returns>
-        public override WriteResponse[] AddList(Record[] records)
-        {
-            if (records == null || records.Length == 0)
-                return new WriteResponse[0];
-            return ProcessRecordAddsInBatchMode(records, "addList");
-        }
-
-        /// <summary>
-        /// Invokes NetSuite's deleteList(..) method.
-        /// </summary>
-        /// <param name="baseRefs">The items to be deleted.</param>
-        /// <returns>Invokes NetSuite's add(..) method.</returns>
-        public override WriteResponse[] DeleteList(BaseRef[] baseRefs)
-        {
-            if (baseRefs == null || baseRefs.Length == 0)
-                return new WriteResponse[0];
-            return ProcessRecordDeletesInBatchMode(baseRefs, "deleteList");
-        }
-
-        /// <summary>
-        /// Invokes NetSuite's updateList(..) method.
-        /// </summary>
-        /// <param name="records">The records to be updated.</param>
-        /// <returns>Response from the WebService.</returns>
-        public override WriteResponse[] UpdateList(Record[] records)
-        {
-            if (records == null || records.Length == 0)
-                return new WriteResponse[0];
-            return ProcessRecordUpdatesInBatchMode(records, "updateList");
-        }
-
         #region :  InvokeService Method :
+
         internal override T InvokeService<T>(object arg, string method)
         {
             return InvokeService<T>(arg, method, null);
@@ -391,57 +359,122 @@ namespace com.celigo.net.ServiceManager
         /// <returns>Result of the web service.</returns>
         internal override T InvokeService<T>(object arg, string method, SearchPreferences searchPrefs)
         {
+            var syncEventArgs = new DeferInvocationEventArgs(method, arg);
+            DeferInvocationQuery(syncEventArgs);
+
+            T result = default(T);
+            if (!syncEventArgs.ExecuteInBackground)
+                result = InvokeServiceWorker<T>(arg, method, searchPrefs);
+            else
+            {
+                // TODO: Re implement this in TPL when upgraded to .net 4.0
+                ThreadPool.QueueUserWorkItem(
+                    delegate (object invokerArgs) {
+                        try
+                        {
+                            result = InvokeServiceWorker<T>(arg, method, searchPrefs);
+                        }
+                        catch (Exception ex)
+                        {
+                            var preEventArgs = invokerArgs as DeferInvocationEventArgs;
+                            if (preEventArgs != null)
+                                preEventArgs.ThrownException = ex;
+                        }
+                        finally
+                        {
+                            var preEventArgs = invokerArgs as DeferInvocationEventArgs;
+                            if (preEventArgs != null /*&& result != null*/ && preEventArgs.BackgroundExecutionCallback != null)
+                            {
+                                preEventArgs.BackgroundExecutionCallback(result);
+                            }
+                        }
+                    }, 
+                    syncEventArgs
+                );
+                AfterDeferredInvocation(syncEventArgs);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Allows the developer to respond to an invocation that was deferred.
+        /// </summary>
+        /// <param name="syncEventArgs">
+        /// The <see cref="com.celigo.net.ServiceManager.Utility.DeferInvocationEventArgs"/> instance containing the event data.
+        /// </param>
+        protected virtual void AfterDeferredInvocation(DeferInvocationEventArgs syncEventArgs)
+        {
+        }
+
+        /// <summary>
+        /// Queries whether the developer wishes to defer the invocation of the specified Web Services
+        /// method to a background thread.
+        /// </summary>
+        /// <param name="syncEventArgs">
+        /// The <see cref="com.celigo.net.ServiceManager.Utility.DeferInvocationEventArgs"/> instance containing the event data.
+        /// </param>
+        protected virtual void DeferInvocationQuery(DeferInvocationEventArgs syncEventArgs)
+        {
+        }
+
+        private T InvokeServiceWorker<T>(object arg, string method, SearchPreferences searchPrefs) where T : class
+        {
+            T result = null;
+            ServiceInvocationEventArgs invokerEventArgs = new ServiceInvocationEventArgs(method, arg, typeof(T));
+            
             lock (ServiceProxy)
             {
                 Configuration.Configure(ServiceProxy, searchPrefs);
 
-                T result = null;
                 MethodInfo mi = ServiceProxy.GetType().GetMethod(method);
                 ParameterInfo[] parameters = mi.GetParameters();
                 Func<object, T> invokerFunc = GetInvokerFunction<T>(mi, parameters);
 
-                ServiceInvocationEventArgs invokerEventArgs = new ServiceInvocationEventArgs(method, arg);
 
                 for (; invokerEventArgs.InvokationAttempt < Configuration.RetryCount; invokerEventArgs.InvokationAttempt++)
                 {
+                    invokerEventArgs.Exception = null;
+                    invokerEventArgs.ForceRetry = false;
+
                     ServiceProxy.passport = Credentials.GetPassport();
                     OnBeforeServiceInvocation(invokerEventArgs);
 
-                    if (!invokerEventArgs.Cancel && this.IsSuspended)
-                        throw new WebservicesLockdownException();
-                    else if (invokerEventArgs.Cancel)
+                    if (invokerEventArgs.Cancel)
                         break;
                     else if (_log.IsDebugEnabled && parameters.Length == 0)
                         LogInvocationMeaningfully(invokerEventArgs.MethodName);
                     else if (_log.IsDebugEnabled)
                         LogInvocationMeaningfully(invokerEventArgs.MethodName, invokerEventArgs.Arguments);
-                    
+
                     bool retry;
                     result = TryInvokeService<T>(invokerFunc, invokerEventArgs, out retry);
                     if (!retry)
                         break;
                 }
-
-                if (invokerEventArgs.InvokationAttempt == Configuration.RetryCount) // Retry count was exhausted..
-                {
-                    invokerEventArgs.Exception = new RetryCountExhaustedException("Operation Failed", invokerEventArgs.Exception);
-                    OnServiceInvocationError(invokerEventArgs);
-                    throw invokerEventArgs.Exception;
-                }
-
-                return result;
             }
+
+            if (invokerEventArgs.Exception != null)
+                throw invokerEventArgs.Exception;
+            else if (invokerEventArgs.InvokationAttempt == Configuration.RetryCount) // Retry count was exhausted..
+            {
+                invokerEventArgs.Exception = new RetryCountExhaustedException("Operation Failed", invokerEventArgs.Exception);
+                OnServiceInvocationError(invokerEventArgs);
+                throw invokerEventArgs.Exception;
+            }
+
+            return result;
         }
 
         private T TryInvokeService<T>(Func<object, T> invokerFunc, ServiceInvocationEventArgs invokerEventArgs, out bool retry) where T: class
         {
+            retry = false;
             T result;
+
             try
             {
                 invokerEventArgs.Result = result = invokerFunc(invokerEventArgs.Arguments);
                 OnAfterServiceInvocation(invokerEventArgs);
 
-                retry = false;
                 return result;
             }
             catch (Exception ex)
@@ -459,6 +492,12 @@ namespace com.celigo.net.ServiceManager
                     _log.Debug("Retry forced by user code");
                     retry = true;
                 }
+                else if (thrownException is WebException && IsRedirection(thrownException))
+                {
+                    _log.Debug("Found redirection instructions.");
+                    SetDataCenterUrl(((WebException)thrownException).Response as HttpWebResponse, ServiceProxy);
+                    retry = true;
+                }
                 else if (ErrorCanBeWorkedArround(thrownException))
                 {
                     _log.Debug(string.Format("Operation Failed with Exception: {0}", thrownException.GetType().Name));
@@ -474,22 +513,53 @@ namespace com.celigo.net.ServiceManager
                 else if (ErrorRequiresLockdown(thrownException))
                 {
                     _log.Error("WebServices operations will be locked down until an explicit login call is made due to the following error.", ex);
-                    throw thrownException;
+                    invokerEventArgs.Exception = thrownException;
                 }
                 else
                 {
                     _log.Error(string.Format("Operation Failed with Exception: {0}", thrownException.GetType().Name), thrownException);
-                    throw new NsException(thrownException);
-                }
-                return null;
+                    invokerEventArgs.Exception = new NsException(thrownException);
+                } 
+                result = invokerEventArgs.Result as T;
             }
+            return result;
         }
 
-        private bool ErrorRequiresLockdown(Exception thrownException)
+        private void SetDataCenterUrl(HttpWebResponse webResponse, INetSuiteService serviceProxy)
+        {
+            if (webResponse == null || Configuration == null || Configuration.EndPointUrl == null)
+                return;
+
+            string relativePath = Configuration.EndPointUrl.Substring(Configuration.EndPointUrl.IndexOf('/', 8));
+
+            var redirEndpoint = new Uri(webResponse.Headers["Location"]);
+
+            serviceProxy.Url = Configuration.EndPointUrl = string.Concat(redirEndpoint.Scheme, "://", redirEndpoint.Host, relativePath);
+            _log.Debug("WebService endpoint changed to " + Configuration.EndPointUrl);
+        }
+
+        private static bool IsRedirection(Exception thrownException)
+        {
+            WebException webException;
+            HttpWebResponse response;
+            return null != (webException = thrownException as WebException)
+                && null != (response = webException.Response as HttpWebResponse)
+                && HttpStatusCode.Found == response.StatusCode
+                && -1 != Array.FindIndex(response.Headers.AllKeys, s => s == "Location");
+        }
+
+        private static bool ErrorRequiresLockdown(Exception thrownException)
         {
             return thrownException is InvalidCredentialException;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="mi"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         private Func<object, T> GetInvokerFunction<T>(MethodInfo mi, ParameterInfo[] parameters)
         {
             Func<object, T> invokerFunc;
@@ -504,10 +574,10 @@ namespace com.celigo.net.ServiceManager
             }
             else
             {
-                invokerFunc = new Func<object,T>(arg => 
-                                                    {
+                invokerFunc = new Func<object,T>(arg => {
                                                         object[] argArray = (object[])arg;
-                                                        return (T)mi.Invoke(ServiceProxy, argArray);
+                                                        var result = (T)mi.Invoke(ServiceProxy, argArray);
+                                                        return result;
                                                     });
             }
 
@@ -673,13 +743,13 @@ namespace com.celigo.net.ServiceManager
         }
 
         #endregion
-
-        #endregion
-
+        
         #region : Batch Processing :
 
         private WriteResponse[] ProcessRecordDeletesInBatchMode(BaseRef[] records, string methodName)
         {
+            Debug.Assert(methodName == "deleteList", "Incorrect use of the batch processing mode.");
+
             int batchSize = Configuration.DeleteRequestSize;
             var beforeUploadArgs = new BeforeBatchDeleteEventArgs(methodName, records.Length, batchSize);
 
@@ -689,7 +759,7 @@ namespace com.celigo.net.ServiceManager
             if (records.Length <= batchSize)
             {
                 beforeUploadHandler(beforeUploadArgs.UpdateData(records, 1));
-                var result = InvokeService<WriteResponse[]>(records, methodName);
+                var result = InvokeService<WriteResponseList>(records, methodName).writeResponse;
                 afterUploadHandler(new AfterBatchUploadEventArgs(beforeUploadArgs, result).UpdateData(0));
                 return result;
             }
@@ -734,7 +804,7 @@ namespace com.celigo.net.ServiceManager
             _log.Debug(string.Format("Processing Batch -- Size: {0} Ref(s), Operation: {1}", batch.Length, methodName));
             try
             {
-                responses.AddRange(InvokeService<WriteResponse[]>(batch, methodName));
+                responses.AddRange(InvokeService<WriteResponseList>(batch, methodName).writeResponse);
             }
             catch (Exception e)
             {
@@ -758,20 +828,29 @@ namespace com.celigo.net.ServiceManager
             }
         }
 
-        private WriteResponse[] ProcessRecordAddsInBatchMode(Record[] records, string methodName)
+        private WriteResponse[] ProcessRecordInBatchMode(Record[] records, string methodName)
         {
-            if (records.Length <= Configuration.AddRequestSize)
-                return DirectInvoke(records, methodName, Configuration.AddRequestSize);
+            int batchSize = methodName.StartsWith("add") 
+                            ? Configuration.AddRequestSize 
+                            : Configuration.UpdateRequestSize;
+
+            if (records.Length <= batchSize)
+                return DirectInvoke(records, methodName, batchSize);
             else
-                return BatchInvoke(records, methodName, Configuration.AddRequestSize);
+                return BatchInvoke(records, methodName, batchSize);
         }
 
-        private WriteResponse[] ProcessRecordUpdatesInBatchMode(Record[] records, string methodName)
+        private WriteResponse[] DirectInvoke(Record[] records, string methodName, int batchSize)
         {
-            if (records.Length <= Configuration.UpdateRequestSize)
-                return DirectInvoke(records, methodName, Configuration.UpdateRequestSize);
-            else
-                return BatchInvoke(records, methodName, Configuration.UpdateRequestSize);
+            var beforeUploadArgs = new BeforeBatchUploadEventArgs(methodName, records.Length, batchSize);
+
+            var beforeUploadHandler = GetBeforeUploadHandler();
+            var afterUploadHandler = GetAfterUploadHandler();
+
+            beforeUploadHandler(beforeUploadArgs.UpdateData(records, 1));
+            var results = InvokeService<WriteResponseList>(records, methodName).writeResponse;
+            afterUploadHandler(new AfterBatchUploadEventArgs(beforeUploadArgs, results).UpdateData(0));
+            return results;
         }
 
         private WriteResponse[] BatchInvoke(Record[] records, string methodName, int batchSize)
@@ -817,19 +896,6 @@ namespace com.celigo.net.ServiceManager
             ProcessBatch(leftOvers, responses, methodName);
             afterUploadHandler(afterUploadArgs.UpdateData(responseStartIndex));
             return responses.ToArray();
-        }
-
-        private WriteResponse[] DirectInvoke(Record[] records, string methodName, int batchSize)
-        {
-            var beforeUploadArgs = new BeforeBatchUploadEventArgs(methodName, records.Length, batchSize);
-
-            var beforeUploadHandler = GetBeforeUploadHandler();
-            var afterUploadHandler = GetAfterUploadHandler();
-
-            beforeUploadHandler(beforeUploadArgs.UpdateData(records, 1));
-            var results = InvokeService<WriteResponse[]>(records, methodName);
-            afterUploadHandler(new AfterBatchUploadEventArgs(beforeUploadArgs, results).UpdateData(0));
-            return results;
         }
 
         private Action<AfterBatchUploadEventArgs> GetAfterDeleteHandler()
@@ -1054,6 +1120,9 @@ namespace com.celigo.net.ServiceManager
 
         private  bool __isLockedDown = false;
 
+        /// <summary>
+        /// Indicates whether the ServiceManager is in suspended mode due to concecutive failed login attempts.
+        /// </summary>
         public bool IsSuspended
         {
             get
@@ -1104,3 +1173,5 @@ namespace com.celigo.net.ServiceManager
         }
     }
 }
+
+#endif

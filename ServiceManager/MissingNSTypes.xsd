@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="MissingNSTypes" targetNamespace="urn:types.missing_2013_1.transactions.webservices.netsuite.com"
+<xs:schema id="MissingNSTypes" targetNamespace="urn:types.missing_2015_1.transactions.webservices.netsuite.com"
 			elementFormDefault="qualified"
-			xmlns="urn:types.missing_2013_1.transactions.webservices.netsuite.com"
-			xmlns:mstns="urn:types.missing_2013_1.transactions.webservices.netsuite.com"
+			xmlns="urn:types.missing_2015_1.transactions.webservices.netsuite.com"
+			xmlns:mstns="urn:types.missing_2015_1.transactions.webservices.netsuite.com"
 			xmlns:xs="http://www.w3.org/2001/XMLSchema"
 			xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-			xmlns:listAcctTyp="urn:types.accounting_2013_1.lists.webservices.netsuite.com"
-			xmlns:tranSalesTyp="urn:types.sales_2013_1.transactions.webservices.netsuite.com"
-			xmlns:platformFaults="urn:types.faults_2013_1.platform.webservices.netsuite.com"
-			xmlns:listRelTyp="urn:types.relationships_2013_1.lists.webservices.netsuite.com"
-			xmlns:commonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" >
+			xmlns:listAcctTyp="urn:types.accounting_2015_1.lists.webservices.netsuite.com"
+			xmlns:tranSalesTyp="urn:types.sales_2015_1.transactions.webservices.netsuite.com"
+			xmlns:platformFaults="urn:types.faults_2015_1.platform.webservices.netsuite.com"
+			xmlns:listRelTyp="urn:types.relationships_2015_1.lists.webservices.netsuite.com"
+			xmlns:commonTyp="urn:types.common_2015_1.platform.webservices.netsuite.com" >
 	<xs:element name="celigoTransactionStatus" type="tranSalesTyp:TransactionStatus" />
 	<xs:element name="celigoContactType" type="listRelTyp:ContactType" />
 	<xs:element name="celigoPermLevel" type="commonTyp:PermissionLevel" />
 	<xs:element name="celigoPermCode" type="commonTyp:PermissionCode" />
+	<!-- Available in 2015.1
 	<xs:element name="celigoCustomerMonthlyClosing" type="listRelTyp:CustomerMonthlyClosing" />
-	<!-- Available in 2013.1
 	<xs:element name="celigoItemType" type="listAcctTyp:ItemType" />	
+	<xs:element name="celigoCostingMethod" type="commonTyp:CostingMethod" />
 	-->
 </xs:schema>

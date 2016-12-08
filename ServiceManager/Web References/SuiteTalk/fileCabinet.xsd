@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" xmlns:docFileCab="urn:filecabinet_2013_1.documents.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:docFileCabTyp="urn:types.filecabinet_2013_1.documents.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:filecabinet_2013_1.documents.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/documents/v2013_1_0/fileCabinetTypes.xsd" namespace="urn:types.filecabinet_2013_1.documents.webservices.netsuite.com" />
+<xsd:schema xmlns:platformCoreTyp="urn:types.core_2015_2.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2015_2.platform.webservices.netsuite.com" xmlns:docFileCab="urn:filecabinet_2015_2.documents.webservices.netsuite.com" xmlns:platformCommon="urn:common_2015_2.platform.webservices.netsuite.com" xmlns:docFileCabTyp="urn:types.filecabinet_2015_2.documents.webservices.netsuite.com" xmlns:platformCore="urn:core_2015_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:filecabinet_2015_2.documents.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/core.xsd" namespace="urn:core_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/common.xsd" namespace="urn:common_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/documents/v2015_2_0/fileCabinetTypes.xsd" namespace="urn:types.filecabinet_2015_2.documents.webservices.netsuite.com" />
   <xsd:complexType name="File">
     <xsd:complexContent mixed="false">
       <xsd:extension base="platformCore:Record">
@@ -106,6 +106,7 @@
           <xsd:element minOccurs="0" name="isOnline" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="group" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="parent" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="folderType" type="docFileCabTyp:FolderFolderType" />
           <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />

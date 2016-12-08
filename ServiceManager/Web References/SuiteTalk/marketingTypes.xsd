@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:listMktTyp="urn:types.marketing_2013_1.lists.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.marketing_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:listMktTyp="urn:types.marketing_2015_2.lists.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.marketing_2015_2.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:simpleType name="CampaignCampaignDirectMailStatus">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_completed" />
@@ -61,6 +61,8 @@
       <xsd:enumeration value="_failedInvalidAddress" />
       <xsd:enumeration value="_failedOther" />
       <xsd:enumeration value="_failedSpam" />
+      <xsd:enumeration value="_failedTemplateError" />
+      <xsd:enumeration value="_failedUnexpectedError" />
       <xsd:enumeration value="_invalidSenderAddress" />
       <xsd:enumeration value="_mailboxDisabled" />
       <xsd:enumeration value="_mailboxIsFull" />
@@ -76,9 +78,11 @@
       <xsd:enumeration value="_responded" />
       <xsd:enumeration value="_securityIssues" />
       <xsd:enumeration value="_sent" />
+      <xsd:enumeration value="_skippedDueToPreviousHardBounce" />
       <xsd:enumeration value="_subscribed" />
       <xsd:enumeration value="_tooManyRecipients" />
       <xsd:enumeration value="_unsubscribed" />
+      <xsd:enumeration value="_unsubscribedByFeedbackLoop" />
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="CampaignStatus">
@@ -102,6 +106,7 @@
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_bounced" />
       <xsd:enumeration value="_clickedThrough" />
+      <xsd:enumeration value="_failed" />
       <xsd:enumeration value="_purchased" />
       <xsd:enumeration value="_queued" />
       <xsd:enumeration value="_received" />

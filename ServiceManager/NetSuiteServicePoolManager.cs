@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using com.celigo.net.ServiceManager.Exceptions;
 using com.celigo.net.ServiceManager.Utility;
-using System.Collections.Concurrent;
 #if CLR_2_0
 using Celigo.Linq;
 #endif
@@ -14,6 +13,7 @@ namespace com.celigo.net.ServiceManager
     /// </summary>
     public class NetSuiteServicePoolManager
     {
+#if !FIRSTBUILD
 
         /// <summary>
         /// Gets or sets the configuration under which the operations should be run.
@@ -27,7 +27,7 @@ namespace com.celigo.net.ServiceManager
         /// <value>The credentials available.</value>
         public List<NetSuiteCredential> Credentials { get; set; }
 
-        private BlockingCollection<IServiceManager> _freeServiceManagers;
+        private BlockingQueue<IServiceManager> _freeServiceManagers;
 
         private bool _initialized = false;
         private readonly Func<IServiceManager> _factoryMethod;
@@ -42,7 +42,7 @@ namespace com.celigo.net.ServiceManager
 
                     CheckConstraints();
 
-                    _freeServiceManagers = new BlockingCollection<IServiceManager>(Credentials.Count);
+                    _freeServiceManagers = new BlockingQueue<IServiceManager>(Credentials.Count);
 
                     IServiceManager svcMgr;
                     foreach (NetSuiteCredential credential in Credentials)
@@ -50,7 +50,7 @@ namespace com.celigo.net.ServiceManager
                         for (int j = 0; j < credential.NoOfSeats; j++)
                         {
                             svcMgr = GenerateServiceManager(credential);
-                            _freeServiceManagers.Add(svcMgr);
+                            _freeServiceManagers.Enqueue(svcMgr);
                         }
                     }
                     _initialized = true;
@@ -74,16 +74,16 @@ namespace com.celigo.net.ServiceManager
         }
 
 
-        ///// <summary>Gets the available service managers.</summary>
-        ///// <returns>An iterator for the Service Managers that are not being used.</returns>
-        ///// <remarks>Each ServiceManager returned by this method should be released as usual. Also note that the
-        ///// method will block until all the ServiceManagers initially constructed are available.</remarks>
-        //internal IEnumerator<IServiceManager> GetAvailableServiceManagers()
-        //{
-        //    if (!_initialized)
-        //        Initialize();
-        //    return _freeServiceManagers.GetConsumingEnumerable();
-        //}
+        /// <summary>Gets the available service managers.</summary>
+        /// <returns>An iterator for the Service Managers that are not being used.</returns>
+        /// <remarks>Each ServiceManager returned by this method should be released as usual. Also note that the
+        /// method will block until all the ServiceManagers initially constructed are available.</remarks>
+        internal IEnumerator<IServiceManager> GetAvailableServiceManagers()
+        {
+            if (!_initialized)
+                Initialize();
+            return _freeServiceManagers.GetEnumerator();
+        }
 
         /// <summary>
         /// Builds a Service Manager for one-time use.
@@ -108,7 +108,7 @@ namespace com.celigo.net.ServiceManager
         {
             if (!_initialized)
                 Initialize(); // Minimize the bottleneck at Initialize() method.
-            return _freeServiceManagers.Take();
+            return _freeServiceManagers.Dequeue();
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace com.celigo.net.ServiceManager
         public void ReleaseServiceManager(IServiceManager svcMgr)
         {
             if (!_initialized) Initialize();
-            _freeServiceManagers.Add(svcMgr);
+            _freeServiceManagers.Enqueue(svcMgr);
         }
 
         /// <summary>
@@ -140,5 +140,6 @@ namespace com.celigo.net.ServiceManager
 
             _factoryMethod = factoryMethod;
         }
+#endif
     }
 }

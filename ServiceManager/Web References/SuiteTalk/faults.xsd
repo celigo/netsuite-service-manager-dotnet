@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:platformFaultTyp="urn:types.faults_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:platformFaults="urn:faults_2013_1.platform.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:faults_2013_1.platform.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/faultTypes.xsd" namespace="urn:types.faults_2013_1.platform.webservices.netsuite.com" />
+<xsd:schema xmlns:platformFaultTyp="urn:types.faults_2015_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:platformFaults="urn:faults_2015_2.platform.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:faults_2015_2.platform.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/faultTypes.xsd" namespace="urn:types.faults_2015_2.platform.webservices.netsuite.com" />
   <xsd:complexType name="SoapFault">
     <xsd:sequence>
       <xsd:element name="code" type="platformFaultTyp:FaultCodeType" />
@@ -31,6 +31,12 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="invalidSessionFault" type="platformFaults:InvalidSessionFault" />
+  <xsd:complexType name="ExceededConcurrentRequestLimitFault">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformFaults:SoapFault" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="exceededConcurrentRequestLimitFault" type="platformFaults:ExceededConcurrentRequestLimitFault" />
   <xsd:complexType name="ExceededRequestLimitFault">
     <xsd:complexContent mixed="false">
       <xsd:extension base="platformFaults:SoapFault" />

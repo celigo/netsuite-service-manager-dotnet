@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:listRelTyp="urn:types.relationships_2013_1.lists.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.relationships_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:listRelTyp="urn:types.relationships_2015_2.lists.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.relationships_2015_2.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:simpleType name="EntityType">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_company" />
       <xsd:enumeration value="_contact" />
       <xsd:enumeration value="_customer" />
       <xsd:enumeration value="_employee" />
+      <xsd:enumeration value="_genericResource" />
       <xsd:enumeration value="_group" />
       <xsd:enumeration value="_internal" />
       <xsd:enumeration value="_job" />
@@ -71,74 +72,6 @@
       <xsd:enumeration value="_vendor" />
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:simpleType name="EntityGroupDailyTime">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="_1200am" />
-      <xsd:enumeration value="_1230am" />
-      <xsd:enumeration value="_100am" />
-      <xsd:enumeration value="_130am" />
-      <xsd:enumeration value="_200am" />
-      <xsd:enumeration value="_230am" />
-      <xsd:enumeration value="_300am" />
-      <xsd:enumeration value="_330am" />
-      <xsd:enumeration value="_400am" />
-      <xsd:enumeration value="_430am" />
-      <xsd:enumeration value="_500am" />
-      <xsd:enumeration value="_530am" />
-      <xsd:enumeration value="_600am" />
-      <xsd:enumeration value="_630am" />
-      <xsd:enumeration value="_700am" />
-      <xsd:enumeration value="_730am" />
-      <xsd:enumeration value="_800am" />
-      <xsd:enumeration value="_830am" />
-      <xsd:enumeration value="_900am" />
-      <xsd:enumeration value="_930am" />
-      <xsd:enumeration value="_1000am" />
-      <xsd:enumeration value="_1030am" />
-      <xsd:enumeration value="_1100am" />
-      <xsd:enumeration value="_1130am" />
-      <xsd:enumeration value="_noon" />
-      <xsd:enumeration value="_1230pm" />
-      <xsd:enumeration value="_100pm" />
-      <xsd:enumeration value="_130pm" />
-      <xsd:enumeration value="_200pm" />
-      <xsd:enumeration value="_230pm" />
-      <xsd:enumeration value="_300pm" />
-      <xsd:enumeration value="_330pm" />
-      <xsd:enumeration value="_400pm" />
-      <xsd:enumeration value="_430pm" />
-      <xsd:enumeration value="_500pm" />
-      <xsd:enumeration value="_530pm" />
-      <xsd:enumeration value="_600pm" />
-      <xsd:enumeration value="_630pm" />
-      <xsd:enumeration value="_700pm" />
-      <xsd:enumeration value="_730pm" />
-      <xsd:enumeration value="_800pm" />
-      <xsd:enumeration value="_830pm" />
-      <xsd:enumeration value="_900pm" />
-      <xsd:enumeration value="_930pm" />
-      <xsd:enumeration value="_1000pm" />
-      <xsd:enumeration value="_1030pm" />
-      <xsd:enumeration value="_1100pm" />
-      <xsd:enumeration value="_1130pm" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="EntityGroupDefView">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="_daily" />
-      <xsd:enumeration value="_weekly" />
-      <xsd:enumeration value="_monthly" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="EntityGroupPeriodSize">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="_10minutes" />
-      <xsd:enumeration value="_15minutes" />
-      <xsd:enumeration value="_20minutes" />
-      <xsd:enumeration value="_30minutes" />
-      <xsd:enumeration value="_oneHour" />
-    </xsd:restriction>
-  </xsd:simpleType>
   <xsd:simpleType name="TaxFractionUnit">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_001andBelow" />
@@ -158,6 +91,7 @@
   <xsd:simpleType name="JobBillingType">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_none" />
+      <xsd:enumeration value="_chargeBased" />
       <xsd:enumeration value="_fixedBidInterval" />
       <xsd:enumeration value="_fixedBidMilestone" />
       <xsd:enumeration value="_timeAndMaterials" />
@@ -198,6 +132,28 @@
       <xsd:enumeration value="_pointAsDigitGroupSeparatorAndDecimalComma" />
       <xsd:enumeration value="_apostropheAsDigitGroupSeparatorAndDecimalComma" />
       <xsd:enumeration value="_apostropheAsDigitGroupSeparatorAndDecimalPoint" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BillingAccountFrequency">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_annually" />
+      <xsd:enumeration value="_custom" />
+      <xsd:enumeration value="_daily" />
+      <xsd:enumeration value="_endOfPeriod" />
+      <xsd:enumeration value="_everyFourWeeks" />
+      <xsd:enumeration value="_everyThreeYears" />
+      <xsd:enumeration value="_everyTwoMonths" />
+      <xsd:enumeration value="_everyTwoWeeks" />
+      <xsd:enumeration value="_everyTwoYears" />
+      <xsd:enumeration value="_hourly" />
+      <xsd:enumeration value="_monthly" />
+      <xsd:enumeration value="_never" />
+      <xsd:enumeration value="_oneTime" />
+      <xsd:enumeration value="_quarterly" />
+      <xsd:enumeration value="_startOfPeriod" />
+      <xsd:enumeration value="_twiceAMonth" />
+      <xsd:enumeration value="_twiceAYear" />
+      <xsd:enumeration value="_weekly" />
     </xsd:restriction>
   </xsd:simpleType>
 </xsd:schema>

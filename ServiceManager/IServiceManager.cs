@@ -9,16 +9,6 @@ namespace com.celigo.net.ServiceManager
     public interface IServiceManager: INetSuiteServiceBase
     {
         /// <summary>
-        /// Gets a value indicating whether web services activity has been suspended.
-        /// </summary>
-        /// <remarks>
-        /// When WS activity is suspended, the caller must execute a valid login via
-        /// <see cref="CreateSession(NetSuiteCredential)"/> or perform an 
-        /// <see cref="AdoptSession(IUserSession)"/> on a valid session to resume.
-        /// </remarks>
-        bool IsSuspended { get; }
-
-        /// <summary>
         /// Gets or sets the current configuration.
         /// </summary>
         /// <value>The configuration.</value>
@@ -31,20 +21,17 @@ namespace com.celigo.net.ServiceManager
         NetSuiteCredential Credentials { get; set; }
 
         /// <summary>
-        /// Changes the email of the current user.
+        /// Changes the email or password of the current user.
         /// </summary>
-        /// <param name="ceSpec">The email info to be changed.</param>
-        /// <returns>
-        /// Response from NetSuite.
-        /// </returns>
-        SessionResponse ChangeEmail(ChangeEmail ceSpec);
-
+        /// <param name="cpec">The credentials required for the password/email change.</param>
+        /// <returns>Response from NetSuite.</returns>
+        SessionResponse ChangeEmail(ChangeEmail cpec);
         /// <summary>
-        /// Changes the password of the current user.
+        /// Changes the email or password of the current user.
         /// </summary>
-        /// <param name="cpspec">The request details.</param>
-        /// <returns></returns>
-        SessionResponse ChangePassword(ChangePassword cpspec);
+        /// <param name="cpec">The credentials required for the password/email change.</param>
+        /// <returns>Response from NetSuite.</returns>
+        SessionResponse ChangePassword(ChangePassword cpec);
 
         /// <summary>
         /// Adopts a session created using the <see cref="INetSuiteServiceBase.CreateSession(NetSuiteCredential)"/>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:platformCommonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:listAcct="urn:accounting_2013_1.lists.webservices.netsuite.com" xmlns:listAcctTyp="urn:types.accounting_2013_1.lists.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:accounting_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/accountingTypes.xsd" namespace="urn:types.accounting_2013_1.lists.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/commonTypes.xsd" namespace="urn:types.common_2013_1.platform.webservices.netsuite.com" />
+<xsd:schema xmlns:platformCommonTyp="urn:types.common_2015_2.platform.webservices.netsuite.com" xmlns:platformCoreTyp="urn:types.core_2015_2.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2015_2.platform.webservices.netsuite.com" xmlns:listAcct="urn:accounting_2015_2.lists.webservices.netsuite.com" xmlns:listAcctTyp="urn:types.accounting_2015_2.lists.webservices.netsuite.com" xmlns:platformCore="urn:core_2015_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:accounting_2015_2.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/core.xsd" namespace="urn:core_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/accountingTypes.xsd" namespace="urn:types.accounting_2015_2.lists.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/common.xsd" namespace="urn:common_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/commonTypes.xsd" namespace="urn:types.common_2015_2.platform.webservices.netsuite.com" />
   <xsd:complexType name="ClassTranslation">
     <xsd:sequence>
       <xsd:element minOccurs="0" name="locale" type="xsd:string" />
@@ -136,6 +136,7 @@
           <xsd:element minOccurs="0" name="account" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="isOnline" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="visualsList" type="listAcct:PaymentMethodVisualsList" />
           <xsd:element minOccurs="0" name="isDebitCard" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="merchantAccountsList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="payPalEmailAddress" type="xsd:string" />
@@ -278,6 +279,8 @@
   <xsd:complexType name="ItemMember">
     <xsd:sequence>
       <xsd:element minOccurs="0" name="memberDescr" type="xsd:string" />
+      <xsd:element minOccurs="0" name="componentYield" type="xsd:double" />
+      <xsd:element minOccurs="0" name="bomQuantity" type="xsd:double" />
       <xsd:element minOccurs="0" name="quantity" type="xsd:double" />
       <xsd:element minOccurs="0" name="memberUnit" type="xsd:string" />
       <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
@@ -292,6 +295,7 @@
       <xsd:element minOccurs="0" name="effectiveRevision" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="obsoleteRevision" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="lineNumber" type="xsd:long" />
+      <xsd:element minOccurs="0" name="memberKey" type="xsd:string" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="ItemMemberList">
@@ -314,11 +318,18 @@
           <xsd:element minOccurs="0" name="originalItemType" type="listAcctTyp:ItemType" />
           <xsd:element minOccurs="0" name="originalItemSubtype" type="listAcctTyp:ItemSubType" />
           <xsd:element minOccurs="0" name="cogsAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoCogsAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="salesDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" name="fraudRisk" type="listAcctTyp:InventoryItemFraudRisk" />
           <xsd:element minOccurs="0" name="includeChildren" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="incomeAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoIncomeAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="taxSchedule" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="dropshipExpenseAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="matrixType" type="listAcctTyp:ItemMatrixType" />
           <xsd:element minOccurs="0" name="assetAccount" type="platformCore:RecordRef" />
@@ -356,6 +367,13 @@
           <xsd:element minOccurs="0" name="manufacturerState" type="xsd:string" />
           <xsd:element minOccurs="0" name="manufacturerZip" type="xsd:string" />
           <xsd:element minOccurs="0" name="countryOfManufacture" type="platformCommonTyp:Country" />
+          <xsd:element minOccurs="0" name="roundUpAsComponent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="defaultItemShipMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="itemCarrier" type="listAcctTyp:ItemCarrier" />
           <xsd:element minOccurs="0" name="itemShipMethodList" type="platformCore:RecordRefList" />
@@ -389,6 +407,7 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="preferredLocation" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="reorderMultiple" type="xsd:long" />
           <xsd:element minOccurs="0" name="cost" type="xsd:double" />
@@ -412,6 +431,8 @@
           <xsd:element minOccurs="0" name="seasonalDemand" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="safetyStockLevelUnits" type="xsd:string" />
           <xsd:element minOccurs="0" name="demandModifier" type="xsd:double" />
+          <xsd:element minOccurs="0" name="distributionNetwork" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="distributionCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="autoReorderPoint" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="storeDisplayName" type="xsd:string" />
           <xsd:element minOccurs="0" name="storeDisplayThumbnail" type="platformCore:RecordRef" />
@@ -464,6 +485,7 @@
           <xsd:element minOccurs="0" name="currency" type="xsd:string" />
           <xsd:element minOccurs="0" name="preferredStockLevel" type="xsd:double" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="purchaseTaxCode" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="defaultReturnCost" type="xsd:double" />
           <xsd:element minOccurs="0" name="supplyReplenishmentMethod" type="platformCore:RecordRef" />
@@ -471,6 +493,10 @@
           <xsd:element minOccurs="0" name="fixedLotSize" type="xsd:double" />
           <xsd:element minOccurs="0" name="periodicLotSizeType" type="listAcctTyp:PeriodicLotSizeType" />
           <xsd:element minOccurs="0" name="supplyType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="demandTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="supplyTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleInDays" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleOutDays" type="xsd:long" />
           <xsd:element minOccurs="0" name="periodicLotSizeDays" type="xsd:long" />
           <xsd:element minOccurs="0" name="supplyLotSizingMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="forwardConsumptionDays" type="xsd:long" />
@@ -539,12 +565,14 @@
       <xsd:element minOccurs="0" name="defaultReturnCost" type="xsd:double" />
       <xsd:element minOccurs="0" name="safetyStockLevel" type="xsd:double" />
       <xsd:element minOccurs="0" name="cost" type="xsd:double" />
+      <xsd:element minOccurs="0" name="inventoryCostTemplate" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="buildTime" type="xsd:double" />
       <xsd:element minOccurs="0" name="lastInvtCountDate" type="xsd:dateTime" />
       <xsd:element minOccurs="0" name="nextInvtCountDate" type="xsd:dateTime" />
       <xsd:element minOccurs="0" name="isWip" type="xsd:boolean" />
       <xsd:element minOccurs="0" name="invtCountInterval" type="xsd:long" />
       <xsd:element minOccurs="0" name="invtClassification" type="listAcctTyp:ItemInvtClassification" />
+      <xsd:element minOccurs="0" name="costingLotSize" type="xsd:double" />
       <xsd:element minOccurs="0" name="quantityOnOrder" type="xsd:double" />
       <xsd:element minOccurs="0" name="quantityCommitted" type="xsd:double" />
       <xsd:element minOccurs="0" name="quantityAvailable" type="xsd:double" />
@@ -560,6 +588,10 @@
       <xsd:element minOccurs="0" name="demandSource" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="backwardConsumptionDays" type="xsd:long" />
       <xsd:element minOccurs="0" name="forwardConsumptionDays" type="xsd:long" />
+      <xsd:element minOccurs="0" name="demandTimeFence" type="xsd:long" />
+      <xsd:element minOccurs="0" name="supplyTimeFence" type="xsd:long" />
+      <xsd:element minOccurs="0" name="rescheduleInDays" type="xsd:long" />
+      <xsd:element minOccurs="0" name="rescheduleOutDays" type="xsd:long" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="InventoryItemLocationsList">
@@ -686,6 +718,11 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="storeDisplayName" type="xsd:string" />
           <xsd:element minOccurs="0" name="storeDisplayThumbnail" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="storeDisplayImage" type="platformCore:RecordRef" />
@@ -708,6 +745,7 @@
           <xsd:element minOccurs="0" name="relatedItemsDescription" type="xsd:string" />
           <xsd:element minOccurs="0" name="specialsDescription" type="xsd:string" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="siteCategoryList" type="listAcct:SiteCategoryList" />
           <xsd:element minOccurs="0" name="presentationItemList" type="listAcct:PresentationItemList" />
           <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
@@ -849,7 +887,15 @@
           <xsd:element minOccurs="0" name="residual" type="xsd:string" />
           <xsd:element minOccurs="0" name="amortizationPeriod" type="xsd:long" />
           <xsd:element minOccurs="0" name="isFulfillable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="generateAccruals" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="costCategory" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="currency" type="xsd:string" />
           <xsd:element minOccurs="0" name="itemOptionsList" type="listAcct:ItemOptionsList" />
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
@@ -935,6 +981,11 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="storeDisplayName" type="xsd:string" />
           <xsd:element minOccurs="0" name="storeDisplayThumbnail" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="storeDisplayImage" type="platformCore:RecordRef" />
@@ -982,6 +1033,7 @@
           <xsd:element minOccurs="0" name="itemOptionsList" type="listAcct:ItemOptionsList" />
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="purchaseTaxCode" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="rate" type="xsd:double" />
           <xsd:element minOccurs="0" name="salesTaxCode" type="platformCore:RecordRef" />
@@ -1007,13 +1059,19 @@
           <xsd:element minOccurs="0" name="cost" type="xsd:double" />
           <xsd:element minOccurs="0" name="costUnits" type="xsd:string" />
           <xsd:element minOccurs="0" name="expenseAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoExpenseAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="salesDescription" type="xsd:string" />
           <xsd:element minOccurs="0" name="includeChildren" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="incomeAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoIncomeAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="matrixType" type="listAcctTyp:ItemMatrixType" />
           <xsd:element minOccurs="0" name="taxSchedule" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="dropshipExpenseAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="isDropShipItem" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="isSpecialOrderItem" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="shippingCost" type="xsd:double" />
@@ -1047,6 +1105,12 @@
           <xsd:element minOccurs="0" name="manufacturerState" type="xsd:string" />
           <xsd:element minOccurs="0" name="manufacturerZip" type="xsd:string" />
           <xsd:element minOccurs="0" name="countryOfManufacture" type="platformCommonTyp:Country" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="manufacturerTaxId" type="xsd:string" />
           <xsd:element minOccurs="0" name="scheduleBNumber" type="xsd:string" />
           <xsd:element minOccurs="0" name="scheduleBQuantity" type="xsd:long" />
@@ -1059,6 +1123,7 @@
           <xsd:element minOccurs="0" name="shipPackage" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="shipIndividually" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="isFulfillable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="generateAccruals" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="costCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="pricesIncludeTax" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="quantityPricingSchedule" type="platformCore:RecordRef" />
@@ -1071,6 +1136,7 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="storeDisplayName" type="xsd:string" />
           <xsd:element minOccurs="0" name="storeDisplayThumbnail" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="storeDisplayImage" type="platformCore:RecordRef" />
@@ -1128,6 +1194,7 @@
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
           <xsd:element minOccurs="0" name="itemVendorList" type="listAcct:ItemVendorList" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="purchaseTaxCode" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="rate" type="xsd:double" />
           <xsd:element minOccurs="0" name="salesTaxCode" type="platformCore:RecordRef" />
@@ -1154,9 +1221,11 @@
           <xsd:element minOccurs="0" name="cost" type="xsd:double" />
           <xsd:element minOccurs="0" name="costUnits" type="xsd:string" />
           <xsd:element minOccurs="0" name="expenseAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoExpenseAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="salesDescription" type="xsd:string" />
           <xsd:element minOccurs="0" name="includeChildren" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="incomeAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoIncomeAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="matrixType" type="listAcctTyp:ItemMatrixType" />
           <xsd:element minOccurs="0" name="taxSchedule" type="platformCore:RecordRef" />
@@ -1173,13 +1242,24 @@
           <xsd:element minOccurs="0" name="deferralAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="amortizationTemplate" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="residual" type="xsd:string" />
+          <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="amortizationPeriod" type="xsd:long" />
           <xsd:element minOccurs="0" name="minimumQuantity" type="xsd:long" />
           <xsd:element minOccurs="0" name="minimumQuantityUnits" type="xsd:string" />
           <xsd:element minOccurs="0" name="enforceMinQtyInternally" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="softDescriptor" type="xsd:string" />
           <xsd:element minOccurs="0" name="isFulfillable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="generateAccruals" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="costCategory" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="pricesIncludeTax" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="quantityPricingSchedule" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="useMarginalRates" type="xsd:boolean" />
@@ -1205,11 +1285,13 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="currency" type="xsd:string" />
           <xsd:element minOccurs="0" name="itemOptionsList" type="listAcct:ItemOptionsList" />
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
           <xsd:element minOccurs="0" name="itemVendorList" type="listAcct:ItemVendorList" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="purchaseTaxCode" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="rate" type="xsd:double" />
           <xsd:element minOccurs="0" name="salesTaxCode" type="platformCore:RecordRef" />
@@ -1258,7 +1340,16 @@
           <xsd:element minOccurs="0" name="residual" type="xsd:string" />
           <xsd:element minOccurs="0" name="amortizationPeriod" type="xsd:long" />
           <xsd:element minOccurs="0" name="isFulfillable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="generateAccruals" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="costCategory" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="overheadType" type="listAcctTyp:ItemOverheadType" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="currency" type="xsd:string" />
           <xsd:element minOccurs="0" name="itemOptionsList" type="listAcct:ItemOptionsList" />
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
@@ -1286,9 +1377,11 @@
           <xsd:element minOccurs="0" name="cost" type="xsd:double" />
           <xsd:element minOccurs="0" name="costUnits" type="xsd:string" />
           <xsd:element minOccurs="0" name="expenseAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoExpenseAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="salesDescription" type="xsd:string" />
           <xsd:element minOccurs="0" name="includeChildren" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="incomeAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoIncomeAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="taxSchedule" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="matrixType" type="listAcctTyp:ItemMatrixType" />
           <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
@@ -1305,6 +1398,10 @@
           <xsd:element minOccurs="0" name="deferralAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="amortizationTemplate" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="residual" type="xsd:string" />
+          <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="amortizationPeriod" type="xsd:long" />
           <xsd:element minOccurs="0" name="minimumQuantity" type="xsd:long" />
           <xsd:element minOccurs="0" name="enforceMinQtyInternally" type="xsd:boolean" />
@@ -1314,7 +1411,14 @@
           <xsd:element minOccurs="0" name="useMarginalRates" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="overallQuantityPricingType" type="listAcctTyp:ItemOverallQuantityPricingType" />
           <xsd:element minOccurs="0" name="isFulfillable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="generateAccruals" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="costCategory" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="pricingGroup" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="minimumQuantityUnits" type="xsd:string" />
           <xsd:element minOccurs="0" name="vsoePrice" type="xsd:double" />
@@ -1322,6 +1426,7 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="createJob" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="storeDisplayName" type="xsd:string" />
           <xsd:element minOccurs="0" name="storeDisplayThumbnail" type="platformCore:RecordRef" />
@@ -1364,6 +1469,7 @@
           <xsd:element minOccurs="0" name="subsidiaryList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="currency" type="xsd:string" />
           <xsd:element minOccurs="0" name="billingRatesMatrix" type="listAcct:BillingRatesMatrix" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="itemOptionsList" type="listAcct:ItemOptionsList" />
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
           <xsd:element minOccurs="0" name="itemVendorList" type="listAcct:ItemVendorList" />
@@ -1418,7 +1524,15 @@
           <xsd:element minOccurs="0" name="residual" type="xsd:string" />
           <xsd:element minOccurs="0" name="amortizationPeriod" type="xsd:long" />
           <xsd:element minOccurs="0" name="isFulfillable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="generateAccruals" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="costCategory" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="currency" type="xsd:string" />
           <xsd:element minOccurs="0" name="itemOptionsList" type="listAcct:ItemOptionsList" />
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
@@ -1472,6 +1586,11 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="createJob" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="storeDisplayName" type="xsd:string" />
           <xsd:element minOccurs="0" name="storeDisplayThumbnail" type="platformCore:RecordRef" />
@@ -1512,6 +1631,7 @@
           <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="subsidiaryList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="billingRatesMatrix" type="listAcct:BillingRatesMatrix" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="itemOptionsList" type="listAcct:ItemOptionsList" />
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
@@ -1579,10 +1699,16 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="subsidiaryList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="itemOptionsList" type="listAcct:ItemOptionsList" />
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="purchaseTaxCode" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="rate" type="xsd:double" />
           <xsd:element minOccurs="0" name="salesTaxCode" type="platformCore:RecordRef" />
@@ -1628,6 +1754,9 @@
           <xsd:element minOccurs="0" name="description" type="xsd:string" />
           <xsd:element minOccurs="0" name="expenseAcct" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="rateRequired" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="defaultRate" type="xsd:double" />
+          <xsd:element minOccurs="0" name="ratesList" type="listAcct:ExpenseCategoryRatesList" />
           <xsd:element minOccurs="0" name="translationsList" type="listAcct:TranslationList" />
           <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
         </xsd:sequence>
@@ -1642,6 +1771,8 @@
       <xsd:extension base="platformCore:Record">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="acctType" type="listAcctTyp:AccountType" />
+          <xsd:element minOccurs="0" name="unitsType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="unit" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="acctNumber" type="xsd:string" />
           <xsd:element minOccurs="0" name="acctName" type="xsd:string" />
           <xsd:element minOccurs="0" name="includeChildren" type="xsd:boolean" />
@@ -1686,6 +1817,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:AccountSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -1708,6 +1840,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:AccountSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -1737,6 +1870,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:DepartmentSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -1759,6 +1893,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:DepartmentSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -1788,6 +1923,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:ClassificationSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -1810,6 +1946,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:ClassificationSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -1825,18 +1962,8 @@
           <xsd:element minOccurs="0" name="subsidiaryList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="tranPrefix" type="xsd:string" />
-          <xsd:element minOccurs="0" name="attention" type="xsd:string" />
-          <xsd:element minOccurs="0" name="addressee" type="xsd:string" />
-          <xsd:element minOccurs="0" name="addrPhone" type="xsd:string" />
-          <xsd:element minOccurs="0" name="addr1" type="xsd:string" />
-          <xsd:element minOccurs="0" name="addr2" type="xsd:string" />
-          <xsd:element minOccurs="0" name="addr3" type="xsd:string" />
-          <xsd:element minOccurs="0" name="city" type="xsd:string" />
-          <xsd:element minOccurs="0" name="state" type="xsd:string" />
-          <xsd:element minOccurs="0" name="zip" type="xsd:string" />
-          <xsd:element minOccurs="0" name="country" type="platformCommonTyp:Country" />
-          <xsd:element minOccurs="0" name="addrText" type="xsd:string" />
-          <xsd:element minOccurs="0" name="override" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="mainAddress" type="platformCommon:Address" />
+          <xsd:element minOccurs="0" name="returnAddress" type="platformCommon:Address" />
           <xsd:element minOccurs="0" name="logo" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="makeInventoryAvailable" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="makeInventoryAvailableStore" type="xsd:boolean" />
@@ -1854,7 +1981,10 @@
       <xsd:extension base="platformCore:SearchRecord">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:LocationSearchBasic" />
+          <xsd:element minOccurs="0" name="addressJoin" type="platformCommon:AddressSearchBasic" />
+          <xsd:element minOccurs="0" name="returnAddressJoin" type="platformCommon:AddressSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -1876,7 +2006,10 @@
       <xsd:extension base="platformCore:SearchRow">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:LocationSearchRowBasic" />
+          <xsd:element minOccurs="0" name="addressJoin" type="platformCommon:AddressSearchRowBasic" />
+          <xsd:element minOccurs="0" name="returnAddressJoin" type="platformCommon:AddressSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -1919,22 +2052,26 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:ItemSearchBasic" />
           <xsd:element minOccurs="0" name="binNumberJoin" type="platformCommon:BinSearchBasic" />
+          <xsd:element minOccurs="0" name="binOnHandJoin" type="platformCommon:ItemBinNumberSearchBasic" />
           <xsd:element minOccurs="0" name="correlatedItemJoin" type="platformCommon:ItemSearchBasic" />
           <xsd:element minOccurs="0" name="effectiveRevisionJoin" type="platformCommon:ItemRevisionSearchBasic" />
           <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchBasic" />
           <xsd:element minOccurs="0" name="inventoryDetailJoin" type="platformCommon:InventoryDetailSearchBasic" />
           <xsd:element minOccurs="0" name="inventoryLocationJoin" type="platformCommon:LocationSearchBasic" />
           <xsd:element minOccurs="0" name="inventoryNumberJoin" type="platformCommon:InventoryNumberSearchBasic" />
+          <xsd:element minOccurs="0" name="inventoryNumberBinOnHandJoin" type="platformCommon:InventoryNumberBinSearchBasic" />
           <xsd:element minOccurs="0" name="memberItemJoin" type="platformCommon:ItemSearchBasic" />
           <xsd:element minOccurs="0" name="obsoleteRevisionJoin" type="platformCommon:ItemRevisionSearchBasic" />
           <xsd:element minOccurs="0" name="parentJoin" type="platformCommon:ItemSearchBasic" />
           <xsd:element minOccurs="0" name="preferredLocationJoin" type="platformCommon:LocationSearchBasic" />
           <xsd:element minOccurs="0" name="preferredVendorJoin" type="platformCommon:VendorSearchBasic" />
+          <xsd:element minOccurs="0" name="pricingJoin" type="platformCommon:PricingSearchBasic" />
           <xsd:element minOccurs="0" name="shopperJoin" type="platformCommon:CustomerSearchBasic" />
           <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
           <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
           <xsd:element minOccurs="0" name="vendorJoin" type="platformCommon:VendorSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -1957,22 +2094,26 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:ItemSearchRowBasic" />
           <xsd:element minOccurs="0" name="binNumberJoin" type="platformCommon:BinSearchRowBasic" />
+          <xsd:element minOccurs="0" name="binOnHandJoin" type="platformCommon:ItemBinNumberSearchRowBasic" />
           <xsd:element minOccurs="0" name="correlatedItemJoin" type="platformCommon:ItemSearchRowBasic" />
           <xsd:element minOccurs="0" name="effectiveRevisionJoin" type="platformCommon:ItemRevisionSearchRowBasic" />
           <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchRowBasic" />
           <xsd:element minOccurs="0" name="inventoryDetailJoin" type="platformCommon:InventoryDetailSearchRowBasic" />
           <xsd:element minOccurs="0" name="inventoryLocationJoin" type="platformCommon:LocationSearchRowBasic" />
           <xsd:element minOccurs="0" name="inventoryNumberJoin" type="platformCommon:InventoryNumberSearchRowBasic" />
+          <xsd:element minOccurs="0" name="inventoryNumberBinOnHandJoin" type="platformCommon:InventoryNumberBinSearchRowBasic" />
           <xsd:element minOccurs="0" name="memberItemJoin" type="platformCommon:ItemSearchRowBasic" />
           <xsd:element minOccurs="0" name="obsoleteRevisionJoin" type="platformCommon:ItemRevisionSearchRowBasic" />
           <xsd:element minOccurs="0" name="parentJoin" type="platformCommon:ItemSearchRowBasic" />
           <xsd:element minOccurs="0" name="preferredLocationJoin" type="platformCommon:LocationSearchRowBasic" />
           <xsd:element minOccurs="0" name="preferredVendorJoin" type="platformCommon:VendorSearchRowBasic" />
+          <xsd:element minOccurs="0" name="pricingJoin" type="platformCommon:PricingSearchRowBasic" />
           <xsd:element minOccurs="0" name="shopperJoin" type="platformCommon:CustomerSearchRowBasic" />
           <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
           <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
           <xsd:element minOccurs="0" name="vendorJoin" type="platformCommon:VendorSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -2014,6 +2155,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:BinSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -2036,6 +2178,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:BinSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -2056,9 +2199,12 @@
           <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="effectiveFrom" type="xsd:dateTime" />
           <xsd:element minOccurs="0" name="validUntil" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="subsidiaryList" type="platformCore:RecordRefList" />
+          <xsd:element minOccurs="0" name="includeChildren" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="eccode" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="reverseCharge" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="parent" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="service" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="exempt" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="isDefault" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="excludeFromTaxReports" type="xsd:boolean" />
@@ -2084,6 +2230,7 @@
           <xsd:element minOccurs="0" name="itemId" type="xsd:string" />
           <xsd:element minOccurs="0" name="description" type="xsd:string" />
           <xsd:element minOccurs="0" name="state" type="xsd:string" />
+          <xsd:element minOccurs="0" name="subsidiaryList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="taxitem1" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="unitprice1" type="xsd:string" />
           <xsd:element minOccurs="0" name="taxitem2" type="platformCore:RecordRef" />
@@ -2184,6 +2331,7 @@
           <xsd:element minOccurs="0" name="issueProduct" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="currency" type="xsd:string" />
           <xsd:element minOccurs="0" name="cogsAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoCogsAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="vendor" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="salesDescription" type="xsd:string" />
           <xsd:element minOccurs="0" name="lastInvtCountDate" type="xsd:dateTime" />
@@ -2191,9 +2339,13 @@
           <xsd:element minOccurs="0" name="invtCountInterval" type="xsd:long" />
           <xsd:element minOccurs="0" name="invtClassification" type="listAcctTyp:ItemInvtClassification" />
           <xsd:element minOccurs="0" name="incomeAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoIncomeAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="taxSchedule" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="dropshipExpenseAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="assetAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="matchBillToReceipt" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="billQtyVarianceAcct" type="platformCore:RecordRef" />
@@ -2230,6 +2382,13 @@
           <xsd:element minOccurs="0" name="countryOfManufacture" type="platformCommonTyp:Country" />
           <xsd:element minOccurs="0" name="defaultItemShipMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="itemCarrier" type="listAcctTyp:ItemCarrier" />
+          <xsd:element minOccurs="0" name="roundUpAsComponent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="itemShipMethodList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="manufacturerTaxId" type="xsd:string" />
           <xsd:element minOccurs="0" name="scheduleBNumber" type="xsd:string" />
@@ -2257,6 +2416,7 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="cost" type="xsd:double" />
           <xsd:element minOccurs="0" name="costUnits" type="xsd:string" />
           <xsd:element minOccurs="0" name="quantityReorderUnits" type="xsd:string" />
@@ -2307,6 +2467,10 @@
           <xsd:element minOccurs="0" name="fixedLotSize" type="xsd:double" />
           <xsd:element minOccurs="0" name="periodicLotSizeType" type="listAcctTyp:PeriodicLotSizeType" />
           <xsd:element minOccurs="0" name="supplyType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="demandTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="supplyTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleInDays" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleOutDays" type="xsd:long" />
           <xsd:element minOccurs="0" name="periodicLotSizeDays" type="xsd:long" />
           <xsd:element minOccurs="0" name="supplyLotSizingMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="forwardConsumptionDays" type="xsd:long" />
@@ -2334,6 +2498,7 @@
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
           <xsd:element minOccurs="0" name="itemVendorList" type="listAcct:ItemVendorList" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="itemNumberOptionsList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="numbersList" type="listAcct:SerializedInventoryItemNumbersList" />
           <xsd:element minOccurs="0" name="binNumberList" type="listAcct:InventoryItemBinNumberList" />
@@ -2363,11 +2528,13 @@
       <xsd:element minOccurs="0" name="isWip" type="xsd:boolean" />
       <xsd:element minOccurs="0" name="safetyStockLevel" type="xsd:double" />
       <xsd:element minOccurs="0" name="cost" type="xsd:double" />
+      <xsd:element minOccurs="0" name="inventoryCostTemplate" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="buildTime" type="xsd:double" />
       <xsd:element minOccurs="0" name="lastInvtCountDate" type="xsd:dateTime" />
       <xsd:element minOccurs="0" name="nextInvtCountDate" type="xsd:dateTime" />
       <xsd:element minOccurs="0" name="invtCountInterval" type="xsd:long" />
       <xsd:element minOccurs="0" name="invtClassification" type="listAcctTyp:ItemInvtClassification" />
+      <xsd:element minOccurs="0" name="costingLotSize" type="xsd:double" />
       <xsd:element minOccurs="0" name="quantityOnOrder" type="xsd:double" />
       <xsd:element minOccurs="0" name="quantityCommitted" type="xsd:double" />
       <xsd:element minOccurs="0" name="quantityAvailable" type="xsd:double" />
@@ -2383,6 +2550,10 @@
       <xsd:element minOccurs="0" name="demandSource" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="backwardConsumptionDays" type="xsd:long" />
       <xsd:element minOccurs="0" name="forwardConsumptionDays" type="xsd:long" />
+      <xsd:element minOccurs="0" name="demandTimeFence" type="xsd:long" />
+      <xsd:element minOccurs="0" name="supplyTimeFence" type="xsd:long" />
+      <xsd:element minOccurs="0" name="rescheduleInDays" type="xsd:long" />
+      <xsd:element minOccurs="0" name="rescheduleOutDays" type="xsd:long" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="SerializedInventoryItemLocationsList">
@@ -2438,12 +2609,17 @@
           <xsd:element minOccurs="0" name="copyDescription" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="currency" type="xsd:string" />
           <xsd:element minOccurs="0" name="cogsAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoCogsAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="vendor" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="salesDescription" type="xsd:string" />
           <xsd:element minOccurs="0" name="incomeAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoIncomeAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="issueProduct" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="taxSchedule" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="dropshipExpenseAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="assetAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="matchBillToReceipt" type="xsd:boolean" />
@@ -2481,6 +2657,13 @@
           <xsd:element minOccurs="0" name="countryOfManufacture" type="platformCommonTyp:Country" />
           <xsd:element minOccurs="0" name="defaultItemShipMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="itemCarrier" type="listAcctTyp:ItemCarrier" />
+          <xsd:element minOccurs="0" name="roundUpAsComponent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="itemShipMethodList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="manufacturerTaxId" type="xsd:string" />
           <xsd:element minOccurs="0" name="scheduleBNumber" type="xsd:string" />
@@ -2509,6 +2692,7 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="cost" type="xsd:double" />
           <xsd:element minOccurs="0" name="costUnits" type="xsd:string" />
           <xsd:element minOccurs="0" name="reorderMultiple" type="xsd:long" />
@@ -2564,6 +2748,10 @@
           <xsd:element minOccurs="0" name="fixedLotSize" type="xsd:double" />
           <xsd:element minOccurs="0" name="periodicLotSizeType" type="listAcctTyp:PeriodicLotSizeType" />
           <xsd:element minOccurs="0" name="supplyType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="demandTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="supplyTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleInDays" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleOutDays" type="xsd:long" />
           <xsd:element minOccurs="0" name="periodicLotSizeDays" type="xsd:long" />
           <xsd:element minOccurs="0" name="supplyLotSizingMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="forwardConsumptionDays" type="xsd:long" />
@@ -2590,6 +2778,7 @@
           <xsd:element minOccurs="0" name="matrixOptionList" type="listAcct:MatrixOptionList" />
           <xsd:element minOccurs="0" name="itemVendorList" type="listAcct:ItemVendorList" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="itemNumberOptionsList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="numbersList" type="listAcct:LotNumberedInventoryItemNumbersList" />
           <xsd:element minOccurs="0" name="binNumberList" type="listAcct:InventoryItemBinNumberList" />
@@ -2619,12 +2808,14 @@
       <xsd:element minOccurs="0" name="defaultReturnCost" type="xsd:double" />
       <xsd:element minOccurs="0" name="safetyStockLevel" type="xsd:double" />
       <xsd:element minOccurs="0" name="cost" type="xsd:double" />
+      <xsd:element minOccurs="0" name="inventoryCostTemplate" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="buildTime" type="xsd:double" />
       <xsd:element minOccurs="0" name="lastInvtCountDate" type="xsd:dateTime" />
       <xsd:element minOccurs="0" name="nextInvtCountDate" type="xsd:dateTime" />
       <xsd:element minOccurs="0" name="isWip" type="xsd:boolean" />
       <xsd:element minOccurs="0" name="invtCountInterval" type="xsd:long" />
       <xsd:element minOccurs="0" name="invtClassification" type="listAcctTyp:ItemInvtClassification" />
+      <xsd:element minOccurs="0" name="costingLotSize" type="xsd:double" />
       <xsd:element minOccurs="0" name="quantityOnOrder" type="xsd:double" />
       <xsd:element minOccurs="0" name="quantityCommitted" type="xsd:double" />
       <xsd:element minOccurs="0" name="quantityAvailable" type="xsd:double" />
@@ -2642,6 +2833,10 @@
       <xsd:element minOccurs="0" name="demandSource" type="platformCore:RecordRef" />
       <xsd:element minOccurs="0" name="backwardConsumptionDays" type="xsd:long" />
       <xsd:element minOccurs="0" name="forwardConsumptionDays" type="xsd:long" />
+      <xsd:element minOccurs="0" name="demandTimeFence" type="xsd:long" />
+      <xsd:element minOccurs="0" name="supplyTimeFence" type="xsd:long" />
+      <xsd:element minOccurs="0" name="rescheduleInDays" type="xsd:long" />
+      <xsd:element minOccurs="0" name="rescheduleOutDays" type="xsd:long" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="LotNumberedInventoryItemLocationsList">
@@ -2760,37 +2955,11 @@
           <xsd:element minOccurs="0" name="logo" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="tranPrefix" type="xsd:string" />
           <xsd:element minOccurs="0" name="pageLogo" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="attention" type="xsd:string" />
-          <xsd:element minOccurs="0" name="addressee" type="xsd:string" />
-          <xsd:element minOccurs="0" name="addrPhone" type="xsd:string" />
-          <xsd:element minOccurs="0" name="addr1" type="xsd:string" />
-          <xsd:element minOccurs="0" name="addr2" type="xsd:string" />
-          <xsd:element minOccurs="0" name="addr3" type="xsd:string" />
-          <xsd:element minOccurs="0" name="city" type="xsd:string" />
           <xsd:element minOccurs="0" name="state" type="xsd:string" />
-          <xsd:element minOccurs="0" name="zip" type="xsd:string" />
           <xsd:element minOccurs="0" name="country" type="platformCommonTyp:Country" />
-          <xsd:element minOccurs="0" name="addrText" type="xsd:string" />
-          <xsd:element minOccurs="0" name="override" type="xsd:boolean" />
-          <xsd:element minOccurs="0" name="shipAddr" type="xsd:string" />
-          <xsd:element minOccurs="0" name="returnAddr" type="xsd:string" />
-          <xsd:element minOccurs="0" name="companyNameForSupportMessages" type="xsd:string" />
-          <xsd:element minOccurs="0" name="mainSupportEmailAddress" type="xsd:string" />
-          <xsd:element minOccurs="0" name="anonymousCustomerInboundEmail" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="anonymousCustomerOnlineForms" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="caseCreationTemplate" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="caseUpdateTemplate" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="caseAutomaticClosureTemplate" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="caseAssignmentTemplate" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="employeeCaseUpdateTemplate" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="caseCopyEmployeeTemplate" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="caseEscalationTemplate" type="platformCore:RecordRef" />
-          <xsd:element minOccurs="0" name="returnAddress1" type="xsd:string" />
-          <xsd:element minOccurs="0" name="returnAddress2" type="xsd:string" />
-          <xsd:element minOccurs="0" name="returnCity" type="xsd:string" />
-          <xsd:element minOccurs="0" name="returnState" type="xsd:string" />
-          <xsd:element minOccurs="0" name="returnCountry" type="platformCommonTyp:Country" />
-          <xsd:element minOccurs="0" name="returnZip" type="xsd:string" />
+          <xsd:element minOccurs="0" name="mainAddress" type="platformCommon:Address" />
+          <xsd:element minOccurs="0" name="shippingAddress" type="platformCommon:Address" />
+          <xsd:element minOccurs="0" name="returnAddress" type="platformCommon:Address" />
           <xsd:element minOccurs="0" name="legalName" type="xsd:string" />
           <xsd:element minOccurs="0" name="isElimination" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="fiscalCalendar" type="platformCore:RecordRef" />
@@ -2798,22 +2967,23 @@
           <xsd:element minOccurs="0" name="allowPayroll" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="email" type="xsd:string" />
           <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="fax" type="xsd:string" />
           <xsd:element minOccurs="0" name="edition" type="xsd:string" />
           <xsd:element minOccurs="0" name="federalIdNumber" type="xsd:string" />
           <xsd:element minOccurs="0" name="addrLanguage" type="xsd:string" />
           <xsd:element minOccurs="0" name="nonConsol" type="xsd:string" />
           <xsd:element minOccurs="0" name="consol" type="xsd:string" />
-          <xsd:element minOccurs="0" name="shipAddress1" type="xsd:string" />
-          <xsd:element minOccurs="0" name="shipAddress2" type="xsd:string" />
-          <xsd:element minOccurs="0" name="shipCity" type="xsd:string" />
-          <xsd:element minOccurs="0" name="shipState" type="xsd:string" />
-          <xsd:element minOccurs="0" name="shipCountry" type="platformCommonTyp:Country" />
-          <xsd:element minOccurs="0" name="shipZip" type="xsd:string" />
           <xsd:element minOccurs="0" name="state1TaxNumber" type="xsd:string" />
           <xsd:element minOccurs="0" name="ssnOrTin" type="xsd:string" />
           <xsd:element minOccurs="0" name="interCoAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="nexusList" type="listAcct:SubsidiaryNexusList" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:SubsidiaryAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="checkLayout" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="inboundEmail" type="xsd:string" />
           <xsd:element minOccurs="0" name="classTranslationList" type="listAcct:ClassTranslationList" />
@@ -2842,7 +3012,12 @@
       <xsd:extension base="platformCore:SearchRecord">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:SubsidiarySearchBasic" />
+          <xsd:element minOccurs="0" name="addressJoin" type="platformCommon:AddressSearchBasic" />
+          <xsd:element minOccurs="0" name="defaultAdvanceToApplyAccountJoin" type="platformCommon:AccountSearchBasic" />
+          <xsd:element minOccurs="0" name="returnAddressJoin" type="platformCommon:AddressSearchBasic" />
+          <xsd:element minOccurs="0" name="shippingAddressJoin" type="platformCommon:AddressSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -2864,7 +3039,12 @@
       <xsd:extension base="platformCore:SearchRow">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:SubsidiarySearchRowBasic" />
+          <xsd:element minOccurs="0" name="addressJoin" type="platformCommon:AddressSearchRowBasic" />
+          <xsd:element minOccurs="0" name="defaultAdvanceToApplyAccountJoin" type="platformCommon:AccountSearchRowBasic" />
+          <xsd:element minOccurs="0" name="returnAddressJoin" type="platformCommon:AddressSearchRowBasic" />
+          <xsd:element minOccurs="0" name="shippingAddressJoin" type="platformCommon:AddressSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -2896,6 +3076,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:GiftCertificateSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -2918,6 +3099,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:GiftCertificateSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -2979,6 +3161,10 @@
           <xsd:element minOccurs="0" name="shippingCost" type="xsd:double" />
           <xsd:element minOccurs="0" name="handlingCost" type="xsd:double" />
           <xsd:element minOccurs="0" name="isTaxable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="salesTaxCode" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="weight" type="xsd:double" />
           <xsd:element minOccurs="0" name="weightUnit" type="platformCore:RecordRef" />
@@ -3029,6 +3215,7 @@
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="shipIndividually" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="shipPackage" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="storeDisplayName" type="xsd:string" />
@@ -3062,6 +3249,7 @@
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
           <xsd:element minOccurs="0" name="siteCategoryList" type="listAcct:SiteCategoryList" />
           <xsd:element minOccurs="0" name="memberList" type="listAcct:ItemMemberList" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="translationsList" type="listAcct:TranslationList" />
           <xsd:element minOccurs="0" name="presentationItemList" type="listAcct:PresentationItemList" />
           <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
@@ -3098,6 +3286,7 @@
           <xsd:element minOccurs="0" name="description" type="xsd:string" />
           <xsd:element minOccurs="0" name="cogsAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="incomeAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoIncomeAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="assetAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="matchBillToReceipt" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="billQtyVarianceAcct" type="platformCore:RecordRef" />
@@ -3105,6 +3294,7 @@
           <xsd:element minOccurs="0" name="billExchRateVarianceAcct" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="gainLossAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="salesTaxCode" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="useComponentYield" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="wipVarianceAcct" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="purchaseTaxCode" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="scrapAcct" type="platformCore:RecordRef" />
@@ -3138,6 +3328,13 @@
           <xsd:element minOccurs="0" name="countryOfManufacture" type="platformCommonTyp:Country" />
           <xsd:element minOccurs="0" name="effectiveBomControl" type="listAcctTyp:AssemblyItemEffectiveBomControl" />
           <xsd:element minOccurs="0" name="defaultRevision" type="xsd:string" />
+          <xsd:element minOccurs="0" name="roundUpAsComponent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="defaultItemShipMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="itemCarrier" type="listAcctTyp:ItemCarrier" />
           <xsd:element minOccurs="0" name="itemShipMethodList" type="platformCore:RecordRefList" />
@@ -3177,12 +3374,18 @@
           <xsd:element minOccurs="0" name="transferPrice" type="xsd:double" />
           <xsd:element minOccurs="0" name="overallQuantityPricingType" type="listAcctTyp:ItemOverallQuantityPricingType" />
           <xsd:element minOccurs="0" name="pricingGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoCogsAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="vsoePrice" type="xsd:double" />
           <xsd:element minOccurs="0" name="vsoeSopGroup" type="platformCommonTyp:VsoeSopGroup" />
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="unbuildVarianceAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="deferRevRec" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="dropshipExpenseAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="preferredLocation" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="totalValue" type="xsd:double" />
@@ -3200,6 +3403,8 @@
           <xsd:element minOccurs="0" name="cost" type="xsd:double" />
           <xsd:element minOccurs="0" name="reorderPoint" type="xsd:double" />
           <xsd:element minOccurs="0" name="demandModifier" type="xsd:double" />
+          <xsd:element minOccurs="0" name="distributionNetwork" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="distributionCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="preferredStockLevel" type="xsd:double" />
           <xsd:element minOccurs="0" name="autoReorderPoint" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="autoPreferredStockLevel" type="xsd:boolean" />
@@ -3215,6 +3420,10 @@
           <xsd:element minOccurs="0" name="alternateDemandSourceItem" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="fixedLotSize" type="xsd:double" />
           <xsd:element minOccurs="0" name="supplyType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="demandTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="supplyTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleInDays" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleOutDays" type="xsd:long" />
           <xsd:element minOccurs="0" name="supplyLotSizingMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="demandSource" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="quantityOnOrder" type="xsd:double" />
@@ -3249,6 +3458,7 @@
           <xsd:element minOccurs="0" name="itemVendorList" type="listAcct:ItemVendorList" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
           <xsd:element minOccurs="0" name="memberList" type="listAcct:ItemMemberList" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="locationsList" type="listAcct:InventoryItemLocationsList" />
           <xsd:element minOccurs="0" name="siteCategoryList" type="listAcct:SiteCategoryList" />
           <xsd:element minOccurs="0" name="binNumberList" type="listAcct:InventoryItemBinNumberList" />
@@ -3282,6 +3492,7 @@
           <xsd:element minOccurs="0" name="invtClassification" type="listAcctTyp:ItemInvtClassification" />
           <xsd:element minOccurs="0" name="isGcoCompliant" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="offerSupport" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="useComponentYield" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="subsidiaryList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="availableToPartners" type="xsd:boolean" />
@@ -3292,6 +3503,7 @@
           <xsd:element minOccurs="0" name="description" type="xsd:string" />
           <xsd:element minOccurs="0" name="cogsAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="incomeAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoIncomeAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="assetAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="matchBillToReceipt" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="billQtyVarianceAcct" type="platformCore:RecordRef" />
@@ -3342,6 +3554,13 @@
           <xsd:element minOccurs="0" name="defaultRevision" type="xsd:string" />
           <xsd:element minOccurs="0" name="defaultItemShipMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="itemCarrier" type="listAcctTyp:ItemCarrier" />
+          <xsd:element minOccurs="0" name="roundUpAsComponent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="itemShipMethodList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="manufacturerTaxId" type="xsd:string" />
           <xsd:element minOccurs="0" name="scheduleBNumber" type="xsd:string" />
@@ -3374,12 +3593,17 @@
           <xsd:element minOccurs="0" name="transferPrice" type="xsd:double" />
           <xsd:element minOccurs="0" name="overallQuantityPricingType" type="listAcctTyp:ItemOverallQuantityPricingType" />
           <xsd:element minOccurs="0" name="pricingGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoCogsAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="vsoePrice" type="xsd:double" />
           <xsd:element minOccurs="0" name="vsoeSopGroup" type="platformCommonTyp:VsoeSopGroup" />
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="unbuildVarianceAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="dropshipExpenseAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="preferredLocation" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="totalValue" type="xsd:double" />
@@ -3408,6 +3632,10 @@
           <xsd:element minOccurs="0" name="alternateDemandSourceItem" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="fixedLotSize" type="xsd:double" />
           <xsd:element minOccurs="0" name="supplyType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="demandTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="supplyTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleInDays" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleOutDays" type="xsd:long" />
           <xsd:element minOccurs="0" name="supplyLotSizingMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="demandSource" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="shipIndividually" type="xsd:boolean" />
@@ -3448,6 +3676,7 @@
           <xsd:element minOccurs="0" name="itemVendorList" type="listAcct:ItemVendorList" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
           <xsd:element minOccurs="0" name="memberList" type="listAcct:ItemMemberList" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="locationsList" type="listAcct:SerializedInventoryItemLocationsList" />
           <xsd:element minOccurs="0" name="siteCategoryList" type="listAcct:SiteCategoryList" />
           <xsd:element minOccurs="0" name="binNumberList" type="listAcct:InventoryItemBinNumberList" />
@@ -3478,6 +3707,7 @@
           <xsd:element minOccurs="0" name="isOnline" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="isGcoCompliant" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="offerSupport" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="useComponentYield" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="availableToPartners" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="subsidiaryList" type="platformCore:RecordRefList" />
@@ -3485,9 +3715,11 @@
           <xsd:element minOccurs="0" name="includeChildren" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="costCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="description" type="xsd:string" />
           <xsd:element minOccurs="0" name="cogsAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="incomeAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoIncomeAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="assetAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="matchBillToReceipt" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="billQtyVarianceAcct" type="platformCore:RecordRef" />
@@ -3534,6 +3766,13 @@
           <xsd:element minOccurs="0" name="defaultRevision" type="xsd:string" />
           <xsd:element minOccurs="0" name="defaultItemShipMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="itemCarrier" type="listAcctTyp:ItemCarrier" />
+          <xsd:element minOccurs="0" name="roundUpAsComponent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="purchaseOrderQuantityDiff" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantity" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptAmount" type="xsd:double" />
+          <xsd:element minOccurs="0" name="receiptQuantityDiff" type="xsd:double" />
           <xsd:element minOccurs="0" name="itemShipMethodList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="scheduleBNumber" type="xsd:string" />
           <xsd:element minOccurs="0" name="scheduleBQuantity" type="xsd:long" />
@@ -3564,12 +3803,17 @@
           <xsd:element minOccurs="0" name="transferPrice" type="xsd:double" />
           <xsd:element minOccurs="0" name="overallQuantityPricingType" type="listAcctTyp:ItemOverallQuantityPricingType" />
           <xsd:element minOccurs="0" name="pricingGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="intercoCogsAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="vsoePrice" type="xsd:double" />
           <xsd:element minOccurs="0" name="vsoeSopGroup" type="platformCommonTyp:VsoeSopGroup" />
           <xsd:element minOccurs="0" name="vsoeDeferral" type="platformCommonTyp:VsoeDeferral" />
           <xsd:element minOccurs="0" name="vsoePermitDiscount" type="platformCommonTyp:VsoePermitDiscount" />
           <xsd:element minOccurs="0" name="vsoeDelivered" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="itemRevenueCategory" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="unbuildVarianceAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueRecognitionRule" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="revenueAllocationGroup" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="createRevenuePlansOn" type="listAcctTyp:ItemCreateRevenuePlansOn" />
           <xsd:element minOccurs="0" name="dropshipExpenseAccount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="preferredLocation" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="totalValue" type="xsd:double" />
@@ -3602,6 +3846,10 @@
           <xsd:element minOccurs="0" name="alternateDemandSourceItem" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="fixedLotSize" type="xsd:double" />
           <xsd:element minOccurs="0" name="supplyType" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="demandTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="supplyTimeFence" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleInDays" type="xsd:long" />
+          <xsd:element minOccurs="0" name="rescheduleOutDays" type="xsd:long" />
           <xsd:element minOccurs="0" name="supplyLotSizingMethod" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="demandSource" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="quantityCommitted" type="xsd:double" />
@@ -3640,6 +3888,7 @@
           <xsd:element minOccurs="0" name="itemVendorList" type="listAcct:ItemVendorList" />
           <xsd:element minOccurs="0" name="pricingMatrix" type="listAcct:PricingMatrix" />
           <xsd:element minOccurs="0" name="memberList" type="listAcct:ItemMemberList" />
+          <xsd:element minOccurs="0" name="accountingBookDetailList" type="listAcct:ItemAccountingBookDetailList" />
           <xsd:element minOccurs="0" name="locationsList" type="listAcct:LotNumberedInventoryItemLocationsList" />
           <xsd:element minOccurs="0" name="siteCategoryList" type="listAcct:SiteCategoryList" />
           <xsd:element minOccurs="0" name="binNumberList" type="listAcct:InventoryItemBinNumberList" />
@@ -3859,6 +4108,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:ExpenseCategorySearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -3881,6 +4131,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:ExpenseCategorySearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -4270,6 +4521,7 @@
           <xsd:element minOccurs="0" name="basic" type="platformCommon:InventoryNumberSearchBasic" />
           <xsd:element minOccurs="0" name="itemJoin" type="platformCommon:ItemSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -4293,6 +4545,7 @@
           <xsd:element minOccurs="0" name="basic" type="platformCommon:InventoryNumberSearchRowBasic" />
           <xsd:element minOccurs="0" name="itemJoin" type="platformCommon:ItemSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -4371,6 +4624,10 @@
       <xsd:extension base="platformCore:SearchRecord">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:RevRecScheduleSearchBasic" />
+          <xsd:element minOccurs="0" name="appliedToTransactionJoin" type="platformCommon:TransactionSearchBasic" />
+          <xsd:element minOccurs="0" name="customerJoin" type="platformCommon:CustomerSearchBasic" />
+          <xsd:element minOccurs="0" name="itemJoin" type="platformCommon:ItemSearchBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
         </xsd:sequence>
       </xsd:extension>
@@ -4393,6 +4650,10 @@
       <xsd:extension base="platformCore:SearchRow">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:RevRecScheduleSearchRowBasic" />
+          <xsd:element minOccurs="0" name="appliedToTransactionJoin" type="platformCommon:TransactionSearchRowBasic" />
+          <xsd:element minOccurs="0" name="customerJoin" type="platformCommon:CustomerSearchRowBasic" />
+          <xsd:element minOccurs="0" name="itemJoin" type="platformCommon:ItemSearchRowBasic" />
+          <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
@@ -4647,6 +4908,7 @@
       <xsd:extension base="platformCore:SearchRecord">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:CurrencyRateSearchBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -4668,6 +4930,7 @@
       <xsd:extension base="platformCore:SearchRow">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:CurrencyRateSearchRowBasic" />
+          <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -4733,6 +4996,321 @@
   <xsd:complexType name="AccountingPeriodFiscalCalendarsList">
     <xsd:sequence>
       <xsd:element minOccurs="0" maxOccurs="unbounded" name="accountingPeriodFiscalCalendars" type="listAcct:AccountingPeriodFiscalCalendars" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="taxAcct" type="listAcct:TaxAcct" />
+  <xsd:complexType name="TaxAcct">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nexus" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="country" type="platformCommonTyp:Country" />
+          <xsd:element minOccurs="0" name="taxAcctType" type="listAcctTyp:TaxAcctType" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ExpenseCategoryRates">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="defaultRate" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ExpenseCategoryRatesList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="expenseCategoryRates" type="listAcct:ExpenseCategoryRates" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="billingSchedule" type="listAcct:BillingSchedule" />
+  <xsd:complexType name="BillingSchedule">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="scheduleType" type="listAcctTyp:BillingScheduleType" />
+          <xsd:element minOccurs="0" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="recurrencePattern" type="listAcctTyp:BillingScheduleRecurrencePattern" />
+          <xsd:element minOccurs="0" name="project" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="initialAmount" type="xsd:string" />
+          <xsd:element minOccurs="0" name="initialTerms" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="frequency" type="listAcctTyp:BillingScheduleFrequency" />
+          <xsd:element minOccurs="0" name="recurrenceDowMaskList" type="platformCommon:RecurrenceDowMaskList" />
+          <xsd:element minOccurs="0" name="yearMode" type="listAcctTyp:BillingScheduleRecurrenceMode" />
+          <xsd:element minOccurs="0" name="yearDowim" type="listAcctTyp:BillingScheduleYearDowim" />
+          <xsd:element minOccurs="0" name="yearDow" type="listAcctTyp:BillingScheduleYearDow" />
+          <xsd:element minOccurs="0" name="yearDowimMonth" type="listAcctTyp:BillingScheduleYearDowimMonth" />
+          <xsd:element minOccurs="0" name="yearMonth" type="listAcctTyp:BillingScheduleYearMonth" />
+          <xsd:element minOccurs="0" name="yearDom" type="xsd:long" />
+          <xsd:element minOccurs="0" name="monthMode" type="listAcctTyp:BillingScheduleRecurrenceMode" />
+          <xsd:element minOccurs="0" name="monthDowim" type="listAcctTyp:BillingScheduleMonthDowim" />
+          <xsd:element minOccurs="0" name="monthDow" type="listAcctTyp:BillingScheduleMonthDow" />
+          <xsd:element minOccurs="0" name="monthDom" type="xsd:long" />
+          <xsd:element minOccurs="0" name="dayPeriod" type="xsd:long" />
+          <xsd:element minOccurs="0" name="repeatEvery" type="listAcctTyp:BillingScheduleRepeatEvery" />
+          <xsd:element minOccurs="0" name="billForActuals" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="numberRemaining" type="xsd:long" />
+          <xsd:element minOccurs="0" name="inArrears" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="recurrenceTerms" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="isPublic" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="applyToSubtotal" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="transaction" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="seriesStartDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="recurrenceList" type="listAcct:BillingScheduleRecurrenceList" />
+          <xsd:element minOccurs="0" name="milestoneList" type="listAcct:BillingScheduleMilestoneList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BillingScheduleMilestone">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="milestoneId" type="xsd:long" />
+      <xsd:element minOccurs="0" name="milestoneAmount" type="xsd:double" />
+      <xsd:element minOccurs="0" name="milestoneTerms" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="projectTask" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="milestoneDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="milestoneCompleted" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="milestoneActualCompletionDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="comments" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BillingScheduleMilestoneList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="billingScheduleMilestone" type="listAcct:BillingScheduleMilestone" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="BillingScheduleRecurrence">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="recurrenceId" type="xsd:long" />
+      <xsd:element minOccurs="0" name="count" type="xsd:long" />
+      <xsd:element minOccurs="0" name="units" type="listAcctTyp:BillingScheduleRecurrenceRecurrenceUnits" />
+      <xsd:element minOccurs="0" name="relativeToPrevious" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="recurrenceDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:double" />
+      <xsd:element minOccurs="0" name="paymentTerms" type="platformCore:RecordRef" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BillingScheduleRecurrenceList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="billingScheduleRecurrence" type="listAcct:BillingScheduleRecurrence" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:element name="billingScheduleSearch" type="listAcct:BillingScheduleSearch" />
+  <xsd:complexType name="BillingScheduleSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:BillingScheduleSearchBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BillingScheduleSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="listAcct:BillingScheduleSearch" />
+          <xsd:element minOccurs="0" name="columns" type="listAcct:BillingScheduleSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BillingScheduleSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:BillingScheduleSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="globalAccountMapping" type="listAcct:GlobalAccountMapping" />
+  <xsd:complexType name="GlobalAccountMapping">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="effectiveDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="endDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="accountingBook" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="sourceAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="destinationAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="customDimension" type="platformCore:BaseRef" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="globalAccountMappingSearch" type="listAcct:GlobalAccountMappingSearch" />
+  <xsd:complexType name="GlobalAccountMappingSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:GlobalAccountMappingSearchBasic" />
+          <xsd:element minOccurs="0" name="classJoin" type="platformCommon:ClassificationSearchBasic" />
+          <xsd:element minOccurs="0" name="departmentJoin" type="platformCommon:DepartmentSearchBasic" />
+          <xsd:element minOccurs="0" name="destinationAccountJoin" type="platformCommon:AccountSearchBasic" />
+          <xsd:element minOccurs="0" name="locationJoin" type="platformCommon:LocationSearchBasic" />
+          <xsd:element minOccurs="0" name="sourceAccountJoin" type="platformCommon:AccountSearchBasic" />
+          <xsd:element minOccurs="0" name="subsidiaryJoin" type="platformCommon:SubsidiarySearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="GlobalAccountMappingSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="listAcct:GlobalAccountMappingSearch" />
+          <xsd:element minOccurs="0" name="columns" type="listAcct:GlobalAccountMappingSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="GlobalAccountMappingSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:GlobalAccountMappingSearchRowBasic" />
+          <xsd:element minOccurs="0" name="classJoin" type="platformCommon:ClassificationSearchRowBasic" />
+          <xsd:element minOccurs="0" name="departmentJoin" type="platformCommon:DepartmentSearchRowBasic" />
+          <xsd:element minOccurs="0" name="destinationAccountJoin" type="platformCommon:AccountSearchRowBasic" />
+          <xsd:element minOccurs="0" name="locationJoin" type="platformCommon:LocationSearchRowBasic" />
+          <xsd:element minOccurs="0" name="sourceAccountJoin" type="platformCommon:AccountSearchRowBasic" />
+          <xsd:element minOccurs="0" name="subsidiaryJoin" type="platformCommon:SubsidiarySearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="itemAccountMapping" type="listAcct:ItemAccountMapping" />
+  <xsd:complexType name="ItemAccountMapping">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:Record">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="customForm" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="effectiveDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="endDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="accountingBook" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="subsidiary" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="itemAccount" type="listAcctTyp:ItemAccountMappingItemAccount" />
+          <xsd:element minOccurs="0" name="sourceAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="class" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="department" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="location" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="destinationAccount" type="platformCore:RecordRef" />
+          <xsd:element minOccurs="0" name="customDimension" type="platformCore:BaseRef" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
+        </xsd:sequence>
+        <xsd:attribute name="internalId" type="xsd:string" />
+        <xsd:attribute name="externalId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="itemAccountMappingSearch" type="listAcct:ItemAccountMappingSearch" />
+  <xsd:complexType name="ItemAccountMappingSearch">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:ItemAccountMappingSearchBasic" />
+          <xsd:element minOccurs="0" name="classJoin" type="platformCommon:ClassificationSearchBasic" />
+          <xsd:element minOccurs="0" name="departmentJoin" type="platformCommon:DepartmentSearchBasic" />
+          <xsd:element minOccurs="0" name="destinationAccountJoin" type="platformCommon:AccountSearchBasic" />
+          <xsd:element minOccurs="0" name="locationJoin" type="platformCommon:LocationSearchBasic" />
+          <xsd:element minOccurs="0" name="sourceAccountJoin" type="platformCommon:AccountSearchBasic" />
+          <xsd:element minOccurs="0" name="subsidiaryJoin" type="platformCommon:SubsidiarySearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ItemAccountMappingSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="listAcct:ItemAccountMappingSearch" />
+          <xsd:element minOccurs="0" name="columns" type="listAcct:ItemAccountMappingSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ItemAccountMappingSearchRow">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRow">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="basic" type="platformCommon:ItemAccountMappingSearchRowBasic" />
+          <xsd:element minOccurs="0" name="classJoin" type="platformCommon:ClassificationSearchRowBasic" />
+          <xsd:element minOccurs="0" name="departmentJoin" type="platformCommon:DepartmentSearchRowBasic" />
+          <xsd:element minOccurs="0" name="destinationAccountJoin" type="platformCommon:AccountSearchRowBasic" />
+          <xsd:element minOccurs="0" name="locationJoin" type="platformCommon:LocationSearchRowBasic" />
+          <xsd:element minOccurs="0" name="sourceAccountJoin" type="platformCommon:AccountSearchRowBasic" />
+          <xsd:element minOccurs="0" name="subsidiaryJoin" type="platformCommon:SubsidiarySearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ItemAccountingBookDetail">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="accountingBook" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="revRecSchedule" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="sameAsPrimaryRevRec" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="amortizationTemplate" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="sameAsPrimaryAmortization" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ItemAccountingBookDetailList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="itemAccountingBookDetail" type="listAcct:ItemAccountingBookDetail" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="SubsidiaryAccountingBookDetail">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="accountingBook" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="currency" type="platformCore:RecordRef" />
+      <xsd:element minOccurs="0" name="bookStatus" type="listAcctTyp:AccountingBookStatus" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SubsidiaryAccountingBookDetailList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="subsidiaryAccountingBookDetail" type="listAcct:SubsidiaryAccountingBookDetail" />
+    </xsd:sequence>
+    <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="PaymentMethodVisuals">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="flags" type="xsd:string" />
+      <xsd:element minOccurs="0" name="location" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PaymentMethodVisualsList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="paymentMethodVisuals" type="listAcct:PaymentMethodVisuals" />
     </xsd:sequence>
     <xsd:attribute default="true" name="replaceAll" type="xsd:boolean" />
   </xsd:complexType>

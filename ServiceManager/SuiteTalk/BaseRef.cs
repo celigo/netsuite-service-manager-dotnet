@@ -1,6 +1,9 @@
 ﻿
+using System;
+
 namespace com.celigo.net.ServiceManager.SuiteTalk
 {
+#if !FIRSTBUILD
     public abstract partial class BaseRef
     {
         /// <summary>
@@ -20,6 +23,7 @@ namespace com.celigo.net.ServiceManager.SuiteTalk
             return string.Concat(GetType().Name, ": ", name);
         }
     }
+#endif
 
     /// <summary>
     /// Reference to a NetSuite data item
@@ -38,6 +42,7 @@ namespace com.celigo.net.ServiceManager.SuiteTalk
         string name { get; set; }
     }
 
+ #if !FIRSTBUILD
     public partial class RecordRef : IReference
     {
         /// <summary>
@@ -55,6 +60,18 @@ namespace com.celigo.net.ServiceManager.SuiteTalk
         public override string ToString()
         {
             return string.Concat(internalId, " ", name);
+        }
+    }
+
+    public partial class CustomTransactionRef
+    {
+        /// <summary>
+        /// Gets the internal id.
+        /// </summary>
+        /// <returns></returns>
+        public override string GetInternalId()
+        {
+            return this.internalId;
         }
     }
 
@@ -109,4 +126,5 @@ namespace com.celigo.net.ServiceManager.SuiteTalk
     public partial class ListOrRecordRef : IReference
     {
     }
+#endif
 }

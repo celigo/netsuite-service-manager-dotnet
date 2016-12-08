@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" xmlns:listMkt="urn:marketing_2013_1.lists.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:listMktTyp="urn:types.marketing_2013_1.lists.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:marketing_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/marketingTypes.xsd" namespace="urn:types.marketing_2013_1.lists.webservices.netsuite.com" />
+<xsd:schema xmlns:platformCoreTyp="urn:types.core_2015_2.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2015_2.platform.webservices.netsuite.com" xmlns:listMkt="urn:marketing_2015_2.lists.webservices.netsuite.com" xmlns:platformCommon="urn:common_2015_2.platform.webservices.netsuite.com" xmlns:listMktTyp="urn:types.marketing_2015_2.lists.webservices.netsuite.com" xmlns:platformCore="urn:core_2015_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:marketing_2015_2.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/core.xsd" namespace="urn:core_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/common.xsd" namespace="urn:common_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/marketingTypes.xsd" namespace="urn:types.marketing_2015_2.lists.webservices.netsuite.com" />
   <xsd:element name="Campaign" type="listMkt:Campaign" />
   <xsd:complexType name="Campaign">
     <xsd:complexContent mixed="false">
@@ -149,6 +149,7 @@
           <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
           <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -178,6 +179,7 @@
           <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
           <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -348,6 +350,7 @@
           <xsd:element minOccurs="0" name="codePattern" type="xsd:string" />
           <xsd:element minOccurs="0" name="numberToGenerate" type="xsd:long" />
           <xsd:element minOccurs="0" name="description" type="xsd:string" />
+          <xsd:element minOccurs="0" name="locationList" type="platformCore:RecordRefList" />
           <xsd:element minOccurs="0" name="isInactive" type="xsd:boolean" />
           <xsd:element minOccurs="0" name="discount" type="platformCore:RecordRef" />
           <xsd:element minOccurs="0" name="rate" type="xsd:string" />
@@ -363,6 +366,7 @@
           <xsd:element minOccurs="0" name="name" type="xsd:string" />
           <xsd:element minOccurs="0" name="itemsList" type="listMkt:PromotionCodeItemsList" />
           <xsd:element minOccurs="0" name="partnersList" type="listMkt:PromotionCodePartnersList" />
+          <xsd:element minOccurs="0" name="customFieldList" type="platformCore:CustomFieldList" />
         </xsd:sequence>
         <xsd:attribute name="internalId" type="xsd:string" />
         <xsd:attribute name="externalId" type="xsd:string" />
@@ -399,6 +403,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:PromotionCodeSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -421,6 +426,7 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:PromotionCodeSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>

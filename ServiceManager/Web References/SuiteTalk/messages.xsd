@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:platformMsgs="urn:messages_2013_1.platform.webservices.netsuite.com" xmlns:platformFaultTyp="urn:types.faults_2013_1.platform.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:messages_2013_1.platform.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/faultTypes.xsd" namespace="urn:types.faults_2013_1.platform.webservices.netsuite.com" />
+<xsd:schema xmlns:platformMsgs="urn:messages_2015_2.platform.webservices.netsuite.com" xmlns:platformFaultTyp="urn:types.faults_2015_2.platform.webservices.netsuite.com" xmlns:platformCore="urn:core_2015_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:messages_2015_2.platform.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/core.xsd" namespace="urn:core_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/faultTypes.xsd" namespace="urn:types.faults_2015_2.platform.webservices.netsuite.com" />
   <xsd:complexType name="ApplicationInfo">
     <xsd:sequence>
       <xsd:element minOccurs="0" name="applicationId" type="xsd:string" />
@@ -38,6 +38,7 @@
   </xsd:complexType>
   <xsd:element name="searchPreferences" type="platformMsgs:SearchPreferences" />
   <xsd:element name="passport" type="platformCore:Passport" />
+  <xsd:element name="tokenPassport" type="platformCore:TokenPassport" />
   <xsd:complexType name="SessionResponse">
     <xsd:sequence>
       <xsd:element ref="platformCore:status" />
@@ -62,12 +63,14 @@
   <xsd:element name="readResponse" type="platformMsgs:ReadResponse" />
   <xsd:complexType name="WriteResponseList">
     <xsd:sequence>
+      <xsd:element minOccurs="0" ref="platformCore:status" />
       <xsd:element maxOccurs="unbounded" name="writeResponse" type="platformMsgs:WriteResponse" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="writeResponseList" type="platformMsgs:WriteResponseList" />
   <xsd:complexType name="ReadResponseList">
     <xsd:sequence>
+      <xsd:element minOccurs="0" ref="platformCore:status" />
       <xsd:element minOccurs="0" maxOccurs="unbounded" name="readResponse" type="platformMsgs:ReadResponse" />
     </xsd:sequence>
   </xsd:complexType>
@@ -378,7 +381,7 @@
     <xsd:complexContent mixed="false">
       <xsd:extension base="platformMsgs:AsyncResult">
         <xsd:sequence>
-          <xsd:element ref="platformMsgs:writeResponseList" />
+          <xsd:element ref="platformMsgs:readResponseList" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -432,6 +435,7 @@
   <xsd:complexType name="DeleteRequest">
     <xsd:sequence>
       <xsd:element name="baseRef" type="platformCore:BaseRef" />
+      <xsd:element minOccurs="0" name="deletionReason" type="platformCore:DeletionReason" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="delete" type="platformMsgs:DeleteRequest" />
@@ -479,6 +483,7 @@
   <xsd:complexType name="DeleteListRequest">
     <xsd:sequence>
       <xsd:element minOccurs="1" maxOccurs="unbounded" name="baseRef" type="platformCore:BaseRef" />
+      <xsd:element minOccurs="0" name="deletionReason" type="platformCore:DeletionReason" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="deleteList" type="platformMsgs:DeleteListRequest" />
@@ -629,6 +634,7 @@
   <xsd:complexType name="AsyncDeleteListRequest">
     <xsd:sequence>
       <xsd:element minOccurs="1" maxOccurs="unbounded" name="baseRef" type="platformCore:BaseRef" />
+      <xsd:element minOccurs="0" name="deletionReason" type="platformCore:DeletionReason" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="asyncDeleteList" type="platformMsgs:AsyncDeleteListRequest" />
@@ -666,6 +672,7 @@
   <xsd:complexType name="GetDeletedRequest">
     <xsd:sequence>
       <xsd:element minOccurs="1" maxOccurs="1" name="getDeletedFilter" type="platformCore:GetDeletedFilter" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="pageIndex" type="xsd:int" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="getDeleted" type="platformMsgs:GetDeletedRequest" />

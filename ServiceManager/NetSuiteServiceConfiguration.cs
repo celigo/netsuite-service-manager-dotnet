@@ -9,6 +9,7 @@ namespace com.celigo.net.ServiceManager
     /// </summary>
     public class NetSuiteServiceConfiguration
     {
+#if !FIRSTBUILD
         /// <summary>Gets or sets the number of retries in case of a recoverable failure.</summary>
         /// <value>The retry count.</value>
         public int RetryCount { get; set; }
@@ -167,5 +168,6 @@ namespace com.celigo.net.ServiceManager
             Preferences = new Preferences();
             EndPointUrl = Settings.Default.ServiceManager_SuiteTalk_NetSuiteService;
         }
+#endif
     }
 }

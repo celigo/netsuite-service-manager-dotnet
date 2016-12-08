@@ -24,7 +24,12 @@ namespace com.celigo.net.ServiceManager.Utility
         /// The value will be <c>null</c> for both <see cref="NetSuiteServiceBase.BeforeServiceInvocation"/> 
         /// and <see cref="NetSuiteServiceBase.ServiceInvocationError"/> events.
         /// </remarks>
-        public object Result { get; internal set; }
+        public object Result { get; set; }
+
+        /// <summary>
+        /// Gets the <see cref="System.Type"/> of the result.
+        /// </summary>
+        public Type ResultType { get; private set; }
 
         /// <summary>
         /// Represents a data slot which can be used by consumers of the Service Manager library to
@@ -55,6 +60,15 @@ namespace com.celigo.net.ServiceManager.Utility
         public bool ForceRetry { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether the ServiceManager should wait before retrying.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if ServiceManager should wait before retrying; otherwise, <c>false</c>.
+        /// </value>
+        /// <remarks>ServiceManager should typically wait in case the error was a temporary glitch on the server.</remarks>
+        public bool WaitBeforeRetrying { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether to throw the original exception or (default) 
         /// wrap the original in a <see cref="NsException"/>.
         /// </summary>
@@ -68,10 +82,12 @@ namespace com.celigo.net.ServiceManager.Utility
         /// </summary>
         /// <param name="method">The method.</param>
         /// <param name="args">The args.</param>
-        internal ServiceInvocationEventArgs(string method, object args) : base(false)
+        internal ServiceInvocationEventArgs(string method, object args, Type resultType) : base(false)
         {
             this.MethodName  = method;
             this.Arguments   = args;
+            this.ResultType = resultType;
+            this.WaitBeforeRetrying = true;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !FIRSTBUILD
+using System;
 using System.Xml.Serialization;
 using com.celigo.net.ServiceManager.SuiteTalk;
 
@@ -14,11 +15,6 @@ namespace com.celigo.net.ServiceManager
         /// Represents an unsuccessful login attempt.
         /// </summary>
         public static readonly UserSession Unsuccessful = new UserSession() { IsSuccess = false };
-        /// <summary>
-        /// Represents an unsuccessful login attempt that user wishes to abort from (e.g. clicks cancel
-        /// on a login dialog).
-        /// </summary>
-        public static readonly UserSession Aborted = new UserSession() { IsSuccess = false };
         
         internal const string JSESSIONID = "JSESSIONID";
 
@@ -111,3 +107,4 @@ namespace com.celigo.net.ServiceManager
         }
     }
 }
+#endif

@@ -1,4 +1,5 @@
-﻿namespace com.celigo.net.ServiceManager.SuiteTalk
+﻿#if !FIRSTBUILD
+namespace com.celigo.net.ServiceManager.SuiteTalk
 {
     public partial class CustomFieldRef 
     {
@@ -15,3 +16,4 @@
         public abstract void SetInternalId(string id);
     }
 }
+#endif

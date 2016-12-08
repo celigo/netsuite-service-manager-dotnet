@@ -90,8 +90,9 @@ namespace com.celigo.net.ServiceManager
         /// Gets the customizations of specified type.
         /// </summary>
         /// <param name="customization">The customization type.</param>
+        /// <param name="includeInactives">if set to <c>true</c> includes customizations that are marked inactive.</param>
         /// <returns></returns>
-        GetCustomizationIdResult GetCustomizationId(CustomizationType customization);
+        GetCustomizationIdResult GetCustomizationId(CustomizationType customization, bool includeInactives = false);
         /// <summary>
         /// Gets the deleted records.
         /// </summary>
@@ -111,21 +112,55 @@ namespace com.celigo.net.ServiceManager
         /// <param name="record">Information about the transaction to initialize.</param>
         /// <returns></returns>
         ReadResponse Initialize(InitializeRecord record);
-
-        /// <summary>Searches NetSuite using the specified criteria.</summary>
-        /// <param name="record">The search criteria.</param>
-        /// <param name="returnSearchColumns">
-        /// if set to <c>true</c> returns Search Columns rather than entity records.
-        /// </param>
-        /// <returns>The search result.</returns>
-        SearchResult Search(SearchRecord record);
-        /// <summary>Searches NetSuite using the specified criteria.</summary>
-        /// <param name="record">The search criteria.</param>
-        /// <param name="returnSearchColumns">
-        /// if set to <c>true</c> returns Search Columns rather than entity records.
-        /// </param>
-        /// <returns>The search result.</returns>
-        SearchResult Search(SearchRecord record, bool returnSearchColumns);
+        /// <summary>
+        /// Use to emulate the UI workflow by pre-populating fields on transaction line items with 
+        /// values from a related record. 
+        /// The initializeList operation can be used to run batch processes to retrieve initialized records.
+        /// </summary>
+        /// <param name="records">Information about the transaction to initialize.</param>
+        /// <returns></returns>
+        ReadResponse[] InitializeList(InitializeRecord[] records);
+        /// <summary>
+        /// Use to retrieve the inventory availability for a given list of items.
+        /// </summary>
+        /// <param name="itemAvailabilityFilter">The item availability filter.</param>
+        /// <remarks>
+        /// You can filter the returned list using a lastQtyAvailableChange filter. If set, only 
+        /// items with quantity available changes recorded as of this date are returned.
+        /// If the Multi-Location Inventory feature is enabled, this operation returns results for 
+        /// all locations. For locations that do not have any items available, only location IDs 
+        /// and names are listed in results.
+        /// </remarks>
+        /// <returns></returns>
+        GetItemAvailabilityResult GetItemAvailability(ItemAvailabilityFilter itemAvailabilityFilter);
+        /// <summary>
+        /// Use to get and filter all data related to the Budget Exchange Rates table.
+        /// </summary>
+        /// <param name="budgetExchangeRateFilter">You can filter the returned exchange rates for a budget using this filter.</param>
+        /// <remarks>This operation can be used only in NetSuite OneWorld accounts.</remarks>
+        /// <returns></returns>
+        GetBudgetExchangeRateResult GetBudgetExchangeRate(BudgetExchangeRateFilter budgetExchangeRateFilter);
+        /// <summary>
+        /// Use to get and filter all data related to the Consolidated Exchange Rates table.
+        /// </summary>
+        /// <param name="consolidatedExchangeRateFilter">The consolidated exchange rate filter.</param>
+        /// <remarks>This operation can be used only in NetSuite OneWorld accounts.</remarks>
+        /// <returns></returns>
+        GetConsolidatedExchangeRateResult GetConsolidatedExchangeRate(ConsolidatedExchangeRateFilter consolidatedExchangeRateFilter);
+        /// <summary>
+        /// Allows event invitees to accept or decline NetSuite events. After invitees have 
+        /// responded to the event, the Event record is updated with their response.
+        /// </summary>
+        /// <param name="updateInviteeStatusReference">The invitee status update.</param>
+        /// <returns></returns>
+        WriteResponse UpdateInviteeStatus(UpdateInviteeStatusReference updateInviteeStatusReference);
+        /// <summary>
+        /// Allows event invitees to accept or decline NetSuite events. After invitees have 
+        /// responded to the event, the Event record is updated with their response.
+        /// </summary>
+        /// <param name="updateInviteeStatusReference">The invitee status update.</param>
+        /// <returns></returns>
+        WriteResponse[] updateInviteeStatusList(UpdateInviteeStatusReference[] updateInviteeStatusReference);
         /// <summary>
         /// Updates the specified record.
         /// </summary>
@@ -138,6 +173,24 @@ namespace com.celigo.net.ServiceManager
         /// <param name="records">The records.</param>
         /// <returns></returns>
         WriteResponse[] UpdateList(Record[] records);
+        /// <summary>
+        /// Use to add new records and update existing records in a single operation. 
+        /// Records are identified by external ID and record type. If a record of the specified 
+        /// type with a matching external ID exists in the system, it is updated. 
+        /// If it does not exist, a new record is created.
+        /// </summary>
+        /// <param name="record">The record.</param>
+        /// <returns></returns>
+        WriteResponse upsert(Record record);
+        /// <summary>
+        /// Use to add new records and update existing records in a single operation. 
+        /// Records are identified by external ID and record type. If a record of the specified 
+        /// type with a matching external ID exists in the system, it is updated. 
+        /// If it does not exist, a new record is created.
+        /// </summary>
+        /// <param name="records">The records.</param>
+        /// <returns></returns>
+        WriteResponse[] UpsertList(Record[] records);
         /// <summary>
         /// Gets the saved search.
         /// </summary>
@@ -152,12 +205,6 @@ namespace com.celigo.net.ServiceManager
         /// <returns></returns>
         GetSelectValueResult GetSelectValue(GetSelectValueFieldDescription fieldDescription, int pageIndex);
         /// <summary>
-        /// Gets the item availability.
-        /// </summary>
-        /// <param name="iaf">The filter.</param>
-        /// <returns></returns>
-        GetItemAvailabilityResult GetItemAvailability(ItemAvailabilityFilter iaf);
-        /// <summary>
         /// Gets the posting transaction summary.
         /// </summary>
         /// <param name="fields">The fields.</param>
@@ -165,5 +212,19 @@ namespace com.celigo.net.ServiceManager
         /// <param name="pageIndex">Index of the page.</param>
         /// <returns></returns>
         GetPostingTransactionSummaryResult GetPostingTransactionSummary(PostingTransactionSummaryField fields, com.celigo.net.ServiceManager.SuiteTalk.PostingTransactionSummaryFilter filters, int pageIndex);
+
+        /// <summary>
+        /// Searches the specified record.
+        /// </summary>
+        /// <param name="record">The record.</param>
+        /// <returns></returns>
+        SearchResult Search(SearchRecord record);
+        /// <summary>Searches NetSuite using the specified criteria.</summary>
+        /// <param name="record">The search criteria.</param>
+        /// <param name="returnSearchColumns">
+        /// if set to <c>true</c> returns Search Columns rather than entity records.
+        /// </param>
+        /// <returns>The search result.</returns>
+        SearchResult Search(SearchRecord record, bool returnSearchColumns);
     }
 }

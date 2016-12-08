@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:actSchedTyp="urn:types.scheduling_2013_1.activities.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.scheduling_2013_1.activities.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:actSchedTyp="urn:types.scheduling_2015_2.activities.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.scheduling_2015_2.activities.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:simpleType name="CalendarEventAccessLevel">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_private" />
@@ -11,35 +11,6 @@
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_optional" />
       <xsd:enumeration value="_required" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="CalendarEventFrequency">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="_none" />
-      <xsd:enumeration value="_day" />
-      <xsd:enumeration value="_week" />
-      <xsd:enumeration value="_month" />
-      <xsd:enumeration value="_year" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="CalendarEventDow">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="_sunday" />
-      <xsd:enumeration value="_monday" />
-      <xsd:enumeration value="_tuesday" />
-      <xsd:enumeration value="_wednesday" />
-      <xsd:enumeration value="_thursday" />
-      <xsd:enumeration value="_friday" />
-      <xsd:enumeration value="_saturday" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="CalendarEventDowim">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="_first" />
-      <xsd:enumeration value="_second" />
-      <xsd:enumeration value="_third" />
-      <xsd:enumeration value="_fourth" />
-      <xsd:enumeration value="_last" />
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="CalendarEventReminderMinutes">
@@ -179,8 +150,23 @@
   </xsd:simpleType>
   <xsd:simpleType name="ProjectTaskPredecessorPredecessorType">
     <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_finishToFinish" />
       <xsd:enumeration value="_finishToStart" />
+      <xsd:enumeration value="_startToFinish" />
       <xsd:enumeration value="_startToStart" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ResourceAllocationAllocationUnit">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_hours" />
+      <xsd:enumeration value="_percentOfTime" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ResourceAllocationApprovalStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_approved" />
+      <xsd:enumeration value="_pendingApproval" />
+      <xsd:enumeration value="_rejected" />
     </xsd:restriction>
   </xsd:simpleType>
 </xsd:schema>

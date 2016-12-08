@@ -1,3 +1,5 @@
+#if !FIRSTBUILD
+
 using System;
 using com.celigo.net.ServiceManager.SuiteTalk;
 using com.celigo.net.ServiceManager.Utility;
@@ -36,7 +38,20 @@ namespace com.celigo.net.ServiceManager
         /// Changes the email or password.
         /// </summary>
         /// <param name="currentCredentials">The current credentials.</param>
-        /// <param name="cpec">The credentials required for the email change.</param>
+        /// <param name="cpec">The credentials required for the password/email change.</param>
+        /// <returns></returns>
+        public SessionResponse ChangePassword(NetSuiteCredential currentCredentials, ChangePassword cpec)
+        {
+            var svcMgr = _svcPoolMgr.BuildTemporaryServiceManager();
+            svcMgr.Credentials = currentCredentials;
+            return svcMgr.ChangePassword(cpec);
+        }
+
+        /// <summary>
+        /// Changes the email or password.
+        /// </summary>
+        /// <param name="currentCredentials">The current credentials.</param>
+        /// <param name="cpec">The credentials required for the password/email change.</param>
         /// <returns></returns>
         public SessionResponse ChangeEmail(NetSuiteCredential currentCredentials, ChangeEmail cpec)
         {
@@ -44,19 +59,6 @@ namespace com.celigo.net.ServiceManager
             svcMgr.Credentials = currentCredentials;
             return svcMgr.ChangeEmail(cpec);
         }
-
-        /// <summary>
-        /// Changes the email or password.
-        /// </summary>
-        /// <param name="currentCredentials">The current credentials.</param>
-        /// <param name="cpec">The credentials required for the email change.</param>
-        /// <returns></returns>
-        public SessionResponse ChangePassword(NetSuiteCredential currentCredentials, ChangePassword cpec)
-        {
-            var svcMgr = _svcPoolMgr.BuildTemporaryServiceManager();
-            svcMgr.Credentials = currentCredentials;
-            return svcMgr.ChangePassword(cpec);
-        }        
 
         /// <summary>Searches using the specified search options.</summary>
         /// <param name="record">The search record</param>
@@ -211,7 +213,7 @@ namespace com.celigo.net.ServiceManager
         internal override T InvokeService<T>(object arg, string method, SearchPreferences prefs)
         {
             IServiceManager svcMgr = null;
-            ServiceInvocationEventArgs invokerArgs = new ServiceInvocationEventArgs(method, arg);
+            ServiceInvocationEventArgs invokerArgs = new ServiceInvocationEventArgs(method, arg, typeof(T));
 
             try
             {
@@ -275,3 +277,5 @@ namespace com.celigo.net.ServiceManager
         }
     }
 }
+
+#endif

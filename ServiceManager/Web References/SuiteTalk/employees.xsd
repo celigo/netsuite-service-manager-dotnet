@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:listEmpTyp="urn:types.employees_2013_1.lists.webservices.netsuite.com" xmlns:platformCoreTyp="urn:types.core_2013_1.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2013_1.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2013_1.platform.webservices.netsuite.com" xmlns:listEmp="urn:employees_2013_1.lists.webservices.netsuite.com" xmlns:platformCore="urn:core_2013_1.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:employees_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/employeeTypes.xsd" namespace="urn:types.employees_2013_1.lists.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
-  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/commonTypes.xsd" namespace="urn:types.common_2013_1.platform.webservices.netsuite.com" />
+<xsd:schema xmlns:listEmpTyp="urn:types.employees_2015_2.lists.webservices.netsuite.com" xmlns:platformCoreTyp="urn:types.core_2015_2.platform.webservices.netsuite.com" xmlns:platformCommon="urn:common_2015_2.platform.webservices.netsuite.com" xmlns:platformCommonTyp="urn:types.common_2015_2.platform.webservices.netsuite.com" xmlns:listEmp="urn:employees_2015_2.lists.webservices.netsuite.com" xmlns:platformCore="urn:core_2015_2.platform.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:employees_2015_2.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/core.xsd" namespace="urn:core_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/employeeTypes.xsd" namespace="urn:types.employees_2015_2.lists.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/common.xsd" namespace="urn:common_2015_2.platform.webservices.netsuite.com" />
+  <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/commonTypes.xsd" namespace="urn:types.common_2015_2.platform.webservices.netsuite.com" />
   <xsd:element name="Employee" type="listEmp:Employee" />
   <xsd:complexType name="Employee">
     <xsd:complexContent mixed="false">
@@ -120,18 +120,7 @@
       <xsd:element minOccurs="0" name="defaultShipping" type="xsd:boolean" />
       <xsd:element minOccurs="0" name="defaultBilling" type="xsd:boolean" />
       <xsd:element minOccurs="0" name="label" type="xsd:string" />
-      <xsd:element minOccurs="0" name="attention" type="xsd:string" />
-      <xsd:element minOccurs="0" name="addressee" type="xsd:string" />
-      <xsd:element minOccurs="0" name="phone" type="xsd:string" />
-      <xsd:element minOccurs="0" name="addr1" type="xsd:string" />
-      <xsd:element minOccurs="0" name="addr2" type="xsd:string" />
-      <xsd:element minOccurs="0" name="addr3" type="xsd:string" />
-      <xsd:element minOccurs="0" name="city" type="xsd:string" />
-      <xsd:element minOccurs="0" name="state" type="xsd:string" />
-      <xsd:element minOccurs="0" name="zip" type="xsd:string" />
-      <xsd:element minOccurs="0" name="country" type="platformCommonTyp:Country" />
-      <xsd:element minOccurs="0" name="addrText" type="xsd:string" />
-      <xsd:element minOccurs="0" name="override" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="addressbookAddress" type="platformCommon:Address" />
       <xsd:element minOccurs="0" name="internalId" type="xsd:string" />
     </xsd:sequence>
   </xsd:complexType>
@@ -159,17 +148,20 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:EmployeeSearchBasic" />
           <xsd:element minOccurs="0" name="campaignResponseJoin" type="platformCommon:CampaignSearchBasic" />
+          <xsd:element minOccurs="0" name="chargeJoin" type="platformCommon:ChargeSearchBasic" />
           <xsd:element minOccurs="0" name="departmentJoin" type="platformCommon:DepartmentSearchBasic" />
           <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchBasic" />
           <xsd:element minOccurs="0" name="locationJoin" type="platformCommon:LocationSearchBasic" />
           <xsd:element minOccurs="0" name="messagesJoin" type="platformCommon:MessageSearchBasic" />
           <xsd:element minOccurs="0" name="messagesFromJoin" type="platformCommon:MessageSearchBasic" />
           <xsd:element minOccurs="0" name="messagesToJoin" type="platformCommon:MessageSearchBasic" />
+          <xsd:element minOccurs="0" name="resourceAllocationJoin" type="platformCommon:ResourceAllocationSearchBasic" />
           <xsd:element minOccurs="0" name="subsidiaryJoin" type="platformCommon:SubsidiarySearchBasic" />
           <xsd:element minOccurs="0" name="timeJoin" type="platformCommon:TimeBillSearchBasic" />
           <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchBasic" />
           <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -192,17 +184,20 @@
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:EmployeeSearchRowBasic" />
           <xsd:element minOccurs="0" name="campaignResponseJoin" type="platformCommon:CampaignSearchRowBasic" />
+          <xsd:element minOccurs="0" name="chargeJoin" type="platformCommon:ChargeSearchRowBasic" />
           <xsd:element minOccurs="0" name="departmentJoin" type="platformCommon:DepartmentSearchRowBasic" />
           <xsd:element minOccurs="0" name="fileJoin" type="platformCommon:FileSearchRowBasic" />
           <xsd:element minOccurs="0" name="locationJoin" type="platformCommon:LocationSearchRowBasic" />
           <xsd:element minOccurs="0" name="messagesJoin" type="platformCommon:MessageSearchRowBasic" />
           <xsd:element minOccurs="0" name="messagesFromJoin" type="platformCommon:MessageSearchRowBasic" />
           <xsd:element minOccurs="0" name="messagesToJoin" type="platformCommon:MessageSearchRowBasic" />
+          <xsd:element minOccurs="0" name="resourceAllocationJoin" type="platformCommon:ResourceAllocationSearchRowBasic" />
           <xsd:element minOccurs="0" name="subsidiaryJoin" type="platformCommon:SubsidiarySearchRowBasic" />
           <xsd:element minOccurs="0" name="timeJoin" type="platformCommon:TimeBillSearchRowBasic" />
           <xsd:element minOccurs="0" name="transactionJoin" type="platformCommon:TransactionSearchRowBasic" />
           <xsd:element minOccurs="0" name="userJoin" type="platformCommon:EmployeeSearchRowBasic" />
           <xsd:element minOccurs="0" name="userNotesJoin" type="platformCommon:NoteSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -353,7 +348,20 @@
       <xsd:extension base="platformCore:SearchRecord">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:PayrollItemSearchBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchJoin" />
         </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PayrollItemSearchAdvanced">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="platformCore:SearchRecord">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="criteria" type="listEmp:PayrollItemSearch" />
+          <xsd:element minOccurs="0" name="columns" type="listEmp:PayrollItemSearchRow" />
+        </xsd:sequence>
+        <xsd:attribute name="savedSearchId" type="xsd:string" />
+        <xsd:attribute name="savedSearchScriptId" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -362,6 +370,7 @@
       <xsd:extension base="platformCore:SearchRow">
         <xsd:sequence>
           <xsd:element minOccurs="0" name="basic" type="platformCommon:PayrollItemSearchRowBasic" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customSearchJoin" type="platformCommon:CustomSearchRowBasic" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>

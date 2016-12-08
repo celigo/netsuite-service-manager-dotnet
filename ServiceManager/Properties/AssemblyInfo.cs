@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ServiceManager")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Celigo, Inc.")]
+[assembly: AssemblyCompany("Celigo, Inc")]
 [assembly: AssemblyProduct("ServiceManager")]
-[assembly: AssemblyCopyright("Copyright © Celigo, Inc. 2012")]
+[assembly: AssemblyCopyright("Copyright © Celigo, Inc 2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("2.2.2.2")]
-[assembly: AssemblyFileVersion("2.2.2.2")]
+[assembly: AssemblyVersion("3.0.0.3")]
+[assembly: AssemblyFileVersion("3.0.0.3")]
 
 #if DEBUG && !CLR_2_0
 [assembly: InternalsVisibleTo("ServiceManager.Tests, PublicKey="
@@ -43,19 +43,19 @@ using System.Runtime.InteropServices;
                                     + "19ed60a1")]
 #endif
 
-// SmartClient O2007
-[assembly: InternalsVisibleTo("NSSmartClient, PublicKey="
-                                    + "00240000048000009400000006020000002400005253413100040000010001000f328397b6ccc7"
-                                    + "fcd13bc92dd15ce8ab1d74fa93a6c86f98dd49f9fa15a459c3b906301cacb09914069223f5b230"
-                                    + "8e480fcde07a08d39f0856a3a96d4ff64e854d28b61a625443fd9008e4a8e617ab24c27f065574"
-                                    + "253f9c1b7a3b19404531ea8df065779a66bf4c86ecc84144f620cae500a249c8cfb65870d7cfec"
-                                    + "265542a7"
-                                )]
-// SmartClient O2010
-[assembly: InternalsVisibleTo("NSSmartClient, PublicKey="
-                                    + "0024000004800000940000000602000000240000525341310004000001000100d13a43126a6576"
-                                    + "b6f7bb80a325c567aba899848217b8a0edc0a058a496612a2b8b1e7ab77948775c3310f5cf1ef7"
-                                    + "aa2980c02eb1fcdcf906f6df7ac1a034c0578e68c2dd724df2fcd7531edbcf43eb73369073aee7"
-                                    + "32e6fa605eca7d7146767eeeddb0e0cbe4c02ead38144fae20c943c316d52ab9dfd09851475890"
-                                    + "4b1e888c"
-                                )]
+//// SmartClient O2007
+//[assembly: InternalsVisibleTo("NSSmartClient, PublicKey="
+//                                    + "00240000048000009400000006020000002400005253413100040000010001000f328397b6ccc7"
+//                                    + "fcd13bc92dd15ce8ab1d74fa93a6c86f98dd49f9fa15a459c3b906301cacb09914069223f5b230"
+//                                    + "8e480fcde07a08d39f0856a3a96d4ff64e854d28b61a625443fd9008e4a8e617ab24c27f065574"
+//                                    + "253f9c1b7a3b19404531ea8df065779a66bf4c86ecc84144f620cae500a249c8cfb65870d7cfec"
+//                                    + "265542a7"
+//                                )]
+//// SmartClient O2010
+//[assembly: InternalsVisibleTo("NSSmartClient, PublicKey="
+//                                    + "0024000004800000940000000602000000240000525341310004000001000100d13a43126a6576"
+//                                    + "b6f7bb80a325c567aba899848217b8a0edc0a058a496612a2b8b1e7ab77948775c3310f5cf1ef7"
+//                                    + "aa2980c02eb1fcdcf906f6df7ac1a034c0578e68c2dd724df2fcd7531edbcf43eb73369073aee7"
+//                                    + "32e6fa605eca7d7146767eeeddb0e0cbe4c02ead38144fae20c943c316d52ab9dfd09851475890"
+//                                    + "4b1e888c"
+//                                )]

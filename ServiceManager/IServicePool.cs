@@ -1,4 +1,5 @@
 ﻿using com.celigo.net.ServiceManager.SuiteTalk;
+
 namespace com.celigo.net.ServiceManager
 {
     /// <summary>
@@ -12,15 +13,14 @@ namespace com.celigo.net.ServiceManager
         /// <param name="loginCredentials">The login credentials.</param>
         /// <param name="cpec">The credentials required for the password/email change.</param>
         /// <returns>Response from NetSuite.</returns>
-        SessionResponse ChangeEmail(NetSuiteCredential loginCredentials, ChangeEmail cpec);
-
+        SessionResponse ChangePassword(NetSuiteCredential loginCredentials, ChangePassword cpec);
         /// <summary>
         /// Changes the email or password of the current user.
         /// </summary>
         /// <param name="loginCredentials">The login credentials.</param>
         /// <param name="cpec">The credentials required for the password/email change.</param>
         /// <returns>Response from NetSuite.</returns>
-        SessionResponse ChangePassword(NetSuiteCredential loginCredentials, ChangePassword cpec);
+        SessionResponse ChangeEmail(NetSuiteCredential loginCredentials, ChangeEmail cpec);
 
         /// <summary>
         /// Retrieves a <see cref="SearchSession"/> token that can be used to retrieve multiple result

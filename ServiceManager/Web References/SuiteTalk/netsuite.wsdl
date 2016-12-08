@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:platform_2013_1.webservices.netsuite.com" xmlns:platformFaults="urn:faults_2013_1.platform.webservices.netsuite.com" xmlns:platformMsgs="urn:messages_2013_1.platform.webservices.netsuite.com" targetNamespace="urn:platform_2013_1.webservices.netsuite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:platform_2015_2.webservices.netsuite.com" xmlns:platformFaults="urn:faults_2015_2.platform.webservices.netsuite.com" xmlns:platformMsgs="urn:messages_2015_2.platform.webservices.netsuite.com" targetNamespace="urn:platform_2015_2.webservices.netsuite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/core.xsd" namespace="urn:core_2013_1.platform.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/faults.xsd" namespace="urn:faults_2013_1.platform.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/messages.xsd" namespace="urn:messages_2013_1.platform.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2013_1_0/common.xsd" namespace="urn:common_2013_1.platform.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/activities/v2013_1_0/scheduling.xsd" namespace="urn:scheduling_2013_1.activities.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/activities/v2013_1_0/schedulingTypes.xsd" namespace="urn:types.scheduling_2013_1.activities.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/general/v2013_1_0/communication.xsd" namespace="urn:communication_2013_1.general.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/general/v2013_1_0/communicationTypes.xsd" namespace="urn:types.communication_2013_1.general.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/relationships.xsd" namespace="urn:relationships_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/relationshipTypes.xsd" namespace="urn:types.relationships_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/support.xsd" namespace="urn:support_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/supportTypes.xsd" namespace="urn:types.support_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/accounting.xsd" namespace="urn:accounting_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/accountingTypes.xsd" namespace="urn:types.accounting_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/sales.xsd" namespace="urn:sales_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/saleTypes.xsd" namespace="urn:types.sales_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/purchases.xsd" namespace="urn:purchases_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/customers.xsd" namespace="urn:customers_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/financial.xsd" namespace="urn:financial_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/bank.xsd" namespace="urn:bank_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/inventory.xsd" namespace="urn:inventory_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/inventoryTypes.xsd" namespace="urn:types.inventory_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/general.xsd" namespace="urn:general_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/setup/v2013_1_0/customization.xsd" namespace="urn:customization_2013_1.setup.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/setup/v2013_1_0/customizationTypes.xsd" namespace="urn:types.customization_2013_1.setup.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/employees.xsd" namespace="urn:employees_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/employeeTypes.xsd" namespace="urn:types.employees_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/documents/v2013_1_0/fileCabinet.xsd" namespace="urn:filecabinet_2013_1.documents.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/documents/v2013_1_0/fileCabinetTypes.xsd" namespace="urn:types.filecabinet_2013_1.documents.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/website.xsd" namespace="urn:website_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/websiteTypes.xsd" namespace="urn:types.website_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/employees.xsd" namespace="urn:employees_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/marketing.xsd" namespace="urn:marketing_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/marketingTypes.xsd" namespace="urn:types.marketing_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/demandPlanning.xsd" namespace="urn:demandplanning_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2013_1_0/demandPlanningTypes.xsd" namespace="urn:types.demandplanning_2013_1.transactions.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/supplyChain.xsd" namespace="urn:supplychain_2013_1.lists.webservices.netsuite.com" />
-      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2013_1_0/supplyChainTypes.xsd" namespace="urn:types.supplychain_2013_1.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/core.xsd" namespace="urn:core_2015_2.platform.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/faults.xsd" namespace="urn:faults_2015_2.platform.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/messages.xsd" namespace="urn:messages_2015_2.platform.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/platform/v2015_2_0/common.xsd" namespace="urn:common_2015_2.platform.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/activities/v2015_2_0/scheduling.xsd" namespace="urn:scheduling_2015_2.activities.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/activities/v2015_2_0/schedulingTypes.xsd" namespace="urn:types.scheduling_2015_2.activities.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/general/v2015_2_0/communication.xsd" namespace="urn:communication_2015_2.general.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/general/v2015_2_0/communicationTypes.xsd" namespace="urn:types.communication_2015_2.general.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/relationships.xsd" namespace="urn:relationships_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/relationshipTypes.xsd" namespace="urn:types.relationships_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/support.xsd" namespace="urn:support_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/supportTypes.xsd" namespace="urn:types.support_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/accounting.xsd" namespace="urn:accounting_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/accountingTypes.xsd" namespace="urn:types.accounting_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/sales.xsd" namespace="urn:sales_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/saleTypes.xsd" namespace="urn:types.sales_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/purchases.xsd" namespace="urn:purchases_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/customers.xsd" namespace="urn:customers_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/financial.xsd" namespace="urn:financial_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/bank.xsd" namespace="urn:bank_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/inventory.xsd" namespace="urn:inventory_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/inventoryTypes.xsd" namespace="urn:types.inventory_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/general.xsd" namespace="urn:general_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/setup/v2015_2_0/customization.xsd" namespace="urn:customization_2015_2.setup.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/setup/v2015_2_0/customizationTypes.xsd" namespace="urn:types.customization_2015_2.setup.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/employees.xsd" namespace="urn:employees_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/employeeTypes.xsd" namespace="urn:types.employees_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/documents/v2015_2_0/fileCabinet.xsd" namespace="urn:filecabinet_2015_2.documents.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/documents/v2015_2_0/fileCabinetTypes.xsd" namespace="urn:types.filecabinet_2015_2.documents.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/website.xsd" namespace="urn:website_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/websiteTypes.xsd" namespace="urn:types.website_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/employees.xsd" namespace="urn:employees_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/marketing.xsd" namespace="urn:marketing_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/marketingTypes.xsd" namespace="urn:types.marketing_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/demandPlanning.xsd" namespace="urn:demandplanning_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/transactions/v2015_2_0/demandPlanningTypes.xsd" namespace="urn:types.demandplanning_2015_2.transactions.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/supplyChain.xsd" namespace="urn:supplychain_2015_2.lists.webservices.netsuite.com" />
+      <xsd:import schemaLocation="https://webservices.netsuite.com/xsd/lists/v2015_2_0/supplyChainTypes.xsd" namespace="urn:types.supplychain_2015_2.lists.webservices.netsuite.com" />
     </xsd:schema>
   </types>
   <message name="headers">
@@ -49,6 +49,7 @@
     <part name="preferences" element="platformMsgs:preferences" />
     <part name="searchPreferences" element="platformMsgs:searchPreferences" />
     <part name="passport" element="platformMsgs:passport" />
+    <part name="tokenPassport" element="platformMsgs:tokenPassport" />
   </message>
   <message name="loginRequest">
     <part name="parameters" element="platformMsgs:login" />
@@ -341,6 +342,9 @@
   <message name="InvalidVersionFault">
     <part name="fault" element="platformFaults:invalidVersionFault" />
   </message>
+  <message name="ExceededConcurrentRequestLimitFault">
+    <part name="fault" element="platformFaults:exceededConcurrentRequestLimitFault" />
+  </message>
   <message name="ExceededRequestLimitFault">
     <part name="fault" element="platformFaults:exceededRequestLimitFault" />
   </message>
@@ -420,6 +424,7 @@
       <input name="logoutRequest" message="tns:logoutRequest" />
       <output name="logoutResponse" message="tns:logoutResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
+      <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
     </operation>
@@ -428,6 +433,7 @@
       <output name="addResponse" message="tns:addResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -439,6 +445,7 @@
       <output name="deleteResponse" message="tns:deleteResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -450,6 +457,7 @@
       <output name="searchResponse" message="tns:searchResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -460,6 +468,8 @@
       <input name="searchMoreRequest" message="tns:searchMoreRequest" />
       <output name="searchMoreResponse" message="tns:searchMoreResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
+      <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -471,6 +481,7 @@
       <output name="searchMoreWithIdResponse" message="tns:searchMoreWithIdResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -481,6 +492,7 @@
       <input name="searchNextRequest" message="tns:searchNextRequest" />
       <output name="searchNextResponse" message="tns:searchNextResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
+      <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -492,6 +504,7 @@
       <output name="updateResponse" message="tns:updateResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -503,6 +516,7 @@
       <output name="upsertResponse" message="tns:upsertResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -514,6 +528,7 @@
       <output name="addListResponse" message="tns:addListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -525,6 +540,7 @@
       <output name="deleteListResponse" message="tns:deleteListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -536,6 +552,7 @@
       <output name="updateListResponse" message="tns:updateListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -547,6 +564,7 @@
       <output name="upsertListResponse" message="tns:upsertListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -558,6 +576,7 @@
       <output name="getResponse" message="tns:getResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -569,6 +588,7 @@
       <output name="getListResponse" message="tns:getListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -580,6 +600,7 @@
       <output name="getAllResponse" message="tns:getAllResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -591,6 +612,7 @@
       <output name="getSavedSearchResponse" message="tns:getSavedSearchResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -602,6 +624,7 @@
       <output name="getCustomizationIdResponse" message="tns:getCustomizationIdResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -613,6 +636,7 @@
       <output name="initializeResponse" message="tns:initializeResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
@@ -624,6 +648,7 @@
       <output name="initializeListResponse" message="tns:initializeListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
@@ -635,6 +660,7 @@
       <output name="getSelectValueResponse" message="tns:getSelectValueResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -646,6 +672,7 @@
       <output name="getItemAvailabilityResponse" message="tns:getItemAvailabilityResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -657,6 +684,7 @@
       <output name="getBudgetExchangeRateResponse" message="tns:getBudgetExchangeRateResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -668,6 +696,7 @@
       <output name="getConsolidatedExchangeRateResponse" message="tns:getConsolidatedExchangeRateResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -679,6 +708,7 @@
       <output name="getCurrencyRateResponse" message="tns:getCurrencyRateResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -696,6 +726,7 @@
       <output name="getPostingTransactionSummaryResponse" message="tns:getPostingTransactionSummaryResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -707,6 +738,7 @@
       <output name="getServerTimeResponse" message="tns:getServerTimeResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
@@ -716,6 +748,7 @@
       <output name="attachResponse" message="tns:attachResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -727,6 +760,7 @@
       <output name="detachResponse" message="tns:detachResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -738,6 +772,7 @@
       <output name="updateInviteeStatusResponse" message="tns:updateInviteeStatusResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -749,6 +784,7 @@
       <output name="updateInviteeStatusListResponse" message="tns:updateInviteeStatusListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -760,6 +796,7 @@
       <output name="asyncAddListResponse" message="tns:asyncAddListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
       <fault name="ExceededRequestSizeFault" message="tns:ExceededRequestSizeFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
@@ -770,6 +807,7 @@
       <output name="asyncUpdateListResponse" message="tns:asyncUpdateListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
       <fault name="ExceededRequestSizeFault" message="tns:ExceededRequestSizeFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
@@ -780,6 +818,7 @@
       <output name="asyncUpsertListResponse" message="tns:asyncUpsertListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
       <fault name="ExceededRequestSizeFault" message="tns:ExceededRequestSizeFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
@@ -790,6 +829,7 @@
       <output name="asyncDeleteListResponse" message="tns:asyncDeleteListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
       <fault name="ExceededRequestSizeFault" message="tns:ExceededRequestSizeFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
@@ -800,6 +840,7 @@
       <output name="asyncGetListResponse" message="tns:asyncGetListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
       <fault name="ExceededRequestSizeFault" message="tns:ExceededRequestSizeFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
@@ -810,6 +851,7 @@
       <output name="asyncInitializeListResponse" message="tns:asyncInitializeListResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
@@ -821,6 +863,7 @@
       <output name="asyncSearchResponse" message="tns:asyncSearchResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
       <fault name="ExceededRequestSizeFault" message="tns:ExceededRequestSizeFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
@@ -831,6 +874,7 @@
       <output name="getAsyncResultResponse" message="tns:getAsyncResultResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -843,6 +887,7 @@
       <output name="checkAsyncStatusResponse" message="tns:checkAsyncStatusResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
       <fault name="AsyncFault" message="tns:AsyncFault" />
@@ -852,6 +897,7 @@
       <output name="getDeletedResponse" message="tns:getDeletedResponse" />
       <fault name="InvalidSessionFault" message="tns:InvalidSessionFault" />
       <fault name="InvalidCredentialsFault" message="tns:InvalidCredentialsFault" />
+      <fault name="ExceededConcurrentRequestLimitFault" message="tns:ExceededConcurrentRequestLimitFault" />
       <fault name="ExceededRequestLimitFault" message="tns:ExceededRequestLimitFault" />
       <fault name="ExceededUsageLimitFault" message="tns:ExceededUsageLimitFault" />
       <fault name="ExceededRecordCountFault" message="tns:ExceededRecordCountFault" />
@@ -1011,6 +1057,7 @@
     <operation name="logout">
       <soap:operation soapAction="logout" />
       <input name="logoutRequest">
+        <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:body use="literal" />
       </input>
       <output name="logoutResponse">
@@ -1018,6 +1065,9 @@
       </output>
       <fault name="InvalidSessionFault">
         <soap:fault use="literal" name="InvalidSessionFault" namespace="" />
+      </fault>
+      <fault name="InvalidCredentialsFault">
+        <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1030,6 +1080,7 @@
       <soap:operation soapAction="add" />
       <input name="addRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1044,6 +1095,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1065,6 +1119,7 @@
       <soap:operation soapAction="delete" />
       <input name="deleteRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1079,6 +1134,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1100,6 +1158,7 @@
       <soap:operation soapAction="search" />
       <input name="searchRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="searchPreferences" use="literal" />
@@ -1114,6 +1173,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1134,6 +1196,7 @@
     <operation name="searchMore">
       <soap:operation soapAction="searchMore" />
       <input name="searchMoreRequest">
+        <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="searchPreferences" use="literal" />
         <soap:body use="literal" />
       </input>
@@ -1143,6 +1206,12 @@
       </output>
       <fault name="InvalidSessionFault">
         <soap:fault use="literal" name="InvalidSessionFault" namespace="" />
+      </fault>
+      <fault name="InvalidCredentialsFault">
+        <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1164,6 +1233,7 @@
       <soap:operation soapAction="searchMoreWithId" />
       <input name="searchMoreWithIdRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="searchPreferences" use="literal" />
@@ -1178,6 +1248,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1198,6 +1271,7 @@
     <operation name="searchNext">
       <soap:operation soapAction="searchNext" />
       <input name="searchNextRequest">
+        <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="searchPreferences" use="literal" />
         <soap:body use="literal" />
       </input>
@@ -1207,6 +1281,9 @@
       </output>
       <fault name="InvalidSessionFault">
         <soap:fault use="literal" name="InvalidSessionFault" namespace="" />
+      </fault>
+      <fault name="InvalidCredentialsFault">
+        <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1228,6 +1305,7 @@
       <soap:operation soapAction="update" />
       <input name="updateRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1242,6 +1320,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1263,6 +1344,7 @@
       <soap:operation soapAction="upsert" />
       <input name="upsertRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1277,6 +1359,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1298,6 +1383,7 @@
       <soap:operation soapAction="addList" />
       <input name="addListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1312,6 +1398,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1333,6 +1422,7 @@
       <soap:operation soapAction="deleteList" />
       <input name="deleteListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1347,6 +1437,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1368,6 +1461,7 @@
       <soap:operation soapAction="updateList" />
       <input name="updateListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1382,6 +1476,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1403,6 +1500,7 @@
       <soap:operation soapAction="upsertList" />
       <input name="upsertListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1417,6 +1515,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1438,6 +1539,7 @@
       <soap:operation soapAction="get" />
       <input name="getRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1452,6 +1554,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1473,6 +1578,7 @@
       <soap:operation soapAction="getList" />
       <input name="getListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1487,6 +1593,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1508,6 +1617,7 @@
       <soap:operation soapAction="getAll" />
       <input name="getAllRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1522,6 +1632,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1543,6 +1656,7 @@
       <soap:operation soapAction="getSavedSearch" />
       <input name="getSavedSearchRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1557,6 +1671,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1578,6 +1695,7 @@
       <soap:operation soapAction="getCustomizationId" />
       <input name="getCustomizationIdRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1592,6 +1710,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1613,6 +1734,7 @@
       <soap:operation soapAction="initialize" />
       <input name="initializeRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1627,6 +1749,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRecordCountFault">
         <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
@@ -1648,6 +1773,7 @@
       <soap:operation soapAction="initializeList" />
       <input name="initializeListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1662,6 +1788,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRecordCountFault">
         <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
@@ -1683,6 +1812,7 @@
       <soap:operation soapAction="getSelectValue" />
       <input name="getSelectValueRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1697,6 +1827,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1718,6 +1851,7 @@
       <soap:operation soapAction="getItemAvailability" />
       <input name="getItemAvailabilityRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1732,6 +1866,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1753,6 +1890,7 @@
       <soap:operation soapAction="getBudgetExchangeRate" />
       <input name="getBudgetExchangeRateRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1767,6 +1905,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1788,6 +1929,7 @@
       <soap:operation soapAction="getConsolidatedExchangeRate" />
       <input name="getConsolidatedExchangeRateRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1802,6 +1944,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1823,6 +1968,7 @@
       <soap:operation soapAction="getCurrencyRate" />
       <input name="getCurrencyRateRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1837,6 +1983,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1858,6 +2007,7 @@
       <soap:operation soapAction="getDataCenterUrls" />
       <input name="getDataCenterUrlsRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1878,6 +2028,7 @@
       <soap:operation soapAction="getPostingTransactionSummary" />
       <input name="getPostingTransactionSummaryRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1892,6 +2043,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1913,6 +2067,7 @@
       <soap:operation soapAction="getServerTime" />
       <input name="getServerTimeRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:body use="literal" />
@@ -1926,6 +2081,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1941,6 +2099,7 @@
       <soap:operation soapAction="attach" />
       <input name="attachRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1955,6 +2114,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -1976,6 +2138,7 @@
       <soap:operation soapAction="detach" />
       <input name="detachRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -1990,6 +2153,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -2011,6 +2177,7 @@
       <soap:operation soapAction="updateInviteeStatus" />
       <input name="updateInviteeStatusRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2025,6 +2192,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -2046,6 +2216,7 @@
       <soap:operation soapAction="updateInviteeStatusList" />
       <input name="updateInviteeStatusListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2064,6 +2235,9 @@
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
       </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
+      </fault>
       <fault name="ExceededUsageLimitFault">
         <soap:fault use="literal" name="ExceededUsageLimitFault" namespace="" />
       </fault>
@@ -2081,6 +2255,7 @@
       <soap:operation soapAction="asyncAddList" />
       <input name="asyncAddListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2096,6 +2271,9 @@
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
       </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
+      </fault>
       <fault name="ExceededRecordCountFault">
         <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
       </fault>
@@ -2103,7 +2281,7 @@
         <soap:fault use="literal" name="ExceededRequestSizeFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
-        <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
+        <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
       </fault>
       <fault name="UnexpectedErrorFault">
         <soap:fault use="literal" name="UnexpectedErrorFault" namespace="" />
@@ -2113,6 +2291,7 @@
       <soap:operation soapAction="asyncUpdateList" />
       <input name="asyncUpdateListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2128,6 +2307,9 @@
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
       </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
+      </fault>
       <fault name="ExceededRecordCountFault">
         <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
       </fault>
@@ -2135,7 +2317,7 @@
         <soap:fault use="literal" name="ExceededRequestSizeFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
-        <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
+        <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
       </fault>
       <fault name="UnexpectedErrorFault">
         <soap:fault use="literal" name="UnexpectedErrorFault" namespace="" />
@@ -2145,6 +2327,7 @@
       <soap:operation soapAction="asyncUpsertList" />
       <input name="asyncUpsertListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2160,6 +2343,9 @@
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
       </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
+      </fault>
       <fault name="ExceededRecordCountFault">
         <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
       </fault>
@@ -2167,7 +2353,7 @@
         <soap:fault use="literal" name="ExceededRequestSizeFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
-        <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
+        <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
       </fault>
       <fault name="UnexpectedErrorFault">
         <soap:fault use="literal" name="UnexpectedErrorFault" namespace="" />
@@ -2177,6 +2363,7 @@
       <soap:operation soapAction="asyncDeleteList" />
       <input name="asyncDeleteListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2192,6 +2379,9 @@
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
       </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
+      </fault>
       <fault name="ExceededRecordCountFault">
         <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
       </fault>
@@ -2199,7 +2389,7 @@
         <soap:fault use="literal" name="ExceededRequestSizeFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
-        <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
+        <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
       </fault>
       <fault name="UnexpectedErrorFault">
         <soap:fault use="literal" name="UnexpectedErrorFault" namespace="" />
@@ -2209,6 +2399,7 @@
       <soap:operation soapAction="asyncGetList" />
       <input name="asyncGetListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2224,6 +2415,9 @@
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
       </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
+      </fault>
       <fault name="ExceededRecordCountFault">
         <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
       </fault>
@@ -2231,7 +2425,7 @@
         <soap:fault use="literal" name="ExceededRequestSizeFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
-        <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
+        <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
       </fault>
       <fault name="UnexpectedErrorFault">
         <soap:fault use="literal" name="UnexpectedErrorFault" namespace="" />
@@ -2241,6 +2435,7 @@
       <soap:operation soapAction="asyncInitializeList" />
       <input name="asyncInitializeListRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2255,6 +2450,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRecordCountFault">
         <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
@@ -2276,6 +2474,7 @@
       <soap:operation soapAction="asyncSearch" />
       <input name="asyncSearchRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="searchPreferences" use="literal" />
@@ -2291,6 +2490,9 @@
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
       </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
+      </fault>
       <fault name="ExceededRecordCountFault">
         <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
       </fault>
@@ -2298,7 +2500,7 @@
         <soap:fault use="literal" name="ExceededRequestSizeFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
-        <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
+        <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
       </fault>
       <fault name="UnexpectedErrorFault">
         <soap:fault use="literal" name="UnexpectedErrorFault" namespace="" />
@@ -2308,6 +2510,7 @@
       <soap:operation soapAction="getAsyncResult" />
       <input name="getAsyncResultRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2322,6 +2525,9 @@
       </fault>
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
+      </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
         <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
@@ -2346,6 +2552,7 @@
       <soap:operation soapAction="checkAsyncStatus" />
       <input name="checkAsyncStatusRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2361,8 +2568,11 @@
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
       </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
+      </fault>
       <fault name="ExceededRequestLimitFault">
-        <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
+        <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
       </fault>
       <fault name="UnexpectedErrorFault">
         <soap:fault use="literal" name="UnexpectedErrorFault" namespace="" />
@@ -2375,6 +2585,7 @@
       <soap:operation soapAction="getDeleted" />
       <input name="getDeletedRequest">
         <soap:header message="tns:headers" part="passport" use="literal" />
+        <soap:header message="tns:headers" part="tokenPassport" use="literal" />
         <soap:header message="tns:headers" part="applicationInfo" use="literal" />
         <soap:header message="tns:headers" part="partnerInfo" use="literal" />
         <soap:header message="tns:headers" part="preferences" use="literal" />
@@ -2390,6 +2601,9 @@
       <fault name="InvalidCredentialsFault">
         <soap:fault use="literal" name="InvalidCredentialsFault" namespace="" />
       </fault>
+      <fault name="ExceededConcurrentRequestLimitFault">
+        <soap:fault use="literal" name="ExceededConcurrentRequestLimitFault" namespace="" />
+      </fault>
       <fault name="ExceededUsageLimitFault">
         <soap:fault use="literal" name="ExceededUsageLimitFault" namespace="" />
       </fault>
@@ -2397,7 +2611,7 @@
         <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
       </fault>
       <fault name="ExceededRequestLimitFault">
-        <soap:fault use="literal" name="ExceededRecordCountFault" namespace="" />
+        <soap:fault use="literal" name="ExceededRequestLimitFault" namespace="" />
       </fault>
       <fault name="ExceededRequestSizeFault">
         <soap:fault use="literal" name="ExceededRequestSizeFault" namespace="" />
@@ -2409,7 +2623,7 @@
   </binding>
   <service name="NetSuiteService">
     <port name="NetSuitePort" binding="tns:NetSuiteBinding">
-      <soap:address location="https://webservices.netsuite.com/services/NetSuitePort_2013_1" />
+      <soap:address location="https://webservices.netsuite.com/services/NetSuitePort_2015_2" />
     </port>
   </service>
 </definitions>

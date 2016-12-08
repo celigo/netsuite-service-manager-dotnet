@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:docFileCabTyp="urn:types.filecabinet_2013_1.documents.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.filecabinet_2013_1.documents.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:docFileCabTyp="urn:types.filecabinet_2015_2.documents.webservices.netsuite.com" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.filecabinet_2015_2.documents.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:simpleType name="MediaType">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_AUTOCAD" />
       <xsd:enumeration value="_BMPIMAGE" />
+      <xsd:enumeration value="_CFF" />
       <xsd:enumeration value="_CONFIG" />
       <xsd:enumeration value="_CSV" />
+      <xsd:enumeration value="_EOT" />
       <xsd:enumeration value="_EXCEL" />
       <xsd:enumeration value="_FLASH" />
+      <xsd:enumeration value="_FREEMARKER" />
       <xsd:enumeration value="_GIFIMAGE" />
       <xsd:enumeration value="_GZIP" />
       <xsd:enumeration value="_HTMLDOC" />
@@ -22,6 +25,7 @@
       <xsd:enumeration value="_MP3" />
       <xsd:enumeration value="_MPEGMOVIE" />
       <xsd:enumeration value="_MSPROJECT" />
+      <xsd:enumeration value="_OTF" />
       <xsd:enumeration value="_PDF" />
       <xsd:enumeration value="_PJPGIMAGE" />
       <xsd:enumeration value="_PLAINTEXT" />
@@ -32,14 +36,19 @@
       <xsd:enumeration value="_RTF" />
       <xsd:enumeration value="_SMS" />
       <xsd:enumeration value="_STYLESHEET" />
+      <xsd:enumeration value="_SVG" />
       <xsd:enumeration value="_TAR" />
       <xsd:enumeration value="_TARCOMP" />
       <xsd:enumeration value="_TIFFIMAGE" />
+      <xsd:enumeration value="_TTF" />
       <xsd:enumeration value="_VISIO" />
       <xsd:enumeration value="_WEBAPPPAGE" />
       <xsd:enumeration value="_WEBAPPSCRIPT" />
+      <xsd:enumeration value="_WOFF" />
+      <xsd:enumeration value="_WOFF2" />
       <xsd:enumeration value="_WORD" />
       <xsd:enumeration value="_XMLDOC" />
+      <xsd:enumeration value="_XSD" />
       <xsd:enumeration value="_ZIP" />
     </xsd:restriction>
   </xsd:simpleType>
@@ -67,6 +76,27 @@
       <xsd:enumeration value="_shiftJis" />
       <xsd:enumeration value="_utf8" />
       <xsd:enumeration value="_windows1252" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="FolderFolderType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_appPackages" />
+      <xsd:enumeration value="_attachmentsReceived" />
+      <xsd:enumeration value="_attachmentsToSend" />
+      <xsd:enumeration value="_certificates" />
+      <xsd:enumeration value="_documentsAndFiles" />
+      <xsd:enumeration value="_emailTemplates" />
+      <xsd:enumeration value="_faxTemplates" />
+      <xsd:enumeration value="_images" />
+      <xsd:enumeration value="_letterTemplates" />
+      <xsd:enumeration value="_mailMerge" />
+      <xsd:enumeration value="_marketingTemplates" />
+      <xsd:enumeration value="_pdfTemplates" />
+      <xsd:enumeration value="_suitebundles" />
+      <xsd:enumeration value="_suitecommerceAdvancedSiteTemplates" />
+      <xsd:enumeration value="_suitescripts" />
+      <xsd:enumeration value="_templates" />
+      <xsd:enumeration value="_webSiteHostingFiles" />
     </xsd:restriction>
   </xsd:simpleType>
 </xsd:schema>

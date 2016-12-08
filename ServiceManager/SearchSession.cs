@@ -13,6 +13,8 @@ namespace com.celigo.net.ServiceManager
         internal int PageIndex { get; set; }
         internal string SearchId { get; set; }
 
+
+#if !FIRSTBUILD
         /// <summary>
         /// Gets or sets the Service Manager that initiated the search operation.
         /// </summary>
@@ -27,7 +29,6 @@ namespace com.celigo.net.ServiceManager
             }
             set { _svcMgr = value; }
         }
-
         private NetSuiteServicePoolManager _svcPoolMgr;
 
         /// <summary>
@@ -43,17 +44,18 @@ namespace com.celigo.net.ServiceManager
         /// <summary>
         /// Initializes a new instance of the <see cref="SearchSession"/> class.
         /// </summary>
-        internal SearchSession()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SearchSession"/> class.
-        /// </summary>
         /// <param name="poolManager">The Service Pool Manager.</param>
         internal SearchSession(NetSuiteServicePoolManager poolManager)
         {
             _svcPoolMgr = poolManager;
+        }
+#endif
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SearchSession"/> class.
+        /// </summary>
+        internal SearchSession()
+        {
         }
 
         /// <summary>
@@ -71,6 +73,7 @@ namespace com.celigo.net.ServiceManager
         /// </summary>
         public void Dispose()
         {
+#if !FIRSTBUILD
             if (_svcPoolMgr != null && _svcMgr != null)
             {
                 _svcPoolMgr.ReleaseServiceManager(_svcMgr);
@@ -78,6 +81,7 @@ namespace com.celigo.net.ServiceManager
                 _svcMgr	 = null;
                 _svcPoolMgr = null;
             }
+#endif
         }
 
         #endregion

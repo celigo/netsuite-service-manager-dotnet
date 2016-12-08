@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:listSupportTyp="urn:types.support_2013_1.lists.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.support_2013_1.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:listSupportTyp="urn:types.support_2015_2.lists.webservices.netsuite.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:types.support_2015_2.lists.webservices.netsuite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:simpleType name="SupportCaseStatusStage">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="_closed" />
@@ -36,6 +36,21 @@
       <xsd:enumeration value="_whenBaseStatusIsOnHold" />
       <xsd:enumeration value="_whenBaseStatusIsOpen" />
       <xsd:enumeration value="_whenBaseStatusIsResolved" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IssueRelationship">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="_blocks" />
+      <xsd:enumeration value="_dependsOn" />
+      <xsd:enumeration value="_duplicatedBy" />
+      <xsd:enumeration value="_duplicates" />
+      <xsd:enumeration value="_followedUpBy" />
+      <xsd:enumeration value="_followUpFor" />
+      <xsd:enumeration value="_injectedBy" />
+      <xsd:enumeration value="_injects" />
+      <xsd:enumeration value="_isBlockedBy" />
+      <xsd:enumeration value="_isRequiredFor" />
+      <xsd:enumeration value="_relatedTo" />
     </xsd:restriction>
   </xsd:simpleType>
 </xsd:schema>
