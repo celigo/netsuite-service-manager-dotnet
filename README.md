@@ -1,7 +1,8 @@
 NetSuite SuiteTalk Client Library for .NET
 ==========================================
 
-PLEASE NOTE:
+PLEASE NOTE: This repo is no longer maintained. See below:
+
 # We have moved on to .NET Core
 
 This library is now being maintained by Celigo's CloudExtend team in their GitHub account at:
